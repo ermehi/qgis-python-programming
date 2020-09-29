@@ -10,6 +10,9 @@ Welcome to QGIS Python Programming Recipes's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   summary
+   documentacion
+
 
 
 Indices and tables
