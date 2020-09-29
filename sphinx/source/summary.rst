@@ -35,17 +35,10 @@ https://www.python.org/
 
 __ http://www.sphinx-doc.org
 
-.. figure:: _static/imagenes/avatar.png
-    :width: 100
-    :alt: Alternative text
-    :align: right
 
 
 
-
-::
-
-  Lo que escribo acá se ve como código fuente.
+Lo que escribo acá se ve como código fuente.
 
 * Elemento 1
 
