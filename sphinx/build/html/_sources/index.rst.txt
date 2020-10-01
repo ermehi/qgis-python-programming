@@ -11,7 +11,13 @@ Welcome to QGIS Python Programming Recipes's documentation!
    :caption: Contents:
 
    summary
-   documentacion
+   Documentación de referencia <documentation/index>
+   Extensión de la funcionalidad de QGIS mediante plugins <plugins_intro/index>
+   Descripción de las APIs de QGIS: API C++ y API Python <apis/index>
+   Configuración de QGIS y PyCharm para el desarrollo de plugins <pycharm/index>
+   Introducción a Python <python/index>
+   Desarrollo de complementos en QGIS <plugins_dev/index>
+
 
 
 
