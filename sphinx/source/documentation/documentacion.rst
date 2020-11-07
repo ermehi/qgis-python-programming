@@ -156,14 +156,14 @@ Otros recursos interesantes
 
 Libros de referencia
 ********************
-QGIS facilita en su sitio Web una `lista de libros <https://www.qgis.org/es/site/forusers/books/index.html/>`_
+QGIS facilita en su sitio Web una `lista de libros <https://www.qgis.org/es/site/forusers/books/index.html>`_
 de otros editores, que no administra y se ofrecen sólo como ayuda.
 
-Por su parte, la editorial `Locate Press <https://locatepress.com/books/>`_, especializada
+Por su parte, la editorial `Locate Press <https://locatepress.com/books>`_, especializada
 en libros geoespaciales de código abierto, publica varios libros que son referencia en QGIS.
 Específicos de programación para QGIS se destacan los siguientes: [#]_, [#]_
 
-Finalmente, la editorial `Packt Publishing <https://www.packtpub.com/>`_,
+Finalmente, la editorial `Packt Publishing <https://www.packtpub.com>`_,
 especializada en la publicación de recursos de aprendizaje de proyectos de código abierto,
 contiene numerosos libros y video tutoriales sobre QGIS de nivel usuario hasta nivel experto programador.
 En este caso se recomiendan los siguientes: [#]_, [#]_

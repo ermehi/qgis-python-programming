@@ -792,16 +792,16 @@ Listas
 ~~~~~~
 
 La lista es un tipo de colección ordenada secuencialmente, equivalente a
-lo que en otros lenguajes se conoce por *arrays* o vectores. Pueden
+lo que en otros lenguajes se conoce por *arrays* o *vectores*. Pueden
 contener cualquier tipo de dato: números, cadenas, booleanos y también
 listas.
 
-Crear una lista es tan sencillo como indicar entre corchetes, y
-separados por comas, los valores que se quieren incluir en la lista:
+Crear una lista es tan sencillo como indicar entre corchetes ``[`` ``]``, y
+separados por comas ``,``, los valores que se quieren incluir en la lista:
 
 .. code-block:: python
 
-    >>> my_list = [22, True, "PyQGIS", [1, 2]]
+    >>> mi_lista = [22, True, "PyQGIS", [1, 2]]
 
 Se puede acceder a cada uno de los elementos de la lista escribiendo el
 nombre de la lista e indicando el índice del elemento entre corchetes.
@@ -809,11 +809,13 @@ nombre de la lista e indicando el índice del elemento entre corchetes.
 .. note:: El índice del primer elemento de la lista es 0 y no 1.
 
 .. code-block:: python
+    :emphasize-lines: 2
+    :linenos:
 
-   >>> my_list = [22, True, "PyQGIS", [1, 2]]
-   >>> my_var = my_list[0]
-   >>> my_var
-   22
+       >>> mi_lista = [22, True, "PyQGIS", [1, 2]]
+       >>> mi_variable = mi_lista[0]
+       >>> mi_variable
+       22
 
 Si se quiere acceder a un elemento de una lista incluida dentro de otra
 lista se tendrá que utilizar dos veces este operador, primero para
@@ -821,21 +823,23 @@ indicar a qué posición de la lista exterior queremos acceder, y el
 segundo para seleccionar el elemento de la lista interior:
 
 .. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
 
-   >>> my_var = my_list[3][0]
-   >>> print my_var
-   1
+       >>> mi_variable = mi_lista[3][0]
+       >>> mi_variable
+       1
 
 .. error::  Si se quiere acceder a un elemento fuera de rango, se generará el
             siguiente error:
 
             .. code-block:: python
-                :emphasize-lines: 4
+                :emphasize-lines: 1, 4
 
-                    >>> my_var = my_list[1][0]
+                    >>> mi_variable = mi_lista[1][0]
                     Traceback (most recent call last):
-                    File "<input>", line 1, in <module>
-                    TypeError: 'bool' object has no attribute '__getitem__'
+                      File "<stdin>", line 1, in <module>
+                    TypeError: 'bool' object is not subscriptable
 
 .. note::   Las matrices no son una estructura propia de Python.
             Simplemente, una matriz es una lista de listas que nosotros
@@ -844,14 +848,16 @@ segundo para seleccionar el elemento de la lista interior:
             como la matriz 2x2 cuya primera fila es (1,2) y cuya segunda fila es (3,4),
             pero esto no deja de ser una interpretación.
 
-También se puede utilizar este operador para modificar un elemento de la
+También se puede utilizar el operador ``[]`` para modificar un elemento de la
 lista si se coloca en la parte izquierda de una asignación:
 
 .. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
 
-   >>> my_list[1] = False
-   >>> my_list
-   [22, False, 'PyQGIS', [1, 2]]
+       >>> mi_lista[1] = False
+       >>> mi_lista
+       [22, False, 'PyQGIS', [1, 2]]
 
 Una curiosidad sobre el operador ``[]`` de Python es que se puede utilizar
 también números negativos. Si se utiliza un número negativo como índice,
@@ -861,35 +867,42 @@ lista, con ``[-2]`` al penúltimo, con ``[-3]``, al antepenúltimo, y así
 sucesivamente.
 
 .. code-block:: python
+    :emphasize-lines: 1, 3
+    :linenos:
 
-   >>> my_list[-1]
-   [1, 2]
+        >>> mi_lista[-1]
+        [1, 2]
+        >>> mi_lista[-2]
+        'PyQGIS'
 
 Otra cosa inusual es lo que en Python se conoce como *slicing* o
 particionado, y que consiste en ampliar este mecanismo para permitir
 seleccionar porciones de la lista. Si en lugar de un número se escriben
-dos números inicio y fin separados por dos puntos (inicio:fin) Python
+dos números inicio y fin separados por dos puntos (``inicio``:``fin``), Python
 interpretará que se quiere una lista que vaya desde la posición inicio a
 la posición fin, sin incluir este último.
 
 .. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
 
-   >>> my_var = my_list[0:2]
-   >>> my_var
-   [22, False]
+       >>> mi_variable = mi_lista[0:2]
+       >>> mi_variable
+       [22, False]
 
-Si se escriben tres números (``inicio:fin:salto``) en lugar de dos, el
-tercero se utiliza para determinar cada cuantas posiciones añadir un
-elemento a la lista.
+Si se escriben tres números (``inicio``:``fin``:``salto``) en lugar de dos, el
+tercero se utiliza para determinar cada cuantas posiciones añadir un elemento a la lista.
 
 .. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
 
-   >>> my_var = my_list[0:4:2]
-   >>> my_var
-   [22, 'PyQGIS']
+       >>> mi_variable = mi_lista[0:4:2]
+       >>> mi_variable
+       [22, 'PyQGIS']
 
 En todo caso las listas ofrecen mecanismos más cómodos para ser
-modificadas a través de las funciones de la clase correspondiente.
+modificadas a través de las funciones de la clase correspondiente tal y como se detalla a continuación.
 
 Métodos del objeto lista
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -898,59 +911,70 @@ En este apartado se facilita una tabla con la sintaxis de distintos
 métodos del objeto lista, aportando una descripción y un ejemplo de
 aplicación.
 
-============================    ===================================================================================
-L.append(object)                Añade un objeto ``object`` al final de la lista.
-============================    ===================================================================================
+.. code-block::
+
+    L.append(object)
+
+Añade un objeto ``object`` al final de la lista
 
 .. code-block:: python
-
-    >>> my_list.append(3.141592)
-    >>> my_list
-    [22, True, 'PyQGIS', [1, 2], 3.141592]
-
-============================    ===================================================================================
-L.pop([index])
-                                Devuelve el valor en la posición ``index`` y lo elimina de la lista.
-
-                                Si no se especifica la posición, se utiliza el último elemento
-
-                                de la lista.
-============================    ===================================================================================
-
-.. code-block:: python
-
-    >>> my_list.pop()
-    3.141592
-    >>> my_list
-    [22, True, 'PyQGIS', [1, 2]]
-
-============================    ===================================================================================
-L.insert(index, object)         Inserta el objeto ``object`` en la posición ``index``
-============================    ===================================================================================
-
-.. code-block:: python
-
-    >>> my_list.insert(3, 3.141592)
-    >>> my_list
-    [22, True, 'PyQGIS', 3.141592, [1, 2]]
-
-============================    ===================================================================================
-del(L[index])                   Borra un elemento de la posición ``index`` de la lista
-============================    ===================================================================================
-
-.. code-block:: python
-    :emphasize-lines: 2
+    :emphasize-lines: 1
     :linenos:
 
-        >>> my_list = [22, True, "PyQGIS", [1, 2]]
-        >>> del(my_list[2])
-        >>> my_list
-        [22, True, [1, 2]]
+        >>> mi_lista.append(3.141592)
+        >>> mi_lista
+        [22, True, 'PyQGIS', [1, 2], 3.141592]
+
+.. code-block::
+
+    L.pop([index])
+
+Devuelve el valor en la posición ``index`` y lo elimina de la lista.
+Si no se especifica la posición, se utiliza el último elemento de la lista.
+
+.. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
+
+        >>> mi_lista.pop()
+        3.141592
+        >>> mi_lista
+        [22, True, 'PyQGIS', [1, 2]]
+
+.. code-block::
+
+    L.insert(index, object)
+
+Inserta el objeto ``object`` en la posición ``index``
+
+.. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
+
+        >>> mi_lista.insert(3, 3.141592)
+        >>> mi_lista
+        [22, True, 'PyQGIS', 3.141592, [1, 2]]
+
+.. code-block::
+
+    del(L[index])
+
+Borra un elemento de la posición ``index`` de la lista.
+
+
+.. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
+
+        >>> del(mi_lista[2])
+        >>> mi_lista
+        [22, False, 3.141592, [1, 2]]
+
 
 Tuplas
 ~~~~~~
 
-Un tupla es simplemente una lista inmutable, lo que significa que una
+Un tupla es simplemente una lista **inmutable**, lo que significa que una
 vez creada no se pueden modificar sus valores y tienen además un tamaño
 fijo, no se pueden añadir nuevos elementos ni eliminar los existentes.
 Lo explicado para listas es aplicable a tuplas salvo en la forma de
@@ -958,33 +982,37 @@ definirla.
 
 .. code-block:: python
 
-    >>> my_tuple = (22, True, "PyQGIS", [1, 2])
+    >>> mi_tupla = (22, True, "PyQGIS", [1, 2])
 
-En realidad el constructor de la tupla es la coma, no el paréntesis,
-pero el intérprete muestra los paréntesis, y nosotros deberíamos
-utilizarlos, por claridad.
+.. note::   En realidad el constructor de la tupla es la coma ``,``, no el paréntesis ``(`` ``)``,
+            pero el intérprete muestra los paréntesis, y nosotros deberíamos
+            utilizarlos, por claridad.
 
-.. code-block:: python
+            .. code-block:: python
 
-   >>> my_tuple = 22, True, "PyQGIS", [1, 2]
-   >>> type(my_tuple)
-   <type 'tuple'>
+                   >>> mi_tupla = 22, True, "PyQGIS", [1, 2]
+                   >>> type(mi_tupla)
+                   <class 'tuple'>
 
 El acceso a elementos es igual que las listas. Se puede utilizar el
 operador ``[]`` debido a que las tuplas, al igual que las listas, forman
-parte de un tipo de objetos llamados secuencias.
+parte de un tipo de objetos llamados *secuencias*.
 
 .. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
 
-   >>> my_var = my_tuple[0]
-   >>> my_var
-   22
+       >>> mi_variable = mi_tupla[0]
+       >>> mi_variable
+       22
 
 .. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
 
-   >>> my_var = my_tuple[1:2]
-   >>> my_var
-   (True,)
+       >>> mi_variable = mi_tupla[1:2]
+       >>> mi_variable
+       (True,)
 
 .. error::  Si se intenta modificar un elemento de un tupla, se tendrá la siguiente
             respuesta del intérprete:
@@ -992,57 +1020,59 @@ parte de un tipo de objetos llamados secuencias.
             .. code-block:: python
                 :emphasize-lines: 4
 
-                   >>> my_tuple[1] = False
+                   >>> mi_tupla[1] = False
                    Traceback (most recent call last):
-                   File "<input>", line 1, in <module>
-                   TypeError: **'tuple' object does not support item assignment**
+                      File "<stdin>", line 1, in <module>
+                    TypeError: 'tuple' object does not support item assignment
 
-Las tuplas son más ligeras y rápidas que las listas. Se utilizarán
-cuando se precisa iterar sobre una estructura de datos que nunca va a
-ser cambiada, por ejemplo, días de la semana y meses del año.
+.. tip::    Las tuplas son más ligeras y rápidas que las listas. Se utilizarán
+            cuando se precisa iterar sobre una estructura de datos que nunca va a
+            ser cambiada, por ejemplo, días de la semana y meses del año.
 
 Finalmente, se pueden convertir una lista en tupla y viceversa:
 
 .. code-block:: python
     :emphasize-lines: 2
 
-       >>> my_list = [22, True, "PyQGIS", [1, 2]]
-       >>> a_tuple = tuple(my_list)
-       >>> a_tuple
+       >>> mi_lista = [22, True, "PyQGIS", [1, 2]]
+       >>> mi_tupla = tuple(mi_lista)
+       >>> mi_tupla
        (22, True, 'PyQGIS', [1, 2])
 
 .. code-block:: python
     :emphasize-lines: 1
 
-       >>> a_list = list(my_tuple)
-       >>> a_list
+       >>> mi_lista = list(mi_tupla)
+       >>> mi_lista
        [22, True, 'PyQGIS', [1, 2]]
 
 Diccionarios
 ~~~~~~~~~~~~
 
-Los diccionarios, también llamados matrices asociativas (o mapeados en
+Los diccionarios, también llamados *matrices asociativas* (o mapeados en
 otros lenguajes), deben su nombre a que son colecciones que relacionan
 una clave y un valor (``key`` – ``value``). El primer valor se trata de la clave
 y el segundo del valor asociado a la clave. Como clave se puede utilizar
-cualquier valor inmutable: se pueden usar números, cadenas, booleanos,
-tuplas, … pero no listas o diccionarios, dado que son mutables.
+cualquier valor *inmutable*: se pueden usar números, cadenas, booleanos,
+tuplas, … pero no listas o diccionarios, dado que son *mutables*.
 
+Para crear un diccionario se indicará entre llaves ``{`` ``}``, las parejas de elementos
+que lo conforman. En cada pareja indicaremos primero el valor de la clave
+para acceder al elemento, y después el valor que contendrá separado por ``:``.
 En el siguiente ejemplo se muestra un diccionario creado a partir de los
-CRS-EPSG en los que se sirve el servicio WMTS del PNOA de máxima
-actualidad:
+CRS-EPSG en los que se sirve el servicio WMTS del PNOA de máxima actualidad:
 
 .. image:: images/dictionary_crs_pnoa.png
 
 .. code-block:: python
 
-   >>> my_dict = {"3857": "WGS 84/Pseudo Mercator",
-   ... "4258": "ETRS89",
-   ... "4326": "WGS 84",
-   ... "25828": "ETRS 89/UTM 28N",
-   ... "25830": "ETRS 89/UTM 30N",
-   ... "32628": "WGS 84/UTM 28N",
-   ... "32630": "WGS 84/UTM 30N"}
+   >>> mi_diccionario = {"3857": "WGS 84/Pseudo Mercator",
+       "4258": "ETRS89",
+       "4326": "WGS 84",
+       "25828": "ETRS 89/UTM 28N",
+       "25830": "ETRS 89/UTM 30N",
+       "32628": "WGS 84/UTM 28N",
+       "32630": "WGS 84/UTM 30N"}
 
 La diferencia principal entre los diccionarios y las listas o las tuplas
 es que a los valores almacenados en un diccionario se les accede no por
@@ -1051,35 +1081,36 @@ utilizando de nuevo el operador ``[]``.
 
 .. code-block:: python
 
-   >>> my_dict["25830"]
+   >>> mi_diccionario["25830"]
    'ETRS 89/UTM 30N'
 
 Al igual que en listas y tuplas también se puede utilizar este operador
 para reasignar valores.
 
 .. code-block:: python
+    :emphasize-lines: 1, 2
+    :linenos:
 
-   >>> my_dict["25830"] = "Sistema geodesico de referencia ETRS 89 -
-   proyeccion cartografica UTM huso 30 Norte"
-   >>> my_dict["25830"]
-   'Sistema geodesico de referencia ETRS 89 - proyeccion cartografica
-   UTM huso 30 Norte'
+       >>> mi_diccionario["25830"] = "Sistema geodesico de referencia ETRS 89 - proyeccion cartografica UTM huso 30 Norte"
+       >>> mi_diccionario["25830"]
+       'Sistema geodesico de referencia ETRS 89 - proyeccion cartografica UTM huso 30 Norte'
 
 También se pueden añadir nuevos pares key – values al diccionario:
 
 .. code-block:: python
+    :emphasize-lines: 1, 7, 10
+    :linenos:
 
-   >>> my_dict["25831"] = "ETRS 89/UTM 31N"
-   >>> my_dict
-
-   {'4258': 'ETRS89',
-   '4326': 'WGS 84',
-   '3857': 'WGS 84/Pseudo Mercator',
-   '25831': 'ETRS 89/UTM 31N',
-   '25830': 'ETRS 89/UTM 30N',
-   '32630': 'WGS 84/UTM 30N',
-   '32628': 'WGS 84/UTM 28N',
-   '25828': 'ETRS89/UTM 28N'}
+        >>> mi_diccionario["25831"] = "ETRS 89/UTM 31N"
+        >>> mi_diccionario
+        {'3857': 'WGS 84/Pseudo Mercator',
+        '4258': 'ETRS89',
+        '4326': 'WGS 84',
+        '25828': 'ETRS 89/UTM 28N',
+        '25830': 'Sistema geodesico de referencia ETRS 89 - proyeccion cartografica UTM huso 30 Norte',
+        '32628': 'WGS 84/UTM 28N',
+        '32630': 'WGS 84/UTM 30N',
+        '25831': 'ETRS 89/UTM 31N'}
 
 Sin embargo en este caso no se puede utilizar *slicing*, entre otras
 cosas porque los diccionarios no son secuencias, sino *mappings*
@@ -1088,70 +1119,98 @@ cosas porque los diccionarios no son secuencias, sino *mappings*
 Métodos del objeto diccionario
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-En este apartado se facilita una tabla con la sintaxis de distintos
-métodos del objeto diccionario de texto, aportando una descripción y un
-ejemplo de aplicación.
+En este apartado se facilita la sintaxis de distintos métodos del objeto diccionario de texto,
+aportando una descripción y un ejemplo de aplicación.
 
-``D.get(k[, d])``
+.. code-block::
 
-Busca el valor de la clave k en el diccionario. Es equivalente a utilizar D[k]
+    D.get(k[, d])
+
+Busca el valor de la clave ``k`` en el diccionario. Es equivalente a utilizar D[k]
 pero al utilizar este método podemos indicar un valor a devolver por defecto
 si no se encuentra la clave, mientras que con la sintaxis D[k], de no existir
 la clave se lanzaría una excepción.
 
 .. code-block:: python
+    :emphasize-lines: 1, 3
+    :linenos:
 
-    >>> my_dict.get("25830","Unknown SRC")
-    'ETRS 89/UTM 30N'
-    >>> my_dict.get("25832","Unknown SRC")
+    >>> mi_diccionario.get("25830","Unknown SRC")
+    'Sistema geodesico de referencia ETRS 89 - proyeccion cartografica UTM huso 30 Norte'
+    >>> mi_diccionario.get("25832","Unknown SRC")
     'Unknown SRC'
 
-``D.has_key(k)``
+.. code-block::
 
-Comprueba si el diccionario tiene la clave k. Es equivalente a la sintaxis k in D.
+    k in D
+
+Comprueba si el diccionario tiene la clave ``k``.
 
 .. code-block:: python
+    :emphasize-lines: 1, 3
+    :linenos:
 
-    >>> my_dict.has_key("25830")
-    True
-    >>> my_dict.has_key("25832")
-    False
+        >>> "25830" in mi_diccionario
+        True
+        >>> "25832" in mi_diccionario
+        False
 
-``D.items()``
+.. code-block::
+
+    D.items()
 
 Devuelve una lista de tuplas con pares clave-valor.
 
 .. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
 
-    >>> my_dict.items()
-    [('4258', 'ETRS89'), ('4326', 'WGS 84'), ('3857', 'WGS 84/Pseudo Mercator'), ('25831', 'ETRS 89/UTM 31N'), ('25830', 'ETRS 89/UTM 30N'), ('32630', 'WGS 84/UTM 30N'), ('32628', 'WGS 84/UTM 28N'), ('25828', 'ETRS 89/UTM 28N')]
+        >>> mi_diccionario.items()
+        dict_items([
+        ('3857', 'WGS 84/Pseudo Mercator'),
+        ('4258', 'ETRS89'),
+        ('4326', 'WGS 84'),
+        ('25828', 'ETRS 89/UTM 28N'),
+        ('25830', 'Sistema geodesico de referencia ETRS 89 - proyeccion cartografica UTM huso 30 Norte'),
+        ('32628', 'WGS 84/UTM 28N'),
+        ('32630', 'WGS 84/UTM 30N'),
+        ('25831', 'ETRS 89/UTM 31N')
+        ])
 
-``D.keys()``
+.. code-block::
+
+    D.keys()
 
 Devuelve una lista de las claves del diccionario.
 
 .. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
 
-    >>> my_dict.keys()
-    ['4258', '4326', '3857', '25831', '25830', '32630', '32628', '25828']
+        >>> mi_diccionario.keys()
+        dict_keys(['3857', '4258', '4326', '25828', '25830', '32628', '32630', '25831'])
 
-``D.values()``
+.. code-block::
+
+    D.values()
 
 Devuelve una lista de los valores del diccionario.
 
 .. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
 
-    >>> my_dict.values()
-    ['ETRS89', 'WGS 84', 'WGS 84/Pseudo Mercator', 'ETRS 89/UTM 31N', 'ETRS 89/UTM 30N', 'WGS 84/UTM 30N', 'WGS 84/UTM 28N', 'ETRS 89/UTM 28N']
+        >>> mi_diccionario.values()
+        dict_values(['WGS 84/Pseudo Mercator', 'ETRS89', 'WGS 84', 'ETRS 89/UTM 28N', 'Sistema geodesico de referencia ETRS 89 - proyeccion cartografica UTM huso 30 Norte', 'WGS 84/UTM 28N', 'WGS 84/UTM 30N', 'ETRS 89/UTM 31N'])
 
 Finalmente, se pueden recorrer diccionarios con la estructura repetitiva
 ``for`` .. ``in`` que será descrita en el siguiente apartado:
 
 .. code-block:: python
 
-   >>> for key, value in my_dict.items():
-   >>> for key in my_dict.keys():
-   >>> for value in my_dict.values():
+   >>> for key, value in mi_diccionario.items():
+   >>> for key in mi_diccionario.keys():
+   >>> for value in mi_diccionario.values():
 
 Control de flujo
 ----------------
@@ -1159,8 +1218,8 @@ Control de flujo
 Sentencias condicionales
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-``if``
-^^^^^^
+Estructura condicional simple ``if``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 La forma más simple de un estamento condicional es un ``if`` (del inglés si)
 seguido de la condición a evaluar, dos puntos (``:``) y en la siguiente
@@ -1168,12 +1227,14 @@ línea e indentado, el código a ejecutar en caso de que se cumpla dicha
 condición.
 
 .. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
 
-   if len(path_file_results) == 0:
-   self.iface.messageBar().pushMessage(c.APPLICATION_NAME,
-                                        "Path filename is empty",
-                                        QgsMessageBar.CRITICAL, 10)
-   return False
+       if len(path_file_results) == 0:
+           self.iface.messageBar().pushMessage(c.APPLICATION_NAME,
+                                                "Path filename is empty",
+                                                QgsMessageBar.CRITICAL,
+                                                10)
 
 La estructura ``if`` contiene una condición, si dicha condición se verifica
 verdadera luego se ejecutan todas las instrucciones que se encuentran
@@ -1186,15 +1247,14 @@ indentadas.
             con un solo golpe de vista. Sin embargo, en Python se trata de una obligación,
             y no de una elección.
 
-
-``if`` … ``else``
-^^^^^^^^^^^^^^^^^
+Estructura condicional doble ``if`` … ``else``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Para la ejecución de un cierto número de órdenes en el caso de que no se
-cumpla una primera condición, se utiliza el operador else. Su sintaxis
+cumpla una primera condición, se utiliza el operador ``else``. Su sintaxis
 es la siguiente:
 
-.. code-block:: python
+.. code-block::
 
     if condition :
         statements-1
@@ -1204,19 +1264,21 @@ es la siguiente:
 Ejemplo:
 
 .. code-block:: python
+    :emphasize-lines: 4, 6
+    :linenos:
 
-    qgsvectorlayer = QgsVectorLayer(datasource,
-                                    str_layer_name,
-                                    provider_name)
-    if qgsvectorlayer.isValid():
-        return qgsvectorlayer
-    else:
-        str_msg = "Failed to create QgsVectorLayer " + str_layer_name
-        self.iface.messageBar().pushMessage(c.CONST_APPLICATION_NAME,
-                                               str_msg,
-                                               QgsMessageBar.CRITICAL,
-                                               10)
-                                               return
+        qgsvectorlayer = QgsVectorLayer(datasource,
+                                        str_layer_name,
+                                        provider_name)
+        if qgsvectorlayer.isValid():
+            return qgsvectorlayer
+        else:
+            str_msg = "Failed to create QgsVectorLayer " + str_layer_name
+            self.iface.messageBar().pushMessage(c.CONST_APPLICATION_NAME,
+                                                   str_msg,
+                                                   QgsMessageBar.CRITICAL,
+                                                   10)
+                                                   return None
 
 ``if`` … ``elif`` ... ``elif`` … ``else``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1230,27 +1292,19 @@ condicional; si no se cumple y hay más de un ``elif`` se continúa con el
 siguiente en orden de aparición. Si no se cumple la condición del ``if`` ni
 de ninguno de los ``elif``, se ejecuta el código del ``else``.
 
+
+
 .. code-block:: python
+    :emphasize-lines: 2, 4, 6
+    :linenos:
 
-    if numero < 0:
-        print "Negativo"
-    elif numero > 0:
-        print "Positivo"
-    else:
-        print "Cero"
-
-A if C else B
-^^^^^^^^^^^^^
-
-También existe una construcción similar al operador ``?`` de otros
-lenguajes, que no es más que una forma compacta de expresar un if else.
-En esta construcción se evalúa el predicado C y se devuelve A si se
-cumple o B si no se cumple: *A* if *C* else *B*.
-
-.. note::   En otros lenguajes de programación existe la orden switch,
-            pero en Python no existe  esta construcción, que podría
-            emularse con un simple diccionario.
-
+        numero = int(input("Dame un número entero: "))
+        if numero < 0:
+            print("Negativo")
+        elif numero > 0:
+            print("Positivo")
+        else:
+            print("Cero")
 
 Bucles o estructuras repetitivas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1264,26 +1318,28 @@ Bucle indefinido: ``while``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 El bucle ``while`` (mientras) ejecuta un fragmento de código mientras se
-cumpla una condición.
-
-.. TODO: cambiar el ejemplo
+cumpla una condición. Se utiliza cuando no se conoce a priori el número
+de iteraciones. Para ello, se comprueba en primer lugar la condición (línea 2) y
+despúes se ejecuta el cuerpo del bucle (líneas 3-4). Es necesario que las variables
+de la condición tengan un valor asignado antes del bucle (línea 1). Finalmente,
+el cuerpo del bucle debe alterar de alguna forma la condición de salida
+para que el bucle tenga sentido (línea 4).
 
 .. code-block:: python
+    :emphasize-lines: 2
+    :linenos:
 
-    while ((segment_distance_ampliada > distancia_acumulada) or num_shot == 2):
-        str_process_text = "Num. shot: " + str(num_shot)
-        # Calculating images projection centers ...
-        if num_shot == 1:
-            distancia_acumulada = (0.5 - base) * terrain_advanced_image_size
-        else:
-            distancia_acumulada = distancia_acumulada + base * terrain_advanced_image_size
+        contador = 0
+        while contador <= 10:
+            print(contador)
+            contador += 1
 
 Bucle definido: ``for`` .. ``in``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-En Python for se utiliza como una forma genérica de iterar sobre una
+En Python ``for`` se utiliza como una forma genérica de iterar sobre una
 secuencia, ejecutando un bloque de código para cada elemento que
-tengamos en la secuencia.
+tengamos en la *secuencia*.
 
 .. code-block:: python
 
@@ -1291,69 +1347,153 @@ tengamos en la secuencia.
     for elemento in secuencia:
         print(elemento)
 
-Python proporciona una función llamada range (rango) que permite generar
+Python proporciona una función llamada ``range`` (rango) que permite generar
 una lista al vuelo que va desde el primer número que se le indique al
 segundo, con un determinado paso. Su sintaxis es la siguiente:
 
 ``range(start-value, end-value, difference between the values)``
 
-Ejemplos de aplicación en el bucle for:
+Ejemplos de aplicación en el bucle ``for``:
 
 .. code-block:: python
 
     >>> for i in range(0,10): # recorre valores de 0 a 9
+            print(i)
     >>> for i in range(0,10,2): # recorre valores de 0 a 8
+            print(i)
     >>> for i in range(10,0,-1): # recorre valores de 10 al 1
+            print(i)
 
 Control de bucles: sentencias ``break``, ``continue``, ``pass``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Estas sentencias se pueden utilizar tanto en bucles for como ``while``.
-
-``break`` termina el bucle actual y continua con la ejecución de la
-siguiente instrucción.
+.. note:: Estas sentencias se pueden utilizar tanto en bucles ``for`` como ``while``.
 
 ``continue`` regresa al comienzo del bucle, ignorando todas las sentencias
 que quedan en la iteración actual del bucle e inicia la siguiente
 iteración.
 
+.. code-block:: python
+    :emphasize-lines: 3
+    :linenos:
+
+        for letra in "PyQGIS":
+            if letra == "Q":
+                continue
+            print("Letra actual: ", letra)
+        print("Adios")
+
+Produce la siguiente salida:
+
+.. code-block::
+
+    Letra actual:  P
+    Letra actual:  y
+    Letra actual:  G
+    Letra actual:  I
+    Letra actual:  S
+    Adios
+
+.. code-block:: python
+    :emphasize-lines: 4
+    :linenos:
+
+        while var > 0:
+           var = var -1
+           if var == 5:
+              continue
+           print("Valor variable actual:", var)
+        print("Adios")
+
+Produce la siguiente salida:
+
+.. code-block::
+
+    Valor variable actual: 9
+    Valor variable actual: 8
+    Valor variable actual: 7
+    Valor variable actual: 6
+    Valor variable actual: 4
+    Valor variable actual: 3
+    Valor variable actual: 2
+    Valor variable actual: 1
+    Valor variable actual: 0
+    Adios
+
+``break`` termina el bucle actual y continua con la ejecución de la
+siguiente instrucción.
+
+.. code-block:: python
+    :emphasize-lines: 3
+    :linenos:
+
+        for letra in "PyQGIS":
+            if letra == "Q":
+                break
+            print("Letra actual: ", letra)
+        print("Adios")
+
+Produce la siguiente salida:
+
+.. code-block::
+
+    Letra actual:  P
+    Letra actual:  y
+    Adios
+
+.. code-block:: python
+    :emphasize-lines: 5
+    :linenos:
+
+        var = 10
+        while var > 0:
+           var = var -1
+           if var == 5:
+              break
+           print("Valor variable actual:", var)
+        print("Adios")
+
+Produce la siguiente salida:
+
+.. code-block::
+
+    Valor variable actual: 9
+    Valor variable actual: 8
+    Valor variable actual: 7
+    Valor variable actual: 6
+    Adios
+
 ``pass`` tal como su nombre lo indica es una operación nula, o sea que no
-pasa nada cuando se ejecuta. Se puede usar cuando una sentencia es
-requerida por la sintaxis pero el programa no requiere ninguna acción.
-Se usa normalmente para crear clases, funciones y bucles en su mínima
-expresión, por ejemplo:
+pasa nada cuando se ejecuta.
 
 .. code-block:: python
+    :emphasize-lines: 3
+    :linenos:
 
-   >>> class MyEmptyClass:
-        pass # acuerdate de implementar esto
+        for letra in "PyQGIS":
+            if letra == "Q":
+                pass
+            print("Letra actual: ", letra)
+        print("Adios")
 
-El siguiente ejemplo muestra la diferencia entre la sentencia ``pass`` ...
+Produce la siguiente salida:
 
-.. code-block:: python
+.. code-block::
 
-    for x in (1, 2, 3):
-        print (x)
-        continue
-        print (str(x) + " nuevamente")
-    1
-    2
-    3
+    Letra actual:  P
+    Letra actual:  y
+    Letra actual:  Q
+    Letra actual:  G
+    Letra actual:  I
+    Letra actual:  S
+    Adios
 
-... y ``continue``:
+.. tip::    Se puede usar cuando una sentencia es requerida por la sintaxis pero el programa no requiere ninguna acción.
+            Se usa normalmente para crear clases, funciones y bucles en su mínima expresión, por ejemplo:
 
-.. code-block:: python
+            .. code-block:: python
 
-    for x in (1, 2, 3):
-        print (x)
-        pass
-        print (str(x) + " nuevamente")
-    1
-    1 nuevamente
-    2
-    2 nuevamente
-    3
-    3 nuevamente
+               >>> class MyEmptyClass:
+                    pass  # TODO: acuerdate de implementar esto
 
 Funciones definidas por el usuario
 ----------------------------------
@@ -1369,12 +1509,12 @@ devuelve el valor ``None`` (nada).
             ser realizar una única acción, reutilizable y por lo tanto, tan
             genérica como sea posible.
 
-En Python las funciones se declaran con la palabra clave def seguida del
-nombre de la función y entre paréntesis y los argumentos separados por
+En Python las funciones se declaran con la palabra clave ``def`` seguida del
+nombre de la función y entre paréntesis ``(`` ``)`` y los argumentos separados por
 comas. A continuación, en otra línea, indentado y después de los dos
-puntos se tendrían las líneas de código que conforman el código a
+puntos ``:`` se tendrían las líneas de código que conforman el código a
 ejecutar por la función. También se puede introducir una cadena de texto
-como primera línea del cuerpo de la función denominada docstring (cadena
+como primera línea del cuerpo de la función denominada *docstring* (cadena
 de documentación), que es lo que imprime la función ``help`` de Python.
 
 .. code-block:: python
@@ -1384,9 +1524,8 @@ de documentación), que es lo que imprime la función ``help`` de Python.
         print(param1)
         print(param2)
 
-.. note::   Nos referiremos a argumentos y parámetros indistintamente en
-            este tutorial. Por otro lado, en Python a las funciones de las clases se les
-            denomina métodos.
+.. note::   Nos referiremos a *argumentos* y *parámetros* indistintamente en este tutorial.
+            Por otro lado, en Python a las funciones de las clases se les denomina métodos.
 
 Es importante aclarar que al declarar la función lo único que hacemos es
 asociar un nombre al fragmento de código que conforma la función. Para
@@ -1415,10 +1554,10 @@ paso de argumentos como *keywords*.
 Paso de variables por referencia o por valor
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-En el paso por referencia lo que se pasa como argumento es una
+En el paso *por referencia* lo que se pasa como argumento es una
 referencia o puntero a la variable, es decir, la dirección de memoria en
 la que se encuentra el contenido de la variable, y no el contenido en
-si. En el paso por valor, por el contrario, lo que se pasa como
+si. En el paso *por valor*, por el contrario, lo que se pasa como
 argumento es el valor que contenía la variable.
 
 Si se quiere modificar el valor de uno de los argumentos y que estos
@@ -1429,58 +1568,67 @@ En el caso de Python los valores mutables se comportan como paso por
 referencia, y los inmutables como paso por valor:
 
 .. code-block:: python
+    :linenos:
 
-    def f(x, y):
-        x = x + 3
-        y.append(23)
+        def f(x, y):
+            x = x + 3
+            y.append(23)
+            print(x, y)
+
+.. code-block:: python
+    :linenos:
+
+        x = 22
+        y = [22]
+        f(x, y)
         print(x, y)
-
-.. code-block::
-
-    x = 22
-    y = [22]
-    f(x, y)
-    print(x, y)
 
 El resultado de la ejecución de este programa sería:
 
-.. code-block:: python
+.. code-block::
 
    25 [22, 23]
    22 [22, 23]
 
-Para devolver valores, para lo que se utiliza la palabra clave return
+Para devolver valores se utiliza la palabra reservada ``return``
 
 .. code-block:: python
+    :linenos:
 
-    def sumar(x, y):
-        return x + y
+        def sumar(x, y):
+            return x + y
+
         print(sumar(3, 2))
 
-El resultado de la ejecución de este programa sería 5.
+El resultado de la ejecución de este programa sería ``5``.
 
-También se podrían pasar varios valores que retornar a return. Sin
-embargo esto no quiere decir que las funciones Python puedan devolver
-varios valores, lo que ocurre en realidad es que Python crea una tupla
-al vuelo cuyos elementos son los valores a retornar, y esta única
-variable es la que se devuelve:
+También se podrían pasar varios valores que retornar a ``return``.
+
+.. note::   Sin embargo esto no quiere decir que las funciones Python puedan devolver
+            varios valores, lo que ocurre en realidad es que Python crea una tupla
+            al vuelo cuyos elementos son los valores a retornar, y esta única
+            variable es la que se devuelve:
 
 .. code-block:: python
+    :linenos:
 
-    def f(x, y):
-        return x * 2, y * 2
+        def f(x, y):
+            return x * 2, y * 2
+
         a, b = f(1, 2)
         print(a, b)
 
 El resultado de la ejecución de este programa sería:
 
-.. code-block:: python
+.. code-block::
 
-    2
-    4
+    2 4
 
 Parámetros arbitrarios
 ~~~~~~~~~~~~~~~~~~~~~~
+
+.. TODO: Bien explicado en D:\FORMA_DOCS\12_INFORMATICA\11_PYTHON\01_courses\201510_IGN_Cleoformacion
+.. TODO: Probar la ejecución de lo seleccionado paso a paso
 
 Programación orientada a objetos en Python
 ------------------------------------------
@@ -1494,13 +1642,13 @@ siglas en inglés). En este apartado se facilita una descripción teórica
 de conceptos básicos y características principales de la POO y de los
 detalles de su implementación en el lenguaje de programación Python.
 
-.. TODO: esta imagen no esta mal image 2
+.. image:: images/mindmapple_poo.jpg
 
 Paradigma de POO
 ~~~~~~~~~~~~~~~~
 
 Un paradigma de programación representa un enfoque particular o
-filosofía para diseñar soluciones. En el paradigma de la POO los
+filosofía para diseñar soluciones de software. En el paradigma de la POO los
 conceptos del mundo real relevantes para resolver un determinado
 problema se modelan a través de clases y objetos y sus interacciones,
 trasladando el mundo real al mundo informático.
@@ -1525,9 +1673,9 @@ funcionalidades similares:
    representan su **comportamiento**. En su implementación, los métodos
    son segmentos de código en forma de funciones.
 
-Una clase se puede considerar como un tipo de dato definido por el
-usuario que permite definir y representar colecciones de objetos y
-proveen un modelo o plantilla genérica para su creación.
+.. important::  Una **clase** se puede considerar como un tipo de dato definido por el
+                usuario que permite definir y representar colecciones de objetos y
+                proveen un modelo o plantilla genérica para su creación.
 
 Ejemplo de una clase:
 
@@ -1536,10 +1684,8 @@ Ejemplo de una clase:
 .. note::   En notación del Lenguaje Unificado de Modelado (UML, *Unified Modeling Language*)
             una clase se representa en un rectángulo con tres compartimentos con el nombre
             de la clase, sus atributos y sus métodos.
-
             Notación de atributo: ``nombreAtributo:tipoDato = valorPorDefecto``
-
-            Notación de método u operación: ``nombreOperación(listaParámetrosPasar:tipoDato):tipoDatoDevuelto``
+            Notación de método: ``nombreOperación(listaParametrosPasar:tipoDato):tipoDatoDevuelto``
 
 Al contrario de lo que sucede en la programación estructurada, donde
 variables y funciones están separadas, en la POO los objetos integran
@@ -1566,11 +1712,11 @@ tiempo. Cada objeto es responsable de inicializarse y destruirse en
 forma correcta: los objetos son creados mediante un mecanismo denominado
 **instanciación** y dejan de existir cuando son destruidos.
 
-En Python las clases se definen mediante la palabra clave class seguida
+En Python las clases se definen mediante la palabra reservada ``class`` seguida
 del nombre de la clase, dos puntos (``:``) y a continuación, indentado, el
 cuerpo de la clase. Como en el caso de las funciones, si la primera
 línea del cuerpo se trata de una cadena de texto, esta será la cadena de
-documentación de la clase o docstring.
+documentación de la clase o *docstring*.
 
 .. code-block::
 
@@ -1578,41 +1724,48 @@ documentación de la clase o docstring.
         <method definition-1>
         <method definition-n>
 
+Los **atributos** que aplican a toda la clase son definidos al principio
+y se denominan atributos de clase (línea 3).
+
+Todos los **métodos** incluidos en la definición de la clase pasan el
+objeto en cuestión como primer parámetro (línea 4,5). La palabra ``self`` es utilizada
+para este parámetro.
+
+.. note::   El uso de ``self`` es actualmente por convención, no se
+            trata de una palabra reservada de Python, pero es una de las
+            convenciones más respetadas).
+
 Ejemplo:
 
 .. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
 
-    class MyClass:
-        """ Brief: a simple example class """  # docstring
-         i = 12345  # class attribute
-         def method_1(self):  # regular method
-         return 'hello world'
+        class MyClass:
+            """ Brief: a simple example class """   # docstring
+            i = 12345                               # class attribute
+            def method_1(self):                     # regular method
+                return 'Hola Mundo'
 
-Los **atributos** que aplican a toda la clase son definidos al principio
-y se denominan atributos de clase.
-
-Todos los **métodos** incluidos en la definición de la clase pasan el
-objeto en cuestión como primer parámetro. La palabra ``self`` es utilizada
-para este parámetro (el uso de ``self`` es actualmente por convención, no se
-trata de una palabra reservada de Python, pero es una de las
-convenciones más respetadas).
-
-Cada objeto creado a partir de una clase se denomina instancia de la
-clase. Para **instanciar** una clase en Python:
+Cada objeto creado a partir de una clase se denomina instancia de la clase.
+Para **instanciar** una clase en Python:
 
 .. code-block:: python
 
-    x = MyClass() # creacion de un objeto de la clase MyClass
+    x = MyClass()  # creacion de un objeto de la clase MyClass
 
 Una vez creado el objeto, se puede acceder a sus atributos y métodos
-mediante la sintaxis ``objeto.atributo`` y ``objeto.metodo()``:
+mediante la sintaxis ``objeto.atributo`` (línea 1) y ``objeto.metodo()`` (línea 3):
 
 .. code-block:: python
+    :linenos:
 
-    print(x.i)  # acceso a atributos
-    print(x.method_1())  # acceso a metodos
+        >>> print(x.i)  # acceso a atributos
+        12345
+        >>> print(x.method_1())  # acceso a metodos
+        Hola Mundo
 
-El método ``__init__``, con una doble barra baja al principio y final del
+El método ``__init__``, con una doble barra baja ``__`` al principio y final del
 nombre, se ejecuta justo después crear un objeto (instancia de una
 clase). El método ``__init__`` sirve, como sugiere su nombre, para
 realizar cualquier proceso de **inicialización** que sea necesario. Es
@@ -1635,12 +1788,12 @@ como C++.
      :param imagpart: imaginary part of number
      :type imagpart: real number
      """
-     print("initialized class")
+     print("Clase inicializada")
      self.r = realpart
      self.i = imagpart
 
 El primer parámetro de ``__init__`` y del resto de métodos de la clase es
-siempre self que sirve para referirse al objeto actual.
+siempre ``self`` que sirve para referirse al objeto actual.
 
 En este caso, para crear un objeto se escribiría el nombre de la clase
 seguido de cualquier parámetro que sea necesario entre paréntesis.
@@ -1648,10 +1801,17 @@ Estos parámetros son los que se pasarán al método ``__init__``
 
 .. code-block:: python
 
-    x = Complex(3.0, -4.5)
+    >>> x = Complex(3.0, -4.5)
+    Clase inicializada
 
-Python pasa el primer argumento (la referencia al objeto que se crea)
-automágicamente.
+Se puede acceder a la parte real e imaginaria como en el caso anterior:
+
+.. code-block:: python
+
+    >>> print(x.r, x.i)
+    3.0 -4.5
+
+.. note:: Python pasa el primer argumento (la referencia al objeto que se crea) automágicamente.
 
 Características de la POO
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1713,17 +1873,42 @@ nombre: si el nombre comienza con dos guiones bajos (``__``) (y no termina
 también con dos guiones bajos) se trata de una variable o función
 privada, en caso contrario es pública.
 
-.. note::   Los métodos cuyo nombre comienza y termina con dos guiones bajos son métodos especiales
+.. note::   Los métodos cuyo nombre comienza y termina con dos guiones bajos ``__`` son métodos especiales
             que Python llama automáticamente bajo ciertas circunstancias.
 
-En el siguiente ejemplo sólo se imprimiría la cadena correspondiente al
-método ``publico()``, mientras que al intentar llamar al método ``__privado()``
-Python lanzará una excepción:
+En el siguiente ejemplo ...
+
+.. code-block:: python
+    :linenos:
+
+        class Encapsula:
+            def public_method(self):
+                print("Has accedido a un método público")
+
+            def __private_method(self):
+                print("Has accedido a un método privado")
+
+... tras instanciarla y crear un objeto ...
 
 .. code-block:: python
 
-   AttributeError: Encapsula instance has no attribute
-   '__private_method'
+    >>> encapsula_object = Encapsula()
+
+... sólo se imprimiría la cadena correspondiente al método ``publico()``, ...
+
+.. code-block:: python
+
+    >>> encapsula_object.public_method()
+    Has accedido a un método público
+
+
+.. error::  ... mientras que al intentar llamar al método ``__privado()`` Python
+            lanzará una excepción:
+
+            .. code-block:: python
+
+                >>> encapsula_object.__private_method()
+                AttributeError: 'Encapsula' object has no attribute '__private_method'
 
 La abstracción y el encapsulamiento son conceptos complementarios: la
 primera se centra en el comportamiento observable de un objeto, mientras
@@ -1733,8 +1918,8 @@ comportamiento.
 Herencia
 ^^^^^^^^
 
-En un lenguaje orientado a objetos cuando una clase (subclase o clase
-hija) hereda de otra clase existente (superclase o clase padre) se
+En un lenguaje orientado a objetos cuando una clase (**subclase** o **clase hija**)
+hereda de otra clase existente (**superclase** o **clase padre**) se
 consigue que la subclase contenga todos los atributos y métodos que
 tenía la superclase. A este procedimiento también se le denomina
 “*extender una clase*”.
@@ -1745,26 +1930,12 @@ son accesibles en la clase hija, como si se hubieran declarado
 localmente, permitiendo reutilizar código creando nuevas clases a partir
 de las existentes, previamente construidas y depuradas.
 
-============ ===========
-**Mamífero**  **Gato**
-============ ===========
-edad          edad
-
-              colorDePiel
-comer()       comer()
-
-andar()       andar()
-
-              maullar()
-Superclase    Subclase
-============ ===========
+.. image:: images/poo_heritage.png
 
 En Python, para indicar que una clase hereda de otra se coloca el nombre
 de la clase de la que se hereda entre paréntesis después del nombre de
 la clase. Para implementar el ejemplo anterior, se definiría en primer
-lugar la superclase **Animal** y la subclase **Gato** que hereda de la
-clase **Animal** extendiendo su funcionalidad a través de un nuevo
-método (**maullar**):
+lugar la superclase **Animal** ...
 
 .. code-block:: python
 
@@ -1773,6 +1944,13 @@ método (**maullar**):
             print("Puedo comer")
         def andar(self):
             print('Puedo andar')
+
+... y la subclase **Gato** que hereda de la
+clase **Animal** extendiendo su funcionalidad a través de un nuevo
+método (**maullar**):
+
+.. code-block:: python
+
     class Gato(Animal):
         def maullar(self):
             print('Miau')
@@ -1781,26 +1959,21 @@ A continuación se crearía un nuevo objeto de la clase Gato:
 
 .. code-block:: python
 
-    objeto_gato = Gato()
+    >>> objeto_gato = Gato()
 
 Y finalmente, se podría acceder a los métodos de la superclase
 (**comer** y **andar**) y al método de la subclase (**maullar**) desde
-la instancia del objeto de la clase **Gato**:
+la instancia del objeto de la clase **Gato**. La ejecución de este código
+producirá la impresión en pantalla de los siguientes mensajes:
 
 .. code-block:: python
 
-    objeto_gato.comer()
-    objeto_gato.andar()
-    objeto_gato.maullar()
-
-La ejecución del código anterior producirá la impresión en pantalla de
-los siguientes mensajes:
-
-.. code-block:: python
-
-   >>Puedo comer
-   >>Puedo andar
-   >>Miau
+    >>> objeto_gato.comer()
+    Puedo comer
+    >>> objeto_gato.andar()
+    Puedo andar
+    >>> objeto_gato.maullar()
+    Miau
 
 Herencia múltiple
 '''''''''''''''''
@@ -1815,40 +1988,34 @@ En primer lugar se definen las clases A y B y a continuación la clase C
 que hereda de la clase A y B.
 
 .. code-block:: python
+    :linenos:
 
-    class A():
-        def sum1(self,a,b):
-            c = a+b
-            return c
-
-    class B():
-        def sub1(self,a,b):
-            c = a-b
-            return c
-
-    class C(A,B):
-        pass
+        class A():
+            def suma(self,a,b):
+                c = a+b
+                return c
+        class B():
+            def resta(self,a,b):
+                c = a-b
+                return c
+        class C(A,B):
+            pass
 
 Se crea a continuación un objeto de la clase C:
 
 .. code-block:: python
 
-    c_obj = C()
+    >>> c_obj = C()
 
 Finalmente se accede al método de suma de la clase A y sustracción de la
-clase B desde el objeto de la clase C:
+clase B desde el objeto de la clase C, produciendo los siguientes resultados:
 
 .. code-block:: python
 
-    print("Sum is "), c_obj.sum1(12,4)
-    print "After substraction ", c_obj.sub1(45,5)
-
-Produciéndose los siguientes resultados:
-
-.. code-block:: python
-
-   Sum is 16
-   After substraction 40
+    >>> print("Suma es ", c_obj.suma(12,4))
+    Suma es  16
+    >>> print("La resta es ",c_obj.resta(45,5))
+    La resta es  40
 
 Herencia multinivel
 '''''''''''''''''''
@@ -1859,30 +2026,30 @@ hereda de la clase B y finalmente, se define la clase C que hereda de la
 clase B.
 
 .. code-block:: python
+    :linenos:
 
-    class A():
-        def sum1(self,a,b):
-            c = a+b
-            return c
-
-    class B(A):
-        pass
-
-    class C(B):
-        pass
+        class A():
+            def sum1(self,a,b):
+                c = a+b
+                return c
+        class B(A):
+            pass
+        class C(B):
+            pass
 
 A continuación se instancia la clase C, creando un objeto de esta clase:
 
 .. code-block:: python
 
-   c_obj = C()
+   >>> c_obj = C()
 
 Finalmente, se accede al método sum1 definido en la clase A, desde el
 objeto de la clase C:
 
 .. code-block:: python
 
-   print("Sum is ", c_obj.sum1(12,4))
+   >>> print("Suma es ", c_obj.sum1(12,4))
+   Suma es  16
 
 Polimorfismo
 ^^^^^^^^^^^^
@@ -1899,45 +2066,43 @@ con el mismo nombre (**avanzar**) que imprimen en pantalla dos acciones
 distintas:
 
 .. code-block:: python
+    :linenos:
 
-    class Perro():
-        def avanzar(self):
-            print('Corriendo')
-    class Pajaro():
-        def avanzar(self):
-            print('Volando')
+        class Perro():
+            def avanzar(self):
+                print('Corriendo')
+        class Pajaro():
+            def avanzar(self):
+                print('Volando')
 
 A continuación se crea una nueva función que recibe como parámetro un
 objeto de ambas clases y realiza la llamada al método **avanzar**
 definido anteriormente en ambas clases:
 
 .. code-block:: python
+    :linenos:
 
-    def mover(animal):
-        animal.avanzar()
+        def mover(animal):
+            animal.avanzar()
 
 El siguiente paso consistirá en crear dos nuevos objetos de cada una de
 las clases:
 
 .. code-block:: python
 
-   objeto_perro = Perro()
-   objeto_pajaro = Pajaro()
+   >>> objeto_perro = Perro()
+   >>> objeto_pajaro = Pajaro()
 
 Y, finalmente se realiza la llamada a la función **mover** pasando como
-argumento objeto_perro y objeto_pajaro, respectivamente:
+argumento objeto_perro y objeto_pajaro, respectivamente. La respuesta al
+mismo tipo de mensaje ejecuta dos acciones distintas:
 
 .. code-block:: python
 
-    mover(objeto_perro)
-    mover(objeto_pajaro)
-
-La respuesta al mismo tipo de mensaje ejecuta dos acciones distintas:
-
-.. code-block:: python
-
-    >> Corriendo
-    >> Volando
+    >>> mover(objeto_perro)
+    Corriendo
+    >>> mover(objeto_pajaro)
+    Volando
 
 Ventajas de la POO
 ~~~~~~~~~~~~~~~~~~
@@ -1966,45 +2131,46 @@ manejen excepciones seleccionadas. Si la excepción no se captura el
 flujo de ejecución del programa se interrumpe y se muestra la
 información asociada a la excepción en la consola.
 
-En Python se utiliza una construcción try-except para capturar y tratar
-las excepciones. El bloque try (intentar) define el fragmento de código
+En Python se utiliza una construcción ``try``-``except`` para capturar y tratar
+las excepciones. El bloque ``try`` (intentar) define el fragmento de código
 en el que se sospecha que podría producirse una excepción. El bloque
-except (excepción) permite indicar el tratamiento que se llevará a cabo
+``except`` (excepción) permite indicar el tratamiento que se llevará a cabo
 de producirse dicha excepción.
 
-Codifica en un bloque else solamente lo que quieras ejecutar si no
-hubiesen excepciones ocasionadas por el código del bloque try. Esto es
+Codifica en un bloque ``else`` solamente lo que quieras ejecutar si no
+hubiesen excepciones ocasionadas por el código del bloque ``try``. Esto es
 útil si tienes algún código que no quieres ejecutar si una excepción es
 encontrada y no quieres analizar si hay excepciones en ese código.
 
 Algunas veces, se buscará que ocurra algo independientemente de lo que
 suceda con la excepción. En aplicaciones reales es útil para liberar
 recursos externo como archivos o conexiones a bases de datos. El bloque
-finally de una cláusula try se ejecutará siempre, se produzca o no la
+``finally`` de una cláusula ``try`` se ejecutará siempre, se produzca o no la
 excepción.
 
-A continuación se muestra un ejemplo de uso de else y finally en el
+A continuación se muestra un ejemplo de uso de ``else`` y ``finally`` en el
 contexto del manejo de excepciones:
 
 .. code-block:: python
+    :linenos:
 
-    def divide(x, y):
-        try:
-            result = x / y
-    except ZeroDivisionError:
-        print("Division by zero!")
-     else:
-        print("Result is", result)
-    finally:
-        print("Executing finally clause")
+        def divide(x, y):
+            try:
+                result = x / y
+            except ZeroDivisionError:
+                print("Denominador cero!!!")
+            else:
+                print("El resultado es", result)
+            finally:
+                print("Ejecución claúsula finally")
 
 Si la llamada a la función se realiza con los siguientes argumentos
 ``divide(2,1)``, se obtentrá el siguiente resultado:
 
-.. code-block:: python
+.. code-block::
 
-   Result is 2
-   Executing finally clause
+    El resultado es 2.0
+    Ejecución claúsula finally
 
 
 .. error::  Si se introduce como denominador el valor cero, ``divide(2,0)``, obtendremos
@@ -2012,95 +2178,17 @@ Si la llamada a la función se realiza con los siguientes argumentos
 
             .. code-block::
 
-                Division by zero!
-                Executing finally clause
+                Denominador cero!!!
+                Ejecución claúsula finally
 
 Finalmente, si introducimos una excepción no controlada como es el caso
-de la división de dos cadenadas de texto, ``divide("2","1")`` ,
+de la división de dos cadenas de texto, ``divide("2","1")`` ,
 obtendremos el siguiente error durante la ejecución:
 
 .. code-block:: python
 
-   Executing finally clause
-   Traceback (most recent call last):
-   File "<input>", line 1, in <module>
-   File "C:/ourscript.py", line 14, in <module>
-   divide("2","1")
-   File " C:/ourscript.py", line 6, in divide
-   result = x / y
-   TypeError: unsupported operand type(s) for : 'str' and 'str'
-
-Las excepciones son también objetos regulares de Python que heredan de
-la clase ``BaseException``.
-
-La jerarquía de excepciones se muestra a continuación:
-
-.. code-block::
-
-    BaseException
-     +-- SystemExit
-     +-- KeyboardInterrupt
-     +-- GeneratorExit
-     +-- Exception
-          +-- StopIteration
-          +-- StopAsyncIteration
-          +-- ArithmeticError
-          |    +-- FloatingPointError
-          |    +-- OverflowError
-          |    +-- ZeroDivisionError
-          +-- AssertionError
-          +-- AttributeError
-          +-- BufferError
-          +-- EOFError
-          +-- ImportError
-          |    +-- ModuleNotFoundError
-          +-- LookupError
-          |    +-- IndexError
-          |    +-- KeyError
-          +-- MemoryError
-          +-- NameError
-          |    +-- UnboundLocalError
-          +-- OSError
-          |    +-- BlockingIOError
-          |    +-- ChildProcessError
-          |    +-- ConnectionError
-          |    |    +-- BrokenPipeError
-          |    |    +-- ConnectionAbortedError
-          |    |    +-- ConnectionRefusedError
-          |    |    +-- ConnectionResetError
-          |    +-- FileExistsError
-          |    +-- FileNotFoundError
-          |    +-- InterruptedError
-          |    +-- IsADirectoryError
-          |    +-- NotADirectoryError
-          |    +-- PermissionError
-          |    +-- ProcessLookupError
-          |    +-- TimeoutError
-          +-- ReferenceError
-          +-- RuntimeError
-          |    +-- NotImplementedError
-          |    +-- RecursionError
-          +-- SyntaxError
-          |    +-- IndentationError
-          |         +-- TabError
-          +-- SystemError
-          +-- TypeError
-          +-- ValueError
-          |    +-- UnicodeError
-          |         +-- UnicodeDecodeError
-          |         +-- UnicodeEncodeError
-          |         +-- UnicodeTranslateError
-          +-- Warning
-               +-- DeprecationWarning
-               +-- PendingDeprecationWarning
-               +-- RuntimeWarning
-               +-- SyntaxWarning
-               +-- UserWarning
-               +-- FutureWarning
-               +-- ImportWarning
-               +-- UnicodeWarning
-               +-- BytesWarning
-               +-- ResourceWarning
+    Ejecución claúsula finally
+    TypeError: unsupported operand type(s) for /: 'str' and 'str'
 
 En el siguiente ejemplo se ha sustituido el bloque de código de la
 excepción para mostrar el error.
@@ -2113,17 +2201,26 @@ excepción para mostrar el error.
         except Exception as detail:
             print(detail, type(detail))
 
-La llamada a la función con dos cadenas de texto
+En este caso la llamada a la función con argumento denominador cero ``divide(2,0)``
+genera el siguiente resultado:
+
+.. code-block::
+
+    division by zero <class 'ZeroDivisionError'>
+
+Para el caso de la llamada a la función con dos cadenas de texto
 ``divide("2","1")``, producirá en este caso los siguientes
 resultados y no detendrá la ejecución del programa:
 
-.. code-block:: python
+.. code-block::
 
-   unsupported operand type(s) for /: 'str' and 'str'
-   <type 'exceptions.TypeError'>
+   unsupported operand type(s) for /: 'str' and 'str' <class 'TypeError'>
 
-Nótese que tipo de error producido, TypeError, hereda de la clase
-BaseException Exception StandardError
+.. tip::    Las excepciones son también objetos regulares de Python que heredan de
+            la clase ``BaseException``. La jerarquía de excepciones puede consultarse
+            en el siguiente enlace: https://docs.python.org/3.7/library/exceptions.html
+            El tipo de error producido, ``TypeError``, hereda de la clase
+            ``BaseException`` ``Exception`` ``StandardError``
 
 También se pueden implementar tipos de error personalizados. En el
 siguiente ejemplo se muestra un bloque de código en el que se intenta
@@ -2158,29 +2255,28 @@ Para facilitar el mantenimiento y la lectura los programas demasiado
 largos pueden dividirse en módulos, agrupando elementos relacionados.
 Los módulos son entidades que permiten una organización y división
 lógica de nuestro código. Los ficheros son su contrapartida física: cada
-archivo Python almacenado en disco equivale a un módulo.
+archivo Python almacenado en disco equivale a un **módulo**.
 
-Para importar un módulo se utiliza la palabra clave import seguida del
+Para importar un módulo se utiliza la palabra clave ``import`` seguida del
 nombre del módulo, que consiste en el nombre del archivo menos la
 extensión.
 
-El import no solo hace que se tenga disponible todo lo definido dentro
+El ``import`` no solo hace que se tenga disponible todo lo definido dentro
 del módulo, sino que también ejecuta el código del módulo.
 
 Es necesario preceder el nombre de los objetos que se importan de un
 módulo con el nombre del módulo al que pertenecen. Sin embargo es
-posible utilizar la construcción from-import para ahorrarnos el tener
+posible utilizar la construcción ``from``-``import`` para ahorrarnos el tener
 que indicar el nombre del módulo antes del objeto que nos interesa. De
 esta forma se importa el objeto o los objetos que indiquemos al espacio
 de nombres actual.
 
-Aunque se considera una mala práctica, también es posible importar todos
-los nombres del módulo al espacio de nombres actual usando el caracter
-``*``:
+.. tip::    Aunque se considera una *mala práctica*, también es posible importar todos
+            los nombres del módulo al espacio de nombres actual usando el caracter ``*``:
 
-.. code-block:: python
+            .. code-block:: python
 
-    >>> from time import *
+                >>> from time import *
 
 A la hora de importar un módulo Python recorre todos los directorios
 indicados en la variable de entorno ``PYTHONPATH`` en busca de un archivo
@@ -2203,57 +2299,55 @@ trate a un directorio como un paquete es neceario crear un archivo
 Escritura y lectura de ficheros de texto
 ----------------------------------------
 
-.. SEE bien explicado en https://www.pythonforbeginners.com/files/reading-and-writing-files-in-python
+.. TODO bien explicado en https://www.pythonforbeginners.com/files/reading-and-writing-files-in-python
 
-Los ficheros en Python son objetos de tipo file creados mediante la
-función ``open`` (abrir). Esta función toma como parámetros una cadena con
-la ruta al fichero a abrir, que puede ser relativa o absoluta; una
-cadena opcional indicando el modo de acceso (si no se especifica se
-accede en modo lectura) y, por último, un entero opcional para
-especificar un tamaño de *buffer* distinto del utilizado por defecto.
+Los ficheros en Python son objetos de tipo ``file`` creados mediante la
+función ``open`` (abrir). Esta función toma como parámetros:
++ una cadena con la ruta al fichero a abrir, que puede ser relativa o absoluta;
++ una cadena opcional indicando el modo de acceso (si no se especifica se
+accede en modo lectura)
++ un entero opcional para especificar un tamaño de *buffer* distinto del utilizado por defecto.
 
-El modo de acceso puede ser cualquier combinación lógica de los
-siguientes modos:
+El modo de acceso puede ser cualquier combinación lógica de los siguientes modos:
 
-=====================   =========   =======================================
-Modo de accceso         Operador    Descripción
-=====================   =========   =======================================
-Lectura (``read``)      ``r``       Abre el archivo en modo lectura. El archivo tiene que existir
+=====================   ============   =======================================
+**Modo de accceso**     **Operador**    **Descripción**
+=====================   ============   =======================================
+Lectura (``read``)      ``r``           Abre el archivo en modo lectura. El archivo tiene que existir
 
-                                    previamente, en caso contrario se lanzará una excepción de tipo
+                                        previamente, en caso contrario se lanzará una excepción de tipo
 
-                                    ``IOError``
+                                        ``IOError``
 
-Escritura (``write``)   ``w``       Abre el archivo en modo escritura. Si el archivo no existe se
+Escritura (``write``)   ``w``           Abre el archivo en modo escritura. Si el archivo no existe se
 
-                                    crea. Si existe, sobreescribe el contenido.
+                                        crea. Si existe, sobreescribe el contenido.
 
-Añadir (``append``)     ``a``       Abre el archivo en modo escritura. Se diferencia del modo ``w``
+Añadir (``append``)     ``a``           Abre el archivo en modo escritura. Se diferencia del modo ``w``
 
-                                    en que en este caso no se sobreescribe el contenido del archivo,
+                                        en que en este caso no se sobreescribe el contenido del archivo,
 
-                                    sino que se comienza a escribir al final del archivo.
-=====================   =========   =======================================
+                                        sino que se comienza a escribir al final del archivo.
+=====================   ============   =======================================
 
 .. code-block:: python
 
     >>> f = open("archivo.txt", "w")
 
-Tras crear el objeto que representa un archivo mediante la función open
+Tras crear el objeto que representa un archivo mediante la método ``open``
 se podrán realizar las operaciones de lectura/escritura pertinentes
 utilizando los métodos del objeto que se verán a continuación.
 
-Finalizada su utilización, se deberá cerrar el archivo con el método
-close.
+.. important::  Finalizada su utilización, se deberá cerrar el archivo con el método ``close``.
 
 Lectura de ficheros
 ~~~~~~~~~~~~~~~~~~~
 
-Para la lectura de archivos se utilizan los métodos read, readline y
-readlines.
+Para la lectura de archivos se utilizan los métodos ``read``, ``readline`` y
+``readlines``.
 
-El método read devuelve una cadena con el contenido del archivo o bien
-el contenido de los primeros n bytes, si se especifica el tamaño máximo
+El método ``read`` devuelve una cadena con el contenido del archivo o bien
+el contenido de los primeros ``n`` bytes, si se especifica el tamaño máximo
 a leer.
 
 .. code-block:: python
@@ -2262,16 +2356,20 @@ a leer.
    >>> parte = f.read(512)
 
 El método ``readline`` sirve para leer las líneas del fichero una por una.
-Es decir, cada vez que se llama a este método, se devuelve el conteni­do
+Es decir, cada vez que se llama a este método, se devuelve el contenido
 del archivo desde el puntero hasta que se encuentra un carácter de nueva
 línea, incluyendo este carácter.
 
-.. code-block:: python
+.. TODO probar este código
 
-   >>> while True:
-   linea = f.readline()
-   if not linea: break
-   print(linea)
+.. code-block:: python
+    :linenos:
+
+        while True:
+            linea = f.readline()
+            if not linea:
+                break
+            print(linea)
 
 Por último, ``readlines``, funciona leyendo todas las líneas del archivo y
 devolviendo una lista con las líneas leídas.
@@ -2293,7 +2391,7 @@ lectura/escritura a una posición determinada del archivo. Por ejemplo si
 queremos empezar a escribir en una posición determinada y no al final o
 al principio del archivo.
 
-Para esto se utiliza el método seek que toma como parámetro un número
+Para esto se utiliza el método ``seek`` que toma como parámetro un número
 positivo o negativo a utilizar como desplazamiento. También es posible
 utilizar un segundo parámetro para indicar desde dónde queremos que se
 haga el desplazamiento: ``0`` indicará que el desplazamiento se refiere al
@@ -2352,10 +2450,10 @@ sólo que los espacios se añadirán a la derecha de la cadena.
 
 .. code-block:: python
 
-   >>> print("%10s mundo") % "Hola"
+   >>> print("%10s mundo" % "Hola")
    ______Hola mundo
 
-   >>> print("%-10s mundo") % "Hola"
+   >>> print("%-10s mundo" % "Hola")
    Hola_______mundo
 
 En el caso de los reales es posible indicar la precisión a utilizar
@@ -2373,15 +2471,16 @@ caracteres de la cadena que queremos mostrar
 
 .. code-block:: python
 
-   >>> print("%.4s") % "hola mundo"
-
-   Hola
+   >>> print("%.4s" % "hola mundo")
+   hola
 
 Ejemplo de aplicación
 ~~~~~~~~~~~~~~~~~~~~~
+.. TODO: mejorar este ejemplo con el ejemplo del py
+
 .. code-block:: python
 
-    bj_file_results = open(**"C:/TemporalC/archivo.txt"**, **"w"**)
+    obj_file_results = open("C:/TemporalC/archivo.txt", "w")
     num_pto = 1
     coor_x = 720487.27
     coor_y = 4367654.23
