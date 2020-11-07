@@ -27,8 +27,7 @@ author = 'Damián Ortega Terol'
 # built documents.
 # The short X.Y version.
 version = 'testing'
-# release = '0.0.1'
-
+release = '202011.0'
 
 # -- General configuration ---------------------------------------------------
 
@@ -38,7 +37,10 @@ version = 'testing'
 # ones.
 extensions = ['sphinx.ext.todo',
               'sphinx.ext.autodoc',
-              'sphinx.ext.githubpages']
+              'sphinx.ext.githubpages',
+              'rst2pdf.pdfbuilder']
+
+pdf_documents = [('index', u'rst2pdf', u'Sample rst2pdf doc', u'Damian'),]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -47,7 +49,6 @@ templates_path = ['_templates']
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
-
 
 # -- Options for HTML output -------------------------------------------------
 

@@ -1,9 +1,8 @@
-===========================
-Documentación de referencia
-===========================
+=======================================
+Apuntes Lenguaje de programación Python
+=======================================
 
 .. toctree::
-    :maxdepth: 2
-
+    :maxdepth: 5
 
     python

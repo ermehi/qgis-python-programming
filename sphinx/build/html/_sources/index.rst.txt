@@ -7,19 +7,16 @@ Welcome to QGIS Python Programming Recipes's documentation!
 ===========================================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 5
+   :caption: Contenidos:
 
    summary
    Documentación de referencia <documentation/index>
+   Apuntes lenguaje de programación Python <python/index>
    Extensión de la funcionalidad de QGIS mediante plugins <plugins_intro/index>
    Descripción de las APIs de QGIS: API C++ y API Python <apis/index>
    Configuración de QGIS y PyCharm para el desarrollo de plugins <pycharm/index>
-   Introducción a Python <python/index>
    Desarrollo de complementos en QGIS <plugins_dev/index>
-
-
-
 
 Indices and tables
 ==================
