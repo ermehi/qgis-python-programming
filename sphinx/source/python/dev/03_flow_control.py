@@ -1,6 +1,15 @@
 numero = int(input("Dame un número entero: "))
 if numero < 0:
     print("Negativo")
+else:
+    if numero > 0:
+        print("Positivo")
+    else:
+        print("Cero")
+
+numero = int(input("Dame un número entero: "))
+if numero < 0:
+    print("Negativo")
 elif numero > 0:
     print("Positivo")
 else:

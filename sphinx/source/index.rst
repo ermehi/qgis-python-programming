@@ -7,6 +7,7 @@ Welcome to QGIS Python Programming Recipes's documentation!
 ===========================================================
 
 .. toctree::
+   :numbered:
    :maxdepth: 5
    :caption: Contenidos:
 
@@ -22,5 +23,4 @@ Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`

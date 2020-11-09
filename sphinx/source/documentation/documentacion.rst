@@ -175,7 +175,7 @@ En este caso se recomiendan los siguientes: [#]_, [#]_
 
   .. [#]    **G. Sherman**, *The PyQGIS Programmer’s Guide: Extending QGIS 3 with Python 3* (Locate Press, **2018**)
 
-  .. [#]    **T. Mitchell**, Geospatial Power Tools: *GDAL Raster & Vector Commands*; (Locate Press, Chugiak, AK, **2014**)
+  .. [#]    **T. Mitchell**, *Geospatial Power Tools: GDAL Raster & Vector Commands*; (Locate Press, Chugiak, AK, **2014**)
 
   .. [#]    **S. Islam, S. Miles, G. Menke, G. Smith, L. Pirelli, G. Van Hoesen, and  an O. M. C. Safari**,
             *Mastering Geospatial Development with QGIS 3.x - Third Edition* (Packt Publishing, **2019**)

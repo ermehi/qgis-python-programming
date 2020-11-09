@@ -1,176 +1,13 @@
 Parte I: Introduccion a Python
 ===============================================
-En este capítulo se facilita una introducción de conceptos y descripciones del lenguaje de programación Python a modo de
-recordatorio.
-
-Recursos específicos del lenguaje de programación Python
---------------------------------------------------------
-La redacción de estos apuntes sobre Python está basada fundamentalmente en los recursos disponibles del
-tutorial `"Python para todos" <http://mundogeek.net/tutorial-python/>`__
-[#]_, mejorados y ampliados con otros recursos consultados de la
-bibliografía recomendada ([#]_, [#]_, [#]_, [#]_), adaptando sus contenidos al objeto de este tutorial.
-
-  .. [#]    **R. González Duque**, *Python Para Todos* (**2008**)
-  .. [#]    **G. Sherman**, *The PyQGIS Programmer’s Guide: Extending QGIS 3 with Python 3* (Locate Press, **2018**).
-  .. [#]    **P. Gerrard**, *Lean Python: Learn Just Enough Python to Build Useful Tools* (Springer Science+Business Media, New York, NY, **2016**)
-  .. [#]    **G. Walters**, *The Python Quick Syntax Reference* (Apress, California, **2014**)
-  .. [#]    **Mohit and B. N. Das**, *Learn Python in 7 Days: Get up-and-Running with Python* **2017**)
-
-Para ampliar conocimientos sobre este lenguaje se recomienda los siguientes recursos disponibles en línea:
-
-* `Python Software Foundation <https://www.python.org/>`_:
-  Sitio Web oficial de Python.
-* `Documentación oficial Python <https://www.python.org/doc/>`_:
-  Documentación oficial de *Python Software Foundation*.
-* `Python Online Tutorial <https://docs.python.org/3.7/tutorial/index.html>`_:
-  Tutorial de Python de *Python Software Foundation*.
-* `Python para todos <http://mundogeek.net/tutorial-python/>`_:
-  Incluye un completo manual en pdf y tres interesantes guías: Guía de estilo del Python,
-  Modismos y anti-modismos en Python y Programa con un Pythonista: Python Idiomático.
-* `A byte of Python <https://python.swaroopch.com/>`_:
-  Se trata de un libro gratuito sobre programación utilizando el lenguaje Python que sirve como tutorial o
-  guía del lenguaje Python para una audiencia principiante. Se puede descargar una versión en formato pdf o epub desde
-  su `página de GitHub <https://github.com/swaroopch/byte-of-python/releases/tag/vde52c915f03bef21f3cd9f6b3f0dd1b4e2810e6f>`_.
-* `Python 101! <https://python101.pythonlibrary.org/index.html>`_:
-  La audiencia de este libro son principalmente personas que han programado en el pasado pero que quieren aprender Python.
-  Esta organizado en 5 parte que abarcan desde nivel principiante a nivel intermedio.
-* `Python Notes for Professionals book <http://goalkicker.com/PythonBook/>`_:
-  Completo libro con más de 800 páginas descargable en formato pdf.
-* `PyVideo.org <https://pyvideo.org/>`_:
-  índice de recursos de libre disposición para aprender el lenguaje de programación Python.
-* `Python para principiantes <https://uniwebsidad.com/libros/python?from=librosweb>`_:
-  Manual en castellano escrito por Eugenia Bahit
-* `diveintopython <http://es.diveintopython.net/toc.html>`_:
-  Tutorial de Python para programadores con experiencia recomendado en (Sherman 2014).
-* `Programación en Python - Nivel básico Covantec <http://entrenamiento-python-basico.readthedocs.io/es/latest/>`_:
-  Materiales del curso de Programación en Python - Nivel básico realizado por la empresa `Covantec R.L <https://github.com/Covantec>`_.
-* `Materiales curso sencillo de iniciación a Python <http://www.mclibre.org/consultar/python/>`_:
-  Estos apuntes del Curso de iniciación a la programación en Python se impartieron en la segunda mitad
-  del curso 2019/2020 en el módulo Lenguaje de Marcas y Sistemas de Gestión de la Información
-  del ciclo formativo Administración de Sistemas Informáticos en Red (ASIR) en el IES Abastos de Valencia (España).
-
-* `Recursos de Python en Español <http://python-esp.blogspot.com/2013/11/recursos-python-en-espanol.html>`_:
-
-
-Caraterísticas principales de Python
-------------------------------------
-
-Python es un lenguaje de programación creado por Guido van Rossum a
-principios de los años 90 cuyo nombre está inspirado en el grupo de
-cómicos ingleses "*Monty Python*" con una sintaxis muy limpia, que
-favorece un código legible. Está administrado por la `Python Software
-Foundation <https://www.python.org/psf/>`__ y se distribuye bajo la
-licencia compatible con GPS denominada `Python Software Foundation
-License <https://docs.python.org/3/license.html>`__. A continuación se
-describen sus principales características:
-
-.. TODO leer esto https://miriadax.net/web/programa-avanzado-en-python/inicio
-.. TODO sobre la importancia de Python. Noticias de prensa
-.. TODOC https://www.emprendedores.es/formacion-cursos-emprendedores-talleres/tokio-school-python-programacion-covid/
-.. TODOC https://computerhoy.com/noticias/tecnologia/microscopio-raspberry-pi-python-661923
-
-*   Interpretado o de *script*:
-    Un lenguaje interpretado o de script es aquel que se ejecuta utilizando un
-    programa intermedio llamado intérprete, que traduce el código instrucción
-    por instrucción a medida que lo va ejecutando, en lugar de compilar el
-    código a lenguaje máquina que pueda comprender y ejecutar directamente
-    una computadora (lenguajes compilados). Esto proporciona ventajas como
-    la rapidez de desarrollo e inconvenientes como una menor velocidad
-    de ejecución.
-    En Python, la primera vez que se ejecuta un script se compila, traduciendo
-    el código fuente a pseudocódigo máquina intermedio llamado *bytecode*,
-    generando archivos ``.pyc``, que son los que se ejecutarán en sucesivas
-    ocasiones.
-
-*   Con tipado dinámico:
-    No es necesario declarar el tipo de dato que va a contener una determinada
-    variable, sino que su tipo se determinará en tiempo de ejecución según
-    el tipo del valor al que se asigne, y el tipo de esta variable puede
-    cambiar si se le asigna un valor de otro tipo.
-
-*   Organizado y extensible:
-    Dispone de múltiples formas de organizar código tales como funciones,
-    clases, módulos, y paquetes.
-    Si hay áreas que son lentas se pueden reemplazar por plugins en C o C++,
-    siguiendo la API para extender o empotrar Python en una aplicación.
-
-*   Fuertemente tipado:
-    No se permite tratar a una variable como si fuera de un tipo
-    distinto al que tiene, es necesario convertir de forma explícita
-    dicha variable al nuevo tipo previamente.
-
-*   Multiplataforma:
-    El intérprete de Python está disponible en multitud de
-    plataformas, aunque originalmente se desarrolló para Unix.
-
-*   Orientado a objetos:
-    La orientación a objetos es un paradigma de programación en el que los
-    conceptos del mundo real relevantes para nuestro problema se trasladan
-    a clases y objetos en nuestro programa. Esto facilita el desarrollo de
-    programas con componentes reutilizables.
-
-*   Propósito general:
-    Se pueden crear todo tipo de programas. No es un lenguaje creado
-    específicamente para la web o para un tipo de desarrollo concreto.
-
-*   Interactivo:
-    Dispone de un intérprete por línea de comandos en el que se pueden
-    introducir sentencias. Cada sentencia se ejecuta y produce un resultado
-    visible, que puede ayudarnos a entender mejor el lenguaje y probar los
-    resultados de la ejecución de porciones de código rápidamente
-
-Otras **ventajas** de este lenguaje son su sintaxis simple, clara y
-sencilla, el gestor de memoria, la gran cantidad de
-librerías disponibles y la potencia del lenguaje, entre otros, que hacen
-que desarrollar una aplicación en Python sea sencillo, muy rápido y, lo
-que es más importante, divertido.
-
-La sintaxis de Python es tan sencilla y cercana al lenguaje natural que
-los programas elaborados en Python parecen pseudocódigo. Por este motivo
-se trata además de uno de los mejores lenguajes para aprender a
-programar.
-
-Python no es adecuado sin embargo para la programación de bajo nivel o
-para aplicaciones en las que el rendimiento sea crítico.
-
-Respecto a las **herramientas básicas** del entorno de desarrollo,
-existen dos formas de ejecutar código Python: se pueden escribir líneas
-de código en el intérprete y obtener una respuesta del intérprete para
-cada línea (sesión interactiva) o bien se puede escribir el código de un
-programa en un archivo de texto (extensión ``.py``) y ejecutarlo. En uno y
-otro caso, se utilizarán en este tutorial la consola de Python de QGIS y la
-IDE PyCharm versión *Community Edition*.
-
-Otro aspecto característico de Python es el concepto de **indentación**,
-característica singular de este lenguaje. La sangría no solo hace que el
-código de Python sea legible, sino que también distingue cada bloque de
-código del otro. Es muy común utilizar una indentación de 4 espacios.
-
-.. TODO: cambiar version
-
-Finalmente es necesario reseñar que la **versión** del intérprete de
-**Python** utilizada para documentar esta sección es la distribuida por
-el propio instalador de QGIS en la siguiente ruta :file:`C:/Program Files/QGIS 3.10/bin`.
-
-Para comprobar la versión de QGIS que se está utilizando:
-
-.. code-block:: python
-    :emphasize-lines: 2
-    :linenos:
-
-    >>> import sys
-    >>> sys.version
-    '3.7.7 (default, Mar 23 2020, 23:19:08) [MSC v.1916 64 bit (AMD64)]'
-
-.. TODO comentar versiones de qgis vs. python
-
-.. note::   Uno de los grandes cambios del paso de versión de QGIS 2.x a 3.x
-            es el paso de la versión de Python 2.x a 3.x. http://qgis.org/api/api_break.html
+Existen numerosos :ref:`recursos disponibles<recursos disponibles>`
+en línea para el aprendizaje del lenguaje de programación Python.
+En este sección se facilita una introducción de conceptos y descripciones
+enfocados a la extensión de funcionalidades de QGIS haciendo uso de este lenguaje de programación.
 
 Uso de Python en GIS
 --------------------
-
-.. TODO Completar con `The Use of Python in GIS <https://www.gislounge.com/use-python-gis/>`_:
+.. SEE Otras referencias `The Use of Python in GIS <https://www.gislounge.com/use-python-gis>`_:
 .. y con * `Python and GIS Resources <https://www.gislounge.com/python-and-gis-resources/>`_:
 
 El lenguaje Python se ha convertido en el estándar *de facto* para la
@@ -215,6 +52,184 @@ utilizadas en aplicaciones implementadas en código Python. Esta técnica
 presenta la ventaja de se puede mezclar código compilado en C++ y código
 de Python que se compila en tiempo de ejecución.
 
+.. _recursos disponibles:
+
+Recursos para el aprendizaje del lenguaje de programación Python
+----------------------------------------------------------------
+La redacción de estos apuntes sobre Python 3 está basada principalmente en los recursos disponibles del
+tutorial "Python para todos" [#]_, mejorados y ampliados con otros recursos consultados de la
+bibliografía recomendada ([#]_, [#]_, [#]_) y otros disponibles en línea,
+adaptando sus contenidos al objeto de este tutorial.
+
+  .. [#]    **R. González Duque**, *Python Para Todos* (**2008**)
+  .. [#]    **G. Sherman**, *The PyQGIS Programmer’s Guide: Extending QGIS 3 with Python 3* (Locate Press, **2018**).
+  .. [#]    **P. Gerrard**, *Lean Python: Learn Just Enough Python to Build Useful Tools* (Springer Science+Business Media, New York, NY, **2016**)
+  .. [#]    **Mohit and B. N. Das**, *Learn Python in 7 Days: Get up-and-Running with Python* **2017**)
+
+Para ampliar conocimientos sobre este lenguaje se recomiendan los siguientes recursos disponibles *en línea*:
+
+.. TODOC: más recursos aquí
+.. Listado de otros recursos en castellano https://argentinaenpython.com/quiero-aprender-python/
+.. Listado de recursos en inglés   https://docs.python-guide.org/intro/learning/
+.. a section from The Hitchhiker’s Guide to Python (a very good and complete list of resources)  https://docs.python-guide.org/
+
+Recursos en línea en castellano
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* `Tutorial oficial <https://docs.python.org/es/3.7/tutorial>`_ de Python versión 3.7 en castellano dentro
+  de la `documentación oficial <https://docs.python.org/es/3.7/>`_ de la
+  `Python Software Foundation <https://www.python.org/>`_ (PSF).
+* `Introducción a la programación en Python 3 <http://repositori.uji.es/xmlui/handle/10234/102653?locale-attribute=es>`_:
+  Completo manual de la Universitat Jaume I de Castellón.
+* `Solución de problemas con algoritmos y estructuras de datos usando Python <https://runestone.academy/runestone/static/pythoned/index.html>`_:
+  Traducción de Mauricio Orozco-Alzate del libro de Brad Miller y David Ranum.
+* `Python para principiantes <https://uniwebsidad.com/libros/python?from=librosweb>`_:
+  Manual en castellano escrito por Eugenia Bahit
+* `Python para impacientes <https://python-para-impacientes.blogspot.com/p/indice.html>`_:
+  Recomendado para programadores con conocimientos.
+* `Programación en Python - Nivel básico Covantec <http://entrenamiento-python-basico.readthedocs.io/es/latest/>`_:
+  Materiales del curso de Programación en Python - Nivel básico realizado por la empresa `Covantec R.L <https://github.com/Covantec>`_.
+* `Materiales curso sencillo de iniciación a Python <http://www.mclibre.org/consultar/python/>`_:
+  Estos apuntes del Curso de iniciación a la programación en Python se impartieron en la segunda mitad
+  del curso 2019/2020 en el módulo Lenguaje de Marcas y Sistemas de Gestión de la Información
+  del ciclo formativo Administración de Sistemas Informáticos en Red (ASIR) en el IES Abastos de Valencia (España).
+
+Recursos en línea en otros idiomas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* `A byte of Python <https://python.swaroopch.com/>`_:
+  Se trata de un libro gratuito sobre programación utilizando el lenguaje Python que sirve como tutorial o
+  guía del lenguaje Python para una audiencia principiante. Se puede descargar una versión en formato pdf o epub desde
+  su `página de GitHub <https://github.com/swaroopch/byte-of-python/releases/tag/vde52c915f03bef21f3cd9f6b3f0dd1b4e2810e6f>`_.
+* `Python 101! <https://python101.pythonlibrary.org/index.html>`_:
+  La audiencia de este libro son principalmente personas que han programado en el pasado pero que quieren aprender Python.
+  Esta organizado en 5 partes que abarcan desde nivel principiante a nivel intermedio.
+* `Python Notes for Professionals book <http://goalkicker.com/PythonBook/>`_:
+  Completo libro con más de 800 páginas descargable en formato pdf.
+* `Dive Into Python 3 <https://diveintopython3.problemsolving.io>`_:
+  Tutorial de Mark Pilgrim para programadores con experiencia.
+* `Python for Everybody <https://books.trinket.io/pfe/>`_:
+  Introducción a los conceptos básicos de Python 3 con énfasis en el uso práctico por Charles Severance (Dr. Chuck).
+* `PyVideo.org <https://pyvideo.org/>`_:
+  Índice de recursos de libre disposición para aprender el lenguaje de programación Python.
+
+Caraterísticas principales de Python
+------------------------------------
+
+Python es un lenguaje de programación de de alto nivel y de propósito general muy poderoso y flexible,
+a la vez que sencillo y fácil de aprender. Fue creado por Guido van Rossum
+en los Países Bajos a principios de los años 90 y su nombre está inspirado en el grupo de
+cómicos ingleses "*Monty Python*".
+Está administrado por la `Python Software Foundation <https://www.python.org/psf/>`__, todas sus versiones
+son de `código abierto <https://docs.python.org/3/license.html>`__,
+se distribuye bajo la licencia compatible con `GNU General Public License <ttps://www.gnu.org/licenses/gpl-3.0.html>`__
+denominada `Python Software Foundation License <https://docs.python.org/3/license.html>`__
+y está implementado en todas las plataformas y sistemas operativos habituales.
+
+A continuación se describen sus principales características:
+
+.. TODO Noticias de prensa
+.. TODOC https://www.emprendedores.es/formacion-cursos-emprendedores-talleres/tokio-school-python-programacion-covid/
+.. https://computerhoy.com/noticias/tecnologia/microscopio-raspberry-pi-python-661923
+
+*   **Propósito general**:
+    Se pueden crear todo tipo de programas. No es un lenguaje creado
+    específicamente para la Web o para un tipo de desarrollo concreto.
+
+*   **Multiplataforma**:
+    El intérprete de Python está disponible en multitud de
+    plataformas, aunque originalmente se desarrolló para Unix.
+
+*   **Interpretado o de script**:
+    Se ejecuta utilizando un
+    programa intermedio llamado intérprete, que traduce el código instrucción
+    por instrucción a medida que lo va ejecutando, en lugar de compilar el
+    código a código máquina que pueda comprender y ejecutar directamente
+    una computadora (lenguajes compilados). Esto proporciona ventajas como
+    la rapidez de desarrollo e inconvenientes como una menor velocidad
+    de ejecución.
+    En Python, la primera vez que se ejecuta un *script* se compila, traduciendo
+    el código fuente a pseudocódigo máquina intermedio llamado *bytecode*,
+    generando archivos ``.pyc``, que son los que se ejecutarán en sucesivas
+    ocasiones.
+
+*   **Con tipado dinámico**:
+    No es necesario declarar el tipo de dato que va a contener una determinada
+    variable, sino que su tipo se determinará en tiempo de ejecución según
+    el tipo del valor al que se asigne, y el tipo de esta variable puede
+    cambiar si se le asigna un valor de otro tipo.
+
+*   **Organizado y extensible**:
+    Dispone de múltiples formas de organizar código tales como funciones,
+    clases, módulos, y paquetes.
+    Si hay áreas que son lentas se pueden reemplazar por plugins en C o C++,
+    siguiendo la API para extender Python en una aplicación.
+
+*   **Fuertemente tipado**:
+    No se permite tratar a una variable como si fuera de un tipo
+    distinto al que tiene, es necesario convertir de forma explícita
+    dicha variable al nuevo tipo previamente.
+
+*   **Orientado a objetos**:
+    La orientación a objetos es un paradigma de programación en el que los
+    conceptos del mundo real relevantes para nuestro problema se trasladan
+    a clases y objetos en nuestro programa. Esto facilita el desarrollo de
+    programas con componentes reutilizables.
+
+*   **Interactivo**:
+    Dispone de un intérprete por línea de comandos en el que se pueden
+    introducir sentencias. Cada sentencia se ejecuta y produce un resultado
+    visible, que puede ayudarnos a entender mejor el lenguaje y probar los
+    resultados de la ejecución de porciones de código rápidamente
+
+Otras **ventajas** de este lenguaje son su sintaxis simple, clara y
+sencilla, el gestor de memoria, la gran cantidad de
+librerías disponibles (más de 100.000 paquetes de librerías han sido compartidas por su comunidad de usuarios)
+y la potencia del lenguaje, entre otros, que hacen
+que desarrollar una aplicación en Python sea sencillo, muy rápido y, lo
+que es más importante, divertido.
+
+La sintaxis de Python es tan sencilla y cercana al lenguaje natural que
+los programas elaborados en Python parecen pseudocódigo. Por este motivo
+se trata además de uno de los mejores lenguajes para aprender a
+programar.
+
+Python no es adecuado sin embargo para la programación de bajo nivel o
+para aplicaciones en las que el rendimiento sea crítico.
+
+Respecto a las **herramientas básicas** del entorno de desarrollo,
+existen dos formas de ejecutar código Python: se pueden escribir líneas
+de código en el intérprete y obtener una respuesta del intérprete para
+cada línea (sesión interactiva) o bien se puede escribir el código de un
+programa en un archivo de texto (extensión ``.py``) y ejecutarlo. En uno y
+otro caso, se utilizarán en este tutorial la consola de Python de QGIS y el
+IDE PyCharm versión *Community Edition*.
+
+Otro aspecto característico de Python es el concepto de **indentación**,
+característica singular de este lenguaje. La sangría no solo hace que el
+código de Python sea legible, sino que también distingue cada bloque de
+código del otro. Es muy común utilizar una indentación de 4 espacios.
+
+Finalmente es necesario reseñar que la **versión** del intérprete de
+**Python** utilizada para documentar esta sección es la distribuida por
+el propio instalador de QGIS en la siguiente ruta :file:`C:/Program Files/QGIS 3.10/bin`.
+
+Para comprobar la versión de QGIS que se está utilizando:
+
+.. code-block:: python
+    :emphasize-lines: 2
+    :linenos:
+
+    >>> import sys
+    >>> sys.version
+    '3.7.7 (default, Mar 23 2020, 23:19:08) [MSC v.1916 64 bit (AMD64)]'
+
+.. note::   Uno de los grandes `cambios <http://qgis.org/api/api_break.html>`_
+            del paso de versión de QGIS 2.x a 3.x
+            es el paso de la versión de Python 2.x a 3.x.
+
+
+
 Variables
 ---------
 
@@ -249,12 +264,14 @@ La sintaxis para definir una variable en Python es la siguiente:
    >>> mi_variable
    1
 
+Definición de constantes
+~~~~~~~~~~~~~~~~~~~~~~~~
+
 Por el contrario, las **constantes** son un tipo particula de variable cuyo valor
 no se pueden alterar durante la ejecución de un programa.
 Se declaran usualmente en módulos a parte. Cada modulo es un archivo que
-se importa en el archivo principal. Las constantes son escritas (por
-convención) en letras mayúsculas y separadas por guión bajo, en caso que
-sean varias palabras. Por ejemplo:
+se importa en el archivo principal. Por convención las constantes son escritas
+en letras mayúsculas y separadas por guión bajo, en caso que sean varias palabras. Por ejemplo:
 
 .. code-block:: python
 
@@ -262,8 +279,12 @@ sean varias palabras. Por ejemplo:
 
 Tipos básicos de variables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+Los cuatro tipos de dato básicos de variables son el número entero (``int``),
+el número de coma flotante (``float``), la cadena de caracteres (``str``) y el booleano (``bool``).
+Sin embargo, Python incorpora un quinto tipo de dato que estrictamente hablando se llama ``NoneType``
+y cuyo único valor posible es ``None`` (pronunciado llanamente «nan»).
 
-En Python los tipos básicos de variables se dividen en:
+.. SEE https://recursospython.com/guias-y-manuales/el-tipo-de-dato-none/
 
 =========== =====================   =====================   ================================    =============   =============
 **Tipo**     **Descripción**        **Memoria utilizada**   **Rango**                           **Precisión**    **Ejemplo**
@@ -274,10 +295,6 @@ En Python los tipos básicos de variables se dividen en:
 ``bool``    Booleano                1 byte                  ``True`` / ``False``                No aplica       ``True``
 ``None``    Tipo especial
 =========== =====================   =====================   ================================    =============   =============
-
-.. note::   Aunque se definan de forma similar, para Python no es lo mismo un número entero,
-            un número decimal o una cadena ya que, por ejemplo, dos números se pueden multiplicar
-            pero dos cadenas no (curiosamente, una cadena sí que se puede multiplicar por un número).
 
 Por tanto, las siguientes definiciones de variables no son equivalentes:
 
@@ -314,15 +331,8 @@ Reales
 
 .. TODO ver el dominio de los reales en Python 3
 
-En Python se expresan mediante el tipo ``float``. Python implementa su tipo
-float a bajo nivel mediante una variable de tipo double de C, es decir,
-utilizando 64 bits, luego en Python siempre se utiliza doble precisión,
-y en concreto se sigue el estándar IEEE 754: 1 bit para el signo, 11
-para el exponente, y 52 para la mantisa. Esto significa que los valores
-que podemos representar van desde ±2,2250738585072020 x 10\ :sup:`-308`
-hasta ±1,7976931348623157×10\ :sup:`308`.
-
-Para representar un número real en Python se escribe primero la parte
+En Python se expresan mediante el tipo ``float``. Para representar un número real
+en Python se escribe primero la parte
 entera, seguido de un punto y por último la parte decimal.
 
 .. code-block:: python
@@ -384,8 +394,9 @@ Para operaciones más complejas se puede importar al módulo ``math``.
     :emphasize-lines: 1, 3
 
         >>> import math
+        >>> math.pi
         >>> radio = 2
-        >>> longitud_circunferencia = 2 + math.pi + radio
+        >>> longitud_circunferencia = 2 * math.pi * radio
         >>> longitud_circunferencia
         7.141592653589793
 
@@ -425,6 +436,24 @@ inicializados. Se puede acceder a cada carácter por su posición:
        >>> geom_wkt[0]
        'P'
 
+.. tip::    Antes de continuar con el desarrollo de este apartado,
+            se aporta un breve introducción a las funciones de entrada y salida
+            estándar en Python. Los programas serían de muy poca utilidad
+            si no fueran capaces de interaccionar con el usuario; en Python
+            las instrucciones que permite leer información de teclado y mostrar
+            información por pantalla son ``input`` y ``print``.
+
+            .. code-block:: python
+                :linenos:
+
+                    >>> edad = int(input('Introduzca su edad: '))  # entrada de entero
+                    >>> peso = float(input('Introduzca su peso: '))  # entrada de flotante
+                    >>> nombre = input('Introduzca su nombre: ')  # entrada de cadena
+                    >>> print(nombre, edad, 'años', peso, 'kg')  # muestra datos
+
+Caracteres especiales
+'''''''''''''''''''''
+
 Dentro de las comillas se pueden añadir caracteres especiales
 escapándolos con ``\\``:
 
@@ -437,6 +466,11 @@ escapándolos con ``\\``:
 ``\\'``         '
 ``\\"``         "
 ==========      ===============================
+
+.. code-block:: python
+
+    >>> print("Las cadenas son texto encerrado entre comillas simples (\')")
+    >>> print("... y también entre comillas dobles (\")")
 
 .. code-block:: python
 
@@ -771,8 +805,8 @@ código.
 Es posible utilizar triples comillas dobles (``"""``) o triples
 comillas simples (``'''``) para establecer comentarios en varias líneas,
 pero se recomienda no utilizar esta fórmula, ya que las triples comillas
-suelen utilizarse para crear la documentación de funciones, tal y cómo se verá más
-adelante.
+suelen utilizarse para crear la documentación de funciones,
+tal y cómo se verá más adelante.
 
 .. note::   Es posible utilizar triples comillas dobles (``"""``) o triples
             comillas simples (``'''``) para establecer comentarios en varias líneas,
@@ -784,7 +818,7 @@ adelante.
 Estructuras o colecciones de datos
 ----------------------------------
 
-En el apartado anterior se han definido las variables que permiten
+En la sección anterior se definieron las variables que permiten
 almacenar un único valor. En Python existen varias estructuras de datos
 (*data structures*) que permiten almacenar un conjunto de datos.
 
@@ -806,7 +840,7 @@ separados por comas ``,``, los valores que se quieren incluir en la lista:
 Se puede acceder a cada uno de los elementos de la lista escribiendo el
 nombre de la lista e indicando el índice del elemento entre corchetes.
 
-.. note:: El índice del primer elemento de la lista es 0 y no 1.
+.. important:: El índice del primer elemento de la lista es 0 y no 1.
 
 .. code-block:: python
     :emphasize-lines: 2
@@ -849,7 +883,9 @@ segundo para seleccionar el elemento de la lista interior:
             pero esto no deja de ser una interpretación.
 
 También se puede utilizar el operador ``[]`` para modificar un elemento de la
-lista si se coloca en la parte izquierda de una asignación:
+lista si se coloca en la parte izquierda de una asignación. Por tanto, los
+elementos de un lista pueden variar a lo largo de su ciclo de vida (son *mutables*).
+Por ejemplo:
 
 .. code-block:: python
     :emphasize-lines: 1
@@ -902,13 +938,14 @@ tercero se utiliza para determinar cada cuantas posiciones añadir un elemento a
        [22, 'PyQGIS']
 
 En todo caso las listas ofrecen mecanismos más cómodos para ser
-modificadas a través de las funciones de la clase correspondiente tal y como se detalla a continuación.
+modificadas a través de las funciones de la clase correspondiente tal y
+como se detalla a continuación.
 
 Métodos del objeto lista
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-En este apartado se facilita una tabla con la sintaxis de distintos
-métodos del objeto lista, aportando una descripción y un ejemplo de
+En este apartado se facilitan una serie de ejemplo con la sintaxis de distintos
+métodos útiles del objeto lista, aportando una descripción y un ejemplo de
 aplicación.
 
 .. code-block::
@@ -961,7 +998,6 @@ Inserta el objeto ``object`` en la posición ``index``
 
 Borra un elemento de la posición ``index`` de la lista.
 
-
 .. code-block:: python
     :emphasize-lines: 1
     :linenos:
@@ -970,6 +1006,15 @@ Borra un elemento de la posición ``index`` de la lista.
         >>> mi_lista
         [22, False, 3.141592, [1, 2]]
 
+También se puede consultar el número de elementos de una lista mediante el
+método ``len()``:
+
+.. code-block:: python
+    :emphasize-lines: 1
+    :linenos:
+
+        >>> len(mi_lista)
+        4
 
 Tuplas
 ~~~~~~
@@ -1217,6 +1262,8 @@ Control de flujo
 
 Sentencias condicionales
 ~~~~~~~~~~~~~~~~~~~~~~~~
+En las estructuras de control condicional se decide el camino a seguir dentro del
+flujo del programa a partir la evaluación de una expresión.
 
 Estructura condicional simple ``if``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1225,6 +1272,7 @@ La forma más simple de un estamento condicional es un ``if`` (del inglés si)
 seguido de la condición a evaluar, dos puntos (``:``) y en la siguiente
 línea e indentado, el código a ejecutar en caso de que se cumpla dicha
 condición.
+
 
 .. code-block:: python
     :emphasize-lines: 1
@@ -1280,10 +1328,29 @@ Ejemplo:
                                                    10)
                                                    return None
 
-``if`` … ``elif`` ... ``elif`` … ``else``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Estructura condicional múltiple ``if`` … ``elif`` ... ``elif`` … ``else``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Cuando tenemos más de dos opciones, Python proporciona dos formas de
+resolver la estructura condicional. De esta forma, para determinar el signo
+de un número introducido por pantalla, tenemos tres posibles opciones:
+que sea positivo, negativo o que sea cero. La primera forma de resolver el
+ejercicio propuesto sería la siguiente:
 
-``elif`` es una contracción de *else if*. Es decir, primero se evalúa la
+.. code-block:: python
+    :emphasize-lines: 2, 4, 5, 7
+    :linenos:
+
+        numero = int(input("Dame un número entero: "))
+        if numero < 0:
+            print("Negativo")
+        else:
+            if numero > 0:
+                print("Positivo")
+            else:
+                print("Cero")
+
+Otra forma de resolver el ejercicio es a través de ``elif`` que
+es una contracción de *else if*. Es decir, primero se evalúa la
 condición del ``if``. Si es cierta, se ejecuta su código y se continúa
 ejecutando el código posterior al condicional; si no se cumple, se
 evalúa la condición del ``elif``. Si se cumple la condición del ``elif`` se
@@ -1291,8 +1358,6 @@ ejecuta su código y se continúa ejecutando el código posterior al
 condicional; si no se cumple y hay más de un ``elif`` se continúa con el
 siguiente en orden de aparición. Si no se cumple la condición del ``if`` ni
 de ninguno de los ``elif``, se ejecuta el código del ``else``.
-
-
 
 .. code-block:: python
     :emphasize-lines: 2, 4, 6
@@ -1306,13 +1371,28 @@ de ninguno de los ``elif``, se ejecuta el código del ``else``.
         else:
             print("Cero")
 
-Bucles o estructuras repetitivas
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Bucles o estructuras repetitivas o iterativas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Mientras que los condicionales permiten ejecutar distintos fragmentos
 de código dependiendo de ciertas condiciones, los bucles permiten
 ejecutar un mismo fragmento de código un cierto número de veces,
 mientras se cumpla una determinada condición.
+Cada ejecución de las sentencias que se repiten se denomina iteración.
+Siempre ha de existir una condición de parada, es decir, hay que
+garantizar que en algún momento se darán las condiciones adecuadas
+para que el bucle pare. En caso contrario tendríamos un bucle
+infinito.
+
+Todo bucle contiene los siguientes elementos (aunque no necesariamente en ese orden):
+
++ Iniciación de las variables referentes al bucle.
++ Decisión/condición de finalización → continuar con el bucle o terminar.
++ Cuerpo del bucle: instrucciones que se repiten.
+
+En el cuerpo del bucle, necesariamente habrá alguna (o algunas)
+instrucciones que modifiquen las condiciones de la expresión a
+evaluar para poder permitir y asegurar la salida del bucle.
 
 Bucle indefinido: ``while``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1351,7 +1431,9 @@ Python proporciona una función llamada ``range`` (rango) que permite generar
 una lista al vuelo que va desde el primer número que se le indique al
 segundo, con un determinado paso. Su sintaxis es la siguiente:
 
-``range(start-value, end-value, difference between the values)``
+.. code-block::
+
+    range(start-value, end-value, difference between the values)
 
 Ejemplos de aplicación en el bucle ``for``:
 
@@ -1495,49 +1577,210 @@ Produce la siguiente salida:
                >>> class MyEmptyClass:
                     pass  # TODO: acuerdate de implementar esto
 
+.. tip::    Además de los IDEs existen otras opciones para implementar código desde un navegador Web.
+            `repl.it <https://repl.it>`_ es una plataforma ideal para programar y no es necesario
+            instalar ni pagar nada para utilizarla. En esta misma línea existen aplicaciones Web
+            que permiten a los usuarios subir pequeños textos, generalmente ejemplos de código fuente,
+            para que estén visibles al público en general. `Linkode <https://linkode.org>`_
+            es un ejemplo de *pastebin*.
+            *Existe una relación inversa entre las herramientas sofisticadas de programación
+            y dar el primer paso. En otras palabras, cuanto más sofisticadas son nuestras herramientas,
+            más complicado es ponerlas a funcionar*
+
+
 Funciones definidas por el usuario
 ----------------------------------
 
 Una **función** es un fragmento de código con un nombre asociado que
-realiza una serie de tareas y devuelve un valor. A los fragmentos de
-código que tienen un nombre asociado y no devuelven valores se les suele
-llamar **procedimientos**. En Python no existen los procedimientos, ya
-que cuando el programador no especifica un valor de retorno la función
-devuelve el valor ``None`` (nada).
+realiza una serie de tareas y devuelve un valor.
 
-.. tip::    Una buena práctica, indica que la finalidad de una función debe
-            ser realizar una única acción, reutilizable y por lo tanto, tan
+.. tip::    Una buena práctica en programación consiste en diseñar la finalidad de una función
+            para realizar una única acción, reutilizable y por tanto, tan
             genérica como sea posible.
 
-En Python las funciones se declaran con la palabra clave ``def`` seguida del
+Definición de funciones con un solo argumento
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+En Python las funciones se declaran con la palabra clave ``def``
+que es la abreviatura de *define* seguida del
 nombre de la función y entre paréntesis ``(`` ``)`` y los argumentos separados por
 comas. A continuación, en otra línea, indentado y después de los dos
 puntos ``:`` se tendrían las líneas de código que conforman el código a
-ejecutar por la función. También se puede introducir una cadena de texto
-como primera línea del cuerpo de la función denominada *docstring* (cadena
-de documentación), que es lo que imprime la función ``help`` de Python.
-
-.. code-block:: python
-
-    def mi_funcion(param1, param2):
-    """Esta funcion imprime los dos valores pasados como parametros"""
-        print(param1)
-        print(param2)
+ejecutar por la función.
 
 .. note::   Nos referiremos a *argumentos* y *parámetros* indistintamente en este tutorial.
             Por otro lado, en Python a las funciones de las clases se les denomina métodos.
 
-Es importante aclarar que al declarar la función lo único que hacemos es
+.. code-block:: python
+    :linenos:
+
+        def func(pass_argument):
+            """
+            Example function definition with a simple argument
+            :param pass_argument: string to print
+            :type pass_argument: str
+            :rtype: None
+            """
+            print(pass_argument)
+
+En el código anterior se puede introducir una cadena de texto (línea 2-6)
+como primeras líneas del cuerpo de la función denominada *docstring* (cadena
+de documentación), que es lo que imprime la función ``help`` de Python:
+
+.. code-block:: python
+
+    >>> help(func)
+    Help on function func in module __main__:
+    func(pass_argument)
+        Example function definition with a simple argument
+        :param pass_argument: string to print
+        :type pass_argument: str
+
+Denominamos activar, invocar o llamar a un función a la acción de usarla,
+ya que al declararla lo único que hacemos es
 asociar un nombre al fragmento de código que conforma la función. Para
 llamar (invocar) a la función (ejecutar su código) se escribiría el
 nombre de la función a la que se quiere llamar seguido de los valores
 que se quieran pasar como parámetros entre paréntesis.
 
-El número de valores que se pasan como parámetro al llamar a la función
-tiene que coincidir con el número de parámetros que la función acepta
-según la declaración de la función. En caso contrario Python emitirá la
-correspondiente excepción.
+.. code-block:: python
 
+        >>> str_argument = "Pass argument string"
+        >>> func(str_argument)  # calling a function
+        Pass argument string
+
+
+Definición y uso de funciones con varios argumentos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+No todas las funciones tienen un solo argumento. Se define ahora una función que imprime dos valores
+pasados como parámetros.
+
+.. code-block:: python
+    :linenos:
+
+        def mi_funcion(param1, param2):
+            """Esta funcion imprime los dos valores pasados como parametros"""
+            print(param1)
+            print(param2)
+
+.. code-block:: python
+
+    >>> mi_funcion("parámetro 1", "parámetro 2")
+    parámetro 1
+    parámetro 2
+
+.. error::  El número de valores que se pasan como parámetro al llamar a la función
+            tiene que coincidir con el número de parámetros que la función acepta
+            según la declaración de la función. En caso contrario Python emitirá la
+            correspondiente excepción.
+
+            .. code-block:: python
+
+                >>> mi_funcion("parámetro 1", "parámetro 2", "otro parámetro")
+                Traceback (most recent call last):
+                  File "<input>", line 1, in <module>
+                TypeError: mi_funcion() takes 2 positional arguments but 3 were given
+
+Al llamar una función, se le deben pasar sus argumentos en el mismo
+orden en el que los espera. Pero esto puede evitarse, haciendo uso del
+paso de argumentos como *keywords*.
+
+Definición y uso de funciones sin argumentos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Lo único que se debe tener presente en este caso es que es obligatorio
+utilizar paréntesis a continuación del identificador, tanto para al definir
+la función ...
+
+.. code-block:: python
+    :linenos:
+
+        def hello_world():
+            """
+            Example function definition without arguments
+            :rtype: None
+            """
+            print("You are in Hellow World" + "\n")
+
+...  como al invocarla.
+
+.. code-block:: python
+
+        >>> my_var = hello_world()  # calling a function
+        You are in Hellow World
+
+En Python no existen los procedimientos como tales, ya
+que cuando el programador no especifica un valor de retorno la función
+devuelve el valor ``None`` (nada).
+¿Y para qué sirve una función que no devuelve nada? Bueno, puede, por ejemplo,
+mostrar mensajes o resultados por pantalla.
+
+A los fragmentos de código que tienen un nombre asociado y
+no devuelven valores se les suele llamar **procedimientos**.
+
+.. code-block:: python
+
+        >>> print("Return value function: " + str(type(my_var)))
+        Return value function: <class 'NoneType'>
+
+Definición de funciones con devolución de valores
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+En el siguiente ejemplo se incorpora en el código del cuerpo de la función
+la palabra reservada ``return``, para devolver el valor de la función.
+
+.. code-block:: python
+    :emphasize-lines: 12
+    :linenos:
+
+        def sum(a, b):
+            """
+            sum of two numbers
+            :param a: first operant
+            :type a: int or long or float
+            :param b: second operant
+            :type b: int or long or float
+            :return: suma
+            :rtype: int or long or float
+            """
+            c = a + b
+            return c
+
+A continuación se invoca la función en línea imprimiendo el resultado.
+
+.. code-block:: python
+    :linenos:
+    :emphasize-lines: 3
+
+        >>> x = 10
+        >>> y = 50
+        >>> print("Result of addition " + str(x) + " + " + str(y) + " = " + str(sum(x, y)))
+        Result of addition 10 + 50 = 60
+
+También se podrían pasar varios valores que retornar a ``return``.
+
+.. note::   Sin embargo esto no quiere decir que las funciones Python puedan devolver
+            varios valores, lo que ocurre en realidad es que Python crea una tupla
+            al vuelo cuyos elementos son los valores a retornar, y esta única
+            variable es la que se devuelve:
+
+.. code-block:: python
+    :linenos:
+
+        def f(x, y):
+            return x * 2, y * 2
+
+El resultado de la ejecución de este programa sería:
+
+.. code-block:: python
+
+        >>> a, b = f(1, 2)
+        >>> print(a, b)
+        2 4
+
+Funciones con argumentos por defecto
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Los valores opcionales o por defecto o por omisión de los parámetros se
 definen situando un signo igual después del nombre del parámetro y a
 continuación el valor por defecto:
@@ -1547,12 +1790,62 @@ continuación el valor por defecto:
     >>> def imprimir(texto, veces = 1):
             print(veces * texto)
 
-Al llamar una función, se le deben pasar sus argumentos en el mismo
-orden en el que los espera. Pero esto puede evitarse, haciendo uso del
-paso de argumentos como *keywords*.
+La llamada a la función imprimir sin especificación del parámetro muestra por
+pantalla el siguiente resultado:
+
+.. code-block:: python
+
+    >>> imprimir("PyQGIS")
+    PyQGIS
+
+Especificando 3 veces el número de repeticiones obtenemos el siguiente resultado:
+
+.. code-block:: python
+
+    >>> imprimir("PyQGIS", 3)
+    PyQGISPyQGISPyQGIS
+
+Funciones con argumentos de longitud variable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Finalmente, también es posible definir una función con un número
+variable de parámetros.
+
+.. code-block:: python
+    :emphasize-lines: 2, 9
+    :linenos:
+
+        def print_variable_argument(convencional_argument,
+                                    *variable_argument):
+            """
+            Example function with variable lenght argument
+            :param convencional_argument: conventional argument
+            :param variable_argument: variable argument
+            """
+            str_msg = "Convencional argument: " + str(convencional_argument) + ", Variable arguments: "
+            for var in variable_argument :
+                str_msg += str(var) + ", "
+            print(str_msg)
+
+A continuación se muestran los resultados de la llamada a la función
+definida sin y con argumentos de longitud variable.
+
+.. code-block:: python
+
+        >>> print_variable_argument(60)
+        Convencional argument: 60, Variable arguments:
+        >>> print_variable_argument(100,90,40,60)
+        Convencional argument: 100, Variable arguments: 90, 40, 60,
+
+.. TODO: Bien explicado en D:\FORMA_DOCS\12_INFORMATICA\11_PYTHON\01_courses\201510_IGN_Cleoformacion
 
 Paso de variables por referencia o por valor
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+En el cuerpo de las funciones es posible definir y usar variables. Vamos a
+estudiar con detenimiento algunas propiedades de las variables definidas en el cuerpo de una
+función y en qué se diferencian de las variables que definimos fuera de cualquier función, es
+decir, en el denominado programa principal.
 
 En el paso *por referencia* lo que se pasa como argumento es una
 referencia o puntero a la variable, es decir, la dirección de memoria en
@@ -1576,65 +1869,105 @@ referencia, y los inmutables como paso por valor:
             print(x, y)
 
 .. code-block:: python
-    :linenos:
 
-        x = 22
-        y = [22]
-        f(x, y)
-        print(x, y)
+        >>> x = 22
+        >>> y = [22]
+        >>> f(x, y)
+        25 [22, 23]
+        >>> print(x, y)
+        22 [22, 23]
 
-El resultado de la ejecución de este programa sería:
-
-.. code-block::
-
-   25 [22, 23]
-   22 [22, 23]
-
-Para devolver valores se utiliza la palabra reservada ``return``
+Vemos a continuación más ejemplos de argumentos por referencia vs. pasos por valor
 
 .. code-block:: python
     :linenos:
 
-        def sumar(x, y):
-            return x + y
+        def fun(a):
+            a = a + 9000
+            print("var value inside the function: ", a)
 
-        print(sumar(3, 2))
+.. code-block:: python
 
-El resultado de la ejecución de este programa sería ``5``.
-
-También se podrían pasar varios valores que retornar a ``return``.
-
-.. note::   Sin embargo esto no quiere decir que las funciones Python puedan devolver
-            varios valores, lo que ocurre en realidad es que Python crea una tupla
-            al vuelo cuyos elementos son los valores a retornar, y esta única
-            variable es la que se devuelve:
+        >>> a = 1
+        >>> fun(a)
+        var value inside the function:  9001
+        >>> print("var value outside the function: ", a)
+        var value outside the function:  1
 
 .. code-block:: python
     :linenos:
 
-        def f(x, y):
-            return x * 2, y * 2
+        def pass_ref(list1):
+            """
+            Example 2 pass by reference versus pass by value
+            :param a: lista a imprimir
+            :type a: list
+            """
+            list1.extend([23,89])
+            print("List inside the function: ", list1)
 
-        a, b = f(1, 2)
-        print(a, b)
+.. code-block:: python
 
-El resultado de la ejecución de este programa sería:
+        >>> list1 = [12, 67, 90]
+        >>> print("List before pass: ", list1)
+        List before pass:  [12, 67, 90]
+        >>> pass_ref(list1)
+        List inside the function:  [12, 67, 90, 23, 89]
+        >>> print("List outside the function: ", list1)
+        List outside the function:  [12, 67, 90, 23, 89]
 
-.. code-block::
 
-    2 4
+Ámbito de las varibles: variables locales y globales
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Parámetros arbitrarios
-~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: python
+    :linenos:
 
-.. TODO: Bien explicado en D:\FORMA_DOCS\12_INFORMATICA\11_PYTHON\01_courses\201510_IGN_Cleoformacion
-.. TODO: Probar la ejecución de lo seleccionado paso a paso
+        def func():
+            """
+            Example 1 scope of variables
+            :param a: number to print
+            :type a: int
+            """
+            a = 1
+            print("Inside the function the value of a is acting as local variable", a)
+
+.. code-block:: python
+
+        >>> a = 9000
+        >>> func()
+        Inside the function the value of a is acting as local variable 1
+        >>> print("Outside the function the value of a is acting as global variable", a)
+        Outside the function the value of a is acting as global variable 9000
+
+.. code-block:: python
+    :linenos:
+
+        def func():
+            """
+            Example 2 scope of variables
+            :param a: number to print
+            :type a: int
+            """
+            global a
+            a = a + 7
+            print("2.- Variable a is now global", a)
+
+.. code-block:: python
+
+        >>> a = 9000
+        >>> print("1.- Variable a before pass: ", a)
+        1.- Variable a before pass:  9000
+        >>> func()
+        2.- Variable a is now global 9007
+        >>> print("3.- Accesing the value a outside the function", a)
+        3.- Accesing the value a outside the function 9007
+
 
 Programación orientada a objetos en Python
 ------------------------------------------
-
+.. http://courseware.url.edu.gt/Facultades/Facultad%20de%20Ingenier%C3%ADa/Ingenier%C3%ADa%20en%20Inform%C3%A1tica%20y%20Sistemas/Segundo%20Ciclo%202011/Introducci%C3%B3n%20a%20la%20Programaci%C3%B3n/Objetos%20de%20aprendizaje/Unidad%202B/Unidad%202B/index.html
 .. TODO: mirar este nuevo  contenido: https://recursospython.com/guias-y-manuales/clases-y-orientacion-a-objetos/
-.. TODO: mirar este nuevo recursos: https://ictblog.luisalbertogh.net/?tag=python
 
 Python es un lenguaje popular de *scripting*, pero también soporta el
 paradigma de Programación Orientada a Objetos (POO u OOP según sus
@@ -1653,6 +1986,12 @@ conceptos del mundo real relevantes para resolver un determinado
 problema se modelan a través de clases y objetos y sus interacciones,
 trasladando el mundo real al mundo informático.
 
+La idea fundamental de la orientación a objetos y de los lenguajes que implementan este paradigma de programación,
+es combinar (encapsular) en una sola unidad tanto los datos como las funciones que operan (manipulan) sobre los datos.
+Esta característica permite modelar los objetos del mundo real de un modo mucho más eficiente que con funciones y datos.
+Esta unidad de programación se denomina objeto.
+
+
 Conceptos básicos de la POO
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1661,21 +2000,22 @@ aquel que trabaja en POO debe comprender y manejar constantemente.
 
 Una **clase** es simplemente una abstracción que hacemos de nuestra
 experiencia sensible. El ser humano tiende a agrupar seres o cosas con
-características similares (objetos) en grupos o categorías (clases). Las
+características similares (*objetos*) en grupos o categorías (*clases*). Las
 clases son abstracciones que agrupan entidades con un estado y unas
-funcionalidades similares:
+funcionalidades similares. El nivel de detalle con el que se definen
+depende de la capacidad de abstración de quien analiza el objeto.
 
 -  El **estado** se define a través de variables llamadas **atributos**
    (o características).
 
--  La funcionalidad se modela a través de funciones a las que se les
+-  La **funcionalidad** se modela a través de funciones a las que se les
    conoce con el nombre de **métodos** (o acciones) del objeto, que
    representan su **comportamiento**. En su implementación, los métodos
    son segmentos de código en forma de funciones.
 
 .. important::  Una **clase** se puede considerar como un tipo de dato definido por el
                 usuario que permite definir y representar colecciones de objetos y
-                proveen un modelo o plantilla genérica para su creación.
+                proveen un modelo o *plantilla* genérica para su creación.
 
 Ejemplo de una clase:
 
@@ -1684,8 +2024,10 @@ Ejemplo de una clase:
 .. note::   En notación del Lenguaje Unificado de Modelado (UML, *Unified Modeling Language*)
             una clase se representa en un rectángulo con tres compartimentos con el nombre
             de la clase, sus atributos y sus métodos.
-            Notación de atributo: ``nombreAtributo:tipoDato = valorPorDefecto``
-            Notación de método: ``nombreOperación(listaParametrosPasar:tipoDato):tipoDatoDevuelto``
+
+            + Notación de atributo: ``nombreAtributo:tipoDato = valorPorDefecto``
+
+            + Notación de método: ``nombreOperación(listaParametros::tipoDato):tipoDatoDevuelto``
 
 Al contrario de lo que sucede en la programación estructurada, donde
 variables y funciones están separadas, en la POO los objetos integran
@@ -1725,15 +2067,13 @@ documentación de la clase o *docstring*.
         <method definition-n>
 
 Los **atributos** que aplican a toda la clase son definidos al principio
-y se denominan atributos de clase (línea 3).
-
-Todos los **métodos** incluidos en la definición de la clase pasan el
-objeto en cuestión como primer parámetro (línea 4,5). La palabra ``self`` es utilizada
-para este parámetro.
+y se denominan atributos de clase (línea 3). Todos los **métodos** incluidos
+en la definición de la clase pasan el objeto en cuestión como primer parámetro (línea 4).
+La palabra ``self`` es utilizada para este parámetro.
 
 .. note::   El uso de ``self`` es actualmente por convención, no se
             trata de una palabra reservada de Python, pero es una de las
-            convenciones más respetadas).
+            convenciones más respetadas.
 
 Ejemplo:
 
@@ -1781,16 +2121,16 @@ como C++.
      def__init__(self,
                 realpart,
                 imagpart):  # special method
-     """
-     Brief: constructor method of the class
-     :param realpart: real part of number
-     :type realpart: real number
-     :param imagpart: imaginary part of number
-     :type imagpart: real number
-     """
-     print("Clase inicializada")
-     self.r = realpart
-     self.i = imagpart
+         """
+         Brief: constructor method of the class
+         :param realpart: real part of number
+         :type realpart: real number
+         :param imagpart: imaginary part of number
+         :type imagpart: real number
+         """
+         print("Clase inicializada")
+         self.r = realpart
+         self.i = imagpart
 
 El primer parámetro de ``__init__`` y del resto de métodos de la clase es
 siempre ``self`` que sirve para referirse al objeto actual.
@@ -1823,6 +2163,8 @@ polimorfismo.
 
 Abstracción
 ^^^^^^^^^^^
+
+Anteriormente definimos que la clase es una representación abstracta de un objeto., pero ¿Qué es abstracción?
 
 La **abstracción** es el proceso mental de extracción de las
 características esenciales de algo, ignorando los detalles superfluos.
@@ -1871,24 +2213,24 @@ En Python no existen los modificadores de acceso, y lo que se suele
 hacer es que el acceso a una variable o función viene determinado por su
 nombre: si el nombre comienza con dos guiones bajos (``__``) (y no termina
 también con dos guiones bajos) se trata de una variable o función
-privada, en caso contrario es pública.
+*privada*, en caso contrario es *pública*.
 
 .. note::   Los métodos cuyo nombre comienza y termina con dos guiones bajos ``__`` son métodos especiales
             que Python llama automáticamente bajo ciertas circunstancias.
 
-En el siguiente ejemplo ...
+En el siguiente ejemplo, definimos un método público (línea 2) y un método privado (línea 4) ...
 
 .. code-block:: python
     :linenos:
+    :emphasize-lines: 2, 4
 
         class Encapsula:
             def public_method(self):
                 print("Has accedido a un método público")
-
             def __private_method(self):
                 print("Has accedido a un método privado")
 
-... tras instanciarla y crear un objeto ...
+... tras instanciar la clase Encapsula y crear un objeto ...
 
 .. code-block:: python
 
@@ -1901,13 +2243,14 @@ En el siguiente ejemplo ...
     >>> encapsula_object.public_method()
     Has accedido a un método público
 
-
 .. error::  ... mientras que al intentar llamar al método ``__privado()`` Python
             lanzará una excepción:
 
             .. code-block:: python
 
                 >>> encapsula_object.__private_method()
+                Traceback (most recent call last):
+                  File "<input>", line 1, in <module>
                 AttributeError: 'Encapsula' object has no attribute '__private_method'
 
 La abstracción y el encapsulamiento son conceptos complementarios: la

@@ -3,6 +3,6 @@ Apuntes Lenguaje de programación Python
 =======================================
 
 .. toctree::
-    :maxdepth: 5
+    :maxdepth: 7
 
     python
