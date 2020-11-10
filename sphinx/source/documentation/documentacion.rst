@@ -85,8 +85,8 @@ Administrador de Complementos de QGIS, accesible desde el menú
 
 Blogs y foros
 =============
-A continuación se aporta un listado de canales de noticias, Blogs y foros
-de referencia de interés para el desarrollador:
+A continuación se aporta un listado de Blogs, canales de noticias y foros
+*activos* de referencia de interés para el desarrollador:
 
 En otros idiomas
 ----------------
@@ -99,25 +99,28 @@ En otros idiomas
   miembros de OSGeo, *hackers* y colaboradores donde se agregan además Blogs de terceros. Se puede solicitar añadir tu propio
   Blog este portal.
 
-* `Blog de OPENGIS.ch <https://www.opengis.ch/blog/>`_: Interesante Blog de los desarrolladores de QGIS para Android
+* `Blog de OpenGIS <https://www.opengis.ch/blog/>`_: Interesante Blog de los desarrolladores de QGIS para Android
   y QField para QGIS.
 
-* `Spatial Galaxy <http://spatialgalaxy.net/>`_: Blog de Gary Sherman sobre GIS open source, QGIS, PyQGIS, Python,
-  programación, etc. en el ámbito geoespacial.
+* `Spatial Galaxy <http://spatialgalaxy.net/>`_: Blog Gary Sherman, `*godfather* de QGIS <https://www.xyht.com/spatial-itgis/godfather-of-qgis>`_ ,
+  sobre GIS open source, QGIS, PyQGIS, Python, programación, etc. en el ámbito geoespacial.
 
-* `Free and Open Source GIS Ramblings <https://anitagraser.com/>`_: Blog de Anita Graser, que formó parte del Comité
-  Directivo del Proyecto QGIS y de la Junta Directiva de OSGeo. Tiene numerosas publicaciones sobre QGIS ([#]_, [#]_).
+* `Free and Open Source GIS Ramblings <https://anitagraser.com/>`_: Blog de Anita Graser, que formó parte del
+  `Comité Directivo del Proyecto QGIS <https://www.qgis.org/es/site/getinvolved/governance/governance.html>`_
+  y de la Junta Directiva de OSGeo. Tiene numerosas publicaciones de referencia sobre QGIS ([#]_, [#]_).
 
 * `Blog Lutra consulting <https://www.lutraconsulting.co.uk/blog/>`_: Blog de Lutra Consulting,
   empresa que proporciona servicios de consultoría, migración, desarrollo de software, capacitación y
   soporte comercial para QGIS y otros proyectos SIG de código abierto.
 
-* `Blog Kartoza <http://kartoza.com/en/blog/>`_: Blog de Tim Sutton. Anterior Linfiniti Geo Blog.
+* `Blog Kartoza <http://kartoza.com/en/blog/>`_: Blog de Tim Sutton, miembro honorario del
+  Comité Directivo del Proyecto QGIS. Anterior Linfiniti Geo Blog.
 
 * `Blog Oslandia <https://oslandia.com/en/blog/>`_: Blog de Oslandia, empresa privada creada por expertos en SIG y
   datos espaciales.
 
-* `nyalldawson.net <http://nyalldawson.net/>`_: Mapping, GIS, QGIS & MapBasic.
+* `Blog de Nayall Dawson <http://nyalldawson.net/>`_: Blog de otro miembro honorable con voto del
+  Comité Directivo de QGIS.
 
 En castellano
 -------------
@@ -147,12 +150,13 @@ Otros recursos interesantes
 * `QGIS Visual Changelog <https://www.qgis.org/es/site/forusers/visualchangelogs.html>`_: Registro visual de cambios
   desde la versión QGIS 2.0.
 * `QGIS tutorials and tips <http://www.qgistutorials.com/en/>`_: Blog de Ujaval Gandhi. Ver Python Scripting (PyQGIS).
-* `Visual Style Guide <https://qgis.org/en/site/getinvolved/styleguide.html#original>`_: Guía de estilo visual de QGIS
-  con la imagen de QGIS.
 * `Plugins comentados <https://github.com/volaya/commented-qgis-plugins>`_: Una colección de versiones
   ampliamente comentadas de ciertos complementos de QGIS, para que puedan leerse y servir como una
   herramienta de aprendizaje. Se puede buscar una versión en vivo de ese sitio web
   `aquí <https://volaya.github.io/commented-qgis-plugins/>`_.
+* `Visual Style Guide <https://qgis.org/en/site/getinvolved/styleguide.html#original>`_: Guía de estilo visual de QGIS
+  con la imagen de QGIS.
+
 
 Libros de referencia
 ********************

@@ -2,7 +2,7 @@ Parte I: Introduccion a Python
 ===============================================
 Existen numerosos :ref:`recursos disponibles<recursos disponibles>`
 en línea para el aprendizaje del lenguaje de programación Python.
-En este sección se facilita una introducción de conceptos y descripciones
+En esta sección se facilita una introducción de conceptos y descripciones
 enfocados a la extensión de funcionalidades de QGIS haciendo uso de este lenguaje de programación.
 
 Uso de Python en GIS
@@ -474,12 +474,11 @@ escapándolos con ``\\``:
 
 .. code-block:: python
 
-    >>> levantamiento = "Nº\tX\t\tY\t\tCOD\n1\t728762.67\t4328983.25\t\"bordillo\"\n2\t728785.42\t4328998.43\t\'acera.\b\'"
-    >>> print(levantamiento)
-    Nº      X               Y               COD
-    1       728762.67       4328983.25      "bordillo"
-    2       728785.42       4328998.43      'acera'
-
+ >>> levantamiento = "Nº\tX\t\tY\t\tCOD\n1\t728762.67\t4328983.25\t\"bordillo\"\n2\t728785.42\t4328998.43\t\'acera.\b\'"
+ >>> print(levantamiento)
+ Nº      X               Y               COD
+ 1       728762.67       4328983.25      "bordillo"
+ 2       728785.42       4328998.43      'acera'
 
 También es posible encerrar una cadena entre triples comillas (simples o
 dobles). De esta forma se podrá escribir el texto en varias líneas, y al
@@ -513,10 +512,10 @@ Devuelve el número de veces que se encuentra ``sub`` en la cadena.
     :emphasize-lines: 2
     :linenos:
 
-        >>> geom_wkt = "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))"
-        >>> lados_poligono = geom_wkt.count(",")
-        >>> lados_poligono
-        4
+    >>> geom_wkt = "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))"
+    >>> lados_poligono = geom_wkt.count(",")
+    >>> lados_poligono
+    4
 
 Los parámetros opcionales ``start`` y ``end`` definen una subcadena en la que buscar.
 
@@ -524,14 +523,14 @@ Los parámetros opcionales ``start`` y ``end`` definen una subcadena en la que b
     :emphasize-lines: 3, 6
     :linenos:
 
-        >>> cadena_texto = "Esto es un cadena de 34 caracteres"
-        >>> subcadena = "a"
-        >>> num_caracter_a = cadena_texto.count(subcadena, 0, 33)
-        num_caracter_a
-        4
-        >>> num_caracter_a = cadena_texto.count(subcadena, 0, 17)
-        num_caracter_a
-        2
+    >>> cadena_texto = "Esto es un cadena de 34 caracteres"
+    >>> subcadena = "a"
+    >>> num_caracter_a = cadena_texto.count(subcadena, 0, 33)
+    num_caracter_a
+    4
+    >>> num_caracter_a = cadena_texto.count(subcadena, 0, 17)
+    num_caracter_a
+    2
 
 .. code-block::
 
@@ -543,11 +542,11 @@ Devuelve la posición en la que se encontró por primera vez ``sub`` en la caden
     :emphasize-lines: 2, 4
     :linenos:
 
-        >>> cadena_texto = "Curso de programación en QGIS con Python"
-        >>> cadena_texto.find("QGIS")
-        25
-        >>> cadena_texto.find("SIG")
-        -1
+    >>> cadena_texto = "Curso de programación en QGIS con Python"
+    >>> cadena_texto.find("QGIS")
+    25
+    >>> cadena_texto.find("SIG")
+    -1
 
 .. code-block::
 
@@ -575,12 +574,12 @@ como segundo operando.
     :emphasize-lines: 1, 4
     :linenos:
 
-       >>> concatena = "con" + "ca" + "te" + "nar"
-       >>> concatena
-       'concatenar'
-       >>> repite = concatena * 2
-       >>> repite
-       'concatenarconcatenar'
+    >>> concatena = "con" + "ca" + "te" + "nar"
+    >>> concatena
+    'concatenar'
+    >>> repite = concatena * 2
+    >>> repite
+    'concatenarconcatenar'
 
 Para la comparación de dos cadenas de texto se puede utilizar el operador ``==``:
 
@@ -588,12 +587,12 @@ Para la comparación de dos cadenas de texto se puede utilizar el operador ``==`
     :emphasize-lines: 3, 5
     :linenos:
 
-       >>> geom_wkt_2 = "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))"
-       >>> geom_wkt_3 = "LINESTRING (30 10, 10 30, 40 40)"
-       >>> geom_wkt == geom_wkt_2
-       True
-       >>> geom_wkt == geom_wkt_3
-       False
+    >>> geom_wkt_2 = "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))"
+    >>> geom_wkt_3 = "LINESTRING (30 10, 10 30, 40 40)"
+    >>> geom_wkt == geom_wkt_2
+    True
+    >>> geom_wkt == geom_wkt_3
+    False
 
 Booleanos
 ^^^^^^^^^
@@ -652,14 +651,14 @@ La palabra reservada ``del`` borra completamente una variable.
     :emphasize-lines: 4, 8
     :linenos:
 
-        >>> geom_wkt_2 = "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))"
-        >>> geom_wkt_2
-        'POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))'
-        >>> del(geom_wkt_2)
-        >>> geom_wkt_2
-        Traceback (most recent call last):
-          File "<stdin>", line 1, in <module>
-        NameError: name 'geom_wkt_2' is not defined
+    >>> geom_wkt_2 = "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))"
+    >>> geom_wkt_2
+    'POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))'
+    >>> del(geom_wkt_2)
+    >>> geom_wkt_2
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    NameError: name 'geom_wkt_2' is not defined
 
 Reglas nomenclatura de variables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -672,11 +671,11 @@ Se proporcionan las siguientes reglas para nombrar a las variables:
             :emphasize-lines: 5
             :linenos:
 
-                >>> del = 1
-                  File "<stdin>", line 1
-                    del = 1
-                        ^
-                SyntaxError: invalid syntax
+            >>> del = 1
+              File "<stdin>", line 1
+                del = 1
+                    ^
+            SyntaxError: invalid syntax
 
 Para conocer las palabras reservadas:
 
@@ -712,11 +711,11 @@ Para conocer las palabras reservadas:
             :emphasize-lines: 5
             :linenos:
 
-                >>> mi variable
-                  File "<stdin>", line 1
-                    mi variable
-                              ^
-                SyntaxError: invalid syntax
+            >>> mi variable
+              File "<stdin>", line 1
+                mi variable
+                          ^
+            SyntaxError: invalid syntax
 
 .. tip::    Finalmente, aunque no es obligatorio, se recomienda que el nombre de la
             variable esté relacionado con la información que se almacena en ella,
@@ -732,11 +731,11 @@ En una misma línea se pueden definir simultáneamente varias variables, con el 
     :emphasize-lines: 1, 2, 4
     :linenos:
 
-       >>> x_min_mancanvas = y_min_mapcanvas = 0.0
-       >>> x_min_mancanvas
-       0.0
-       >>> y_min_mancanvas
-       0.0
+    >>> x_min_mancanvas = y_min_mapcanvas = 0.0
+    >>> x_min_mancanvas
+    0.0
+    >>> y_min_mancanvas
+    0.0
 
 … o con valores distintos:
 
@@ -744,11 +743,11 @@ En una misma línea se pueden definir simultáneamente varias variables, con el 
     :emphasize-lines: 1, 2, 4
     :linenos:
 
-        >>> nombre, edad = "Manuel", 35
-        >>> nombre
-        'Manuel'
-        >>> edad
-        35
+    >>> nombre, edad = "Manuel", 35
+    >>> nombre
+    'Manuel'
+    >>> edad
+    35
 
 
 Asignaciones aumentadas
@@ -891,9 +890,9 @@ Por ejemplo:
     :emphasize-lines: 1
     :linenos:
 
-       >>> mi_lista[1] = False
-       >>> mi_lista
-       [22, False, 'PyQGIS', [1, 2]]
+    >>> mi_lista[1] = False
+    >>> mi_lista
+    [22, False, 'PyQGIS', [1, 2]]
 
 Una curiosidad sobre el operador ``[]`` de Python es que se puede utilizar
 también números negativos. Si se utiliza un número negativo como índice,
@@ -906,10 +905,10 @@ sucesivamente.
     :emphasize-lines: 1, 3
     :linenos:
 
-        >>> mi_lista[-1]
-        [1, 2]
-        >>> mi_lista[-2]
-        'PyQGIS'
+    >>> mi_lista[-1]
+    [1, 2]
+    >>> mi_lista[-2]
+    'PyQGIS'
 
 Otra cosa inusual es lo que en Python se conoce como *slicing* o
 particionado, y que consiste en ampliar este mecanismo para permitir
@@ -922,9 +921,9 @@ la posición fin, sin incluir este último.
     :emphasize-lines: 1
     :linenos:
 
-       >>> mi_variable = mi_lista[0:2]
-       >>> mi_variable
-       [22, False]
+    >>> mi_variable = mi_lista[0:2]
+    >>> mi_variable
+    [22, False]
 
 Si se escriben tres números (``inicio``:``fin``:``salto``) en lugar de dos, el
 tercero se utiliza para determinar cada cuantas posiciones añadir un elemento a la lista.
@@ -933,9 +932,9 @@ tercero se utiliza para determinar cada cuantas posiciones añadir un elemento a
     :emphasize-lines: 1
     :linenos:
 
-       >>> mi_variable = mi_lista[0:4:2]
-       >>> mi_variable
-       [22, 'PyQGIS']
+    >>> mi_variable = mi_lista[0:4:2]
+    >>> mi_variable
+    [22, 'PyQGIS']
 
 En todo caso las listas ofrecen mecanismos más cómodos para ser
 modificadas a través de las funciones de la clase correspondiente tal y
@@ -958,9 +957,9 @@ Añade un objeto ``object`` al final de la lista
     :emphasize-lines: 1
     :linenos:
 
-        >>> mi_lista.append(3.141592)
-        >>> mi_lista
-        [22, True, 'PyQGIS', [1, 2], 3.141592]
+    >>> mi_lista.append(3.141592)
+    >>> mi_lista
+    [22, True, 'PyQGIS', [1, 2], 3.141592]
 
 .. code-block::
 
@@ -973,10 +972,10 @@ Si no se especifica la posición, se utiliza el último elemento de la lista.
     :emphasize-lines: 1
     :linenos:
 
-        >>> mi_lista.pop()
-        3.141592
-        >>> mi_lista
-        [22, True, 'PyQGIS', [1, 2]]
+    >>> mi_lista.pop()
+    3.141592
+    >>> mi_lista
+    [22, True, 'PyQGIS', [1, 2]]
 
 .. code-block::
 
@@ -988,9 +987,9 @@ Inserta el objeto ``object`` en la posición ``index``
     :emphasize-lines: 1
     :linenos:
 
-        >>> mi_lista.insert(3, 3.141592)
-        >>> mi_lista
-        [22, True, 'PyQGIS', 3.141592, [1, 2]]
+    >>> mi_lista.insert(3, 3.141592)
+    >>> mi_lista
+    [22, True, 'PyQGIS', 3.141592, [1, 2]]
 
 .. code-block::
 
@@ -1002,9 +1001,9 @@ Borra un elemento de la posición ``index`` de la lista.
     :emphasize-lines: 1
     :linenos:
 
-        >>> del(mi_lista[2])
-        >>> mi_lista
-        [22, False, 3.141592, [1, 2]]
+    >>> del(mi_lista[2])
+    >>> mi_lista
+    [22, False, 3.141592, [1, 2]]
 
 También se puede consultar el número de elementos de una lista mediante el
 método ``len()``:
@@ -1013,8 +1012,8 @@ método ``len()``:
     :emphasize-lines: 1
     :linenos:
 
-        >>> len(mi_lista)
-        4
+    >>> len(mi_lista)
+    4
 
 Tuplas
 ~~~~~~
@@ -1035,9 +1034,9 @@ definirla.
 
             .. code-block:: python
 
-                   >>> mi_tupla = 22, True, "PyQGIS", [1, 2]
-                   >>> type(mi_tupla)
-                   <class 'tuple'>
+               >>> mi_tupla = 22, True, "PyQGIS", [1, 2]
+               >>> type(mi_tupla)
+               <class 'tuple'>
 
 El acceso a elementos es igual que las listas. Se puede utilizar el
 operador ``[]`` debido a que las tuplas, al igual que las listas, forman
@@ -1047,17 +1046,17 @@ parte de un tipo de objetos llamados *secuencias*.
     :emphasize-lines: 1
     :linenos:
 
-       >>> mi_variable = mi_tupla[0]
-       >>> mi_variable
-       22
+    >>> mi_variable = mi_tupla[0]
+    >>> mi_variable
+    22
 
 .. code-block:: python
     :emphasize-lines: 1
     :linenos:
 
-       >>> mi_variable = mi_tupla[1:2]
-       >>> mi_variable
-       (True,)
+    >>> mi_variable = mi_tupla[1:2]
+    >>> mi_variable
+    (True,)
 
 .. error::  Si se intenta modificar un elemento de un tupla, se tendrá la siguiente
             respuesta del intérprete:
@@ -1065,10 +1064,10 @@ parte de un tipo de objetos llamados *secuencias*.
             .. code-block:: python
                 :emphasize-lines: 4
 
-                   >>> mi_tupla[1] = False
-                   Traceback (most recent call last):
-                      File "<stdin>", line 1, in <module>
-                    TypeError: 'tuple' object does not support item assignment
+                >>> mi_tupla[1] = False
+                Traceback (most recent call last):
+                  File "<stdin>", line 1, in <module>
+                TypeError: 'tuple' object does not support item assignment
 
 .. tip::    Las tuplas son más ligeras y rápidas que las listas. Se utilizarán
             cuando se precisa iterar sobre una estructura de datos que nunca va a
@@ -1079,17 +1078,17 @@ Finalmente, se pueden convertir una lista en tupla y viceversa:
 .. code-block:: python
     :emphasize-lines: 2
 
-       >>> mi_lista = [22, True, "PyQGIS", [1, 2]]
-       >>> mi_tupla = tuple(mi_lista)
-       >>> mi_tupla
-       (22, True, 'PyQGIS', [1, 2])
+    >>> mi_lista = [22, True, "PyQGIS", [1, 2]]
+    >>> mi_tupla = tuple(mi_lista)
+    >>> mi_tupla
+    (22, True, 'PyQGIS', [1, 2])
 
 .. code-block:: python
     :emphasize-lines: 1
 
-       >>> mi_lista = list(mi_tupla)
-       >>> mi_lista
-       [22, True, 'PyQGIS', [1, 2]]
+    >>> mi_lista = list(mi_tupla)
+    >>> mi_lista
+    [22, True, 'PyQGIS', [1, 2]]
 
 Diccionarios
 ~~~~~~~~~~~~
@@ -1136,9 +1135,9 @@ para reasignar valores.
     :emphasize-lines: 1, 2
     :linenos:
 
-       >>> mi_diccionario["25830"] = "Sistema geodesico de referencia ETRS 89 - proyeccion cartografica UTM huso 30 Norte"
-       >>> mi_diccionario["25830"]
-       'Sistema geodesico de referencia ETRS 89 - proyeccion cartografica UTM huso 30 Norte'
+    >>> mi_diccionario["25830"] = "Sistema geodesico de referencia ETRS 89 - proyeccion cartografica UTM huso 30 Norte"
+    >>> mi_diccionario["25830"]
+    'Sistema geodesico de referencia ETRS 89 - proyeccion cartografica UTM huso 30 Norte'
 
 También se pueden añadir nuevos pares key – values al diccionario:
 
@@ -1146,16 +1145,16 @@ También se pueden añadir nuevos pares key – values al diccionario:
     :emphasize-lines: 1, 7, 10
     :linenos:
 
-        >>> mi_diccionario["25831"] = "ETRS 89/UTM 31N"
-        >>> mi_diccionario
-        {'3857': 'WGS 84/Pseudo Mercator',
-        '4258': 'ETRS89',
-        '4326': 'WGS 84',
-        '25828': 'ETRS 89/UTM 28N',
-        '25830': 'Sistema geodesico de referencia ETRS 89 - proyeccion cartografica UTM huso 30 Norte',
-        '32628': 'WGS 84/UTM 28N',
-        '32630': 'WGS 84/UTM 30N',
-        '25831': 'ETRS 89/UTM 31N'}
+    >>> mi_diccionario["25831"] = "ETRS 89/UTM 31N"
+    >>> mi_diccionario
+    {'3857': 'WGS 84/Pseudo Mercator',
+    '4258': 'ETRS89',
+    '4326': 'WGS 84',
+    '25828': 'ETRS 89/UTM 28N',
+    '25830': 'Sistema geodesico de referencia ETRS 89 - proyeccion cartografica UTM huso 30 Norte',
+    '32628': 'WGS 84/UTM 28N',
+    '32630': 'WGS 84/UTM 30N',
+    '25831': 'ETRS 89/UTM 31N'}
 
 Sin embargo en este caso no se puede utilizar *slicing*, entre otras
 cosas porque los diccionarios no son secuencias, sino *mappings*
@@ -1195,10 +1194,10 @@ Comprueba si el diccionario tiene la clave ``k``.
     :emphasize-lines: 1, 3
     :linenos:
 
-        >>> "25830" in mi_diccionario
-        True
-        >>> "25832" in mi_diccionario
-        False
+    >>> "25830" in mi_diccionario
+    True
+    >>> "25832" in mi_diccionario
+    False
 
 .. code-block::
 
@@ -1210,17 +1209,17 @@ Devuelve una lista de tuplas con pares clave-valor.
     :emphasize-lines: 1
     :linenos:
 
-        >>> mi_diccionario.items()
-        dict_items([
-        ('3857', 'WGS 84/Pseudo Mercator'),
-        ('4258', 'ETRS89'),
-        ('4326', 'WGS 84'),
-        ('25828', 'ETRS 89/UTM 28N'),
-        ('25830', 'Sistema geodesico de referencia ETRS 89 - proyeccion cartografica UTM huso 30 Norte'),
-        ('32628', 'WGS 84/UTM 28N'),
-        ('32630', 'WGS 84/UTM 30N'),
-        ('25831', 'ETRS 89/UTM 31N')
-        ])
+    >>> mi_diccionario.items()
+    dict_items([
+    ('3857', 'WGS 84/Pseudo Mercator'),
+    ('4258', 'ETRS89'),
+    ('4326', 'WGS 84'),
+    ('25828', 'ETRS 89/UTM 28N'),
+    ('25830', 'Sistema geodesico de referencia ETRS 89 - proyeccion cartografica UTM huso 30 Norte'),
+    ('32628', 'WGS 84/UTM 28N'),
+    ('32630', 'WGS 84/UTM 30N'),
+    ('25831', 'ETRS 89/UTM 31N')
+    ])
 
 .. code-block::
 
@@ -1232,8 +1231,8 @@ Devuelve una lista de las claves del diccionario.
     :emphasize-lines: 1
     :linenos:
 
-        >>> mi_diccionario.keys()
-        dict_keys(['3857', '4258', '4326', '25828', '25830', '32628', '32630', '25831'])
+    >>> mi_diccionario.keys()
+    dict_keys(['3857', '4258', '4326', '25828', '25830', '32628', '32630', '25831'])
 
 .. code-block::
 
@@ -1245,8 +1244,8 @@ Devuelve una lista de los valores del diccionario.
     :emphasize-lines: 1
     :linenos:
 
-        >>> mi_diccionario.values()
-        dict_values(['WGS 84/Pseudo Mercator', 'ETRS89', 'WGS 84', 'ETRS 89/UTM 28N', 'Sistema geodesico de referencia ETRS 89 - proyeccion cartografica UTM huso 30 Norte', 'WGS 84/UTM 28N', 'WGS 84/UTM 30N', 'ETRS 89/UTM 31N'])
+    >>> mi_diccionario.values()
+    dict_values(['WGS 84/Pseudo Mercator', 'ETRS89', 'WGS 84', 'ETRS 89/UTM 28N', 'Sistema geodesico de referencia ETRS 89 - proyeccion cartografica UTM huso 30 Norte', 'WGS 84/UTM 28N', 'WGS 84/UTM 30N', 'ETRS 89/UTM 31N'])
 
 Finalmente, se pueden recorrer diccionarios con la estructura repetitiva
 ``for`` .. ``in`` que será descrita en el siguiente apartado:
@@ -1278,11 +1277,11 @@ condición.
     :emphasize-lines: 1
     :linenos:
 
-       if len(path_file_results) == 0:
-           self.iface.messageBar().pushMessage(c.APPLICATION_NAME,
-                                                "Path filename is empty",
-                                                QgsMessageBar.CRITICAL,
-                                                10)
+    if len(path_file_results) == 0:
+       self.iface.messageBar().pushMessage(c.APPLICATION_NAME,
+                                            "Path filename is empty",
+                                            QgsMessageBar.CRITICAL,
+                                            10)
 
 La estructura ``if`` contiene una condición, si dicha condición se verifica
 verdadera luego se ejecutan todas las instrucciones que se encuentran
@@ -1315,18 +1314,18 @@ Ejemplo:
     :emphasize-lines: 4, 6
     :linenos:
 
-        qgsvectorlayer = QgsVectorLayer(datasource,
-                                        str_layer_name,
-                                        provider_name)
-        if qgsvectorlayer.isValid():
-            return qgsvectorlayer
-        else:
-            str_msg = "Failed to create QgsVectorLayer " + str_layer_name
-            self.iface.messageBar().pushMessage(c.CONST_APPLICATION_NAME,
-                                                   str_msg,
-                                                   QgsMessageBar.CRITICAL,
-                                                   10)
-                                                   return None
+    qgsvectorlayer = QgsVectorLayer(datasource,
+                                    str_layer_name,
+                                    provider_name)
+    if qgsvectorlayer.isValid():
+        return qgsvectorlayer
+    else:
+        str_msg = "Failed to create QgsVectorLayer " + str_layer_name
+        self.iface.messageBar().pushMessage(c.CONST_APPLICATION_NAME,
+                                               str_msg,
+                                               QgsMessageBar.CRITICAL,
+                                               10)
+                                               return None
 
 Estructura condicional múltiple ``if`` … ``elif`` ... ``elif`` … ``else``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1340,14 +1339,14 @@ ejercicio propuesto sería la siguiente:
     :emphasize-lines: 2, 4, 5, 7
     :linenos:
 
-        numero = int(input("Dame un número entero: "))
-        if numero < 0:
-            print("Negativo")
+    numero = int(input("Dame un número entero: "))
+    if numero < 0:
+        print("Negativo")
+    else:
+        if numero > 0:
+            print("Positivo")
         else:
-            if numero > 0:
-                print("Positivo")
-            else:
-                print("Cero")
+            print("Cero")
 
 Otra forma de resolver el ejercicio es a través de ``elif`` que
 es una contracción de *else if*. Es decir, primero se evalúa la
@@ -1363,13 +1362,13 @@ de ninguno de los ``elif``, se ejecuta el código del ``else``.
     :emphasize-lines: 2, 4, 6
     :linenos:
 
-        numero = int(input("Dame un número entero: "))
-        if numero < 0:
-            print("Negativo")
-        elif numero > 0:
-            print("Positivo")
-        else:
-            print("Cero")
+    numero = int(input("Dame un número entero: "))
+    if numero < 0:
+        print("Negativo")
+    elif numero > 0:
+        print("Positivo")
+    else:
+        print("Cero")
 
 Bucles o estructuras repetitivas o iterativas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1409,10 +1408,10 @@ para que el bucle tenga sentido (línea 4).
     :emphasize-lines: 2
     :linenos:
 
-        contador = 0
-        while contador <= 10:
-            print(contador)
-            contador += 1
+    contador = 0
+    while contador <= 10:
+        print(contador)
+        contador += 1
 
 Bucle definido: ``for`` .. ``in``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1458,11 +1457,11 @@ iteración.
     :emphasize-lines: 3
     :linenos:
 
-        for letra in "PyQGIS":
-            if letra == "Q":
-                continue
-            print("Letra actual: ", letra)
-        print("Adios")
+    for letra in "PyQGIS":
+        if letra == "Q":
+            continue
+        print("Letra actual: ", letra)
+    print("Adios")
 
 Produce la siguiente salida:
 
@@ -1479,12 +1478,12 @@ Produce la siguiente salida:
     :emphasize-lines: 4
     :linenos:
 
-        while var > 0:
-           var = var -1
-           if var == 5:
-              continue
-           print("Valor variable actual:", var)
-        print("Adios")
+    while var > 0:
+       var = var -1
+       if var == 5:
+          continue
+       print("Valor variable actual:", var)
+    print("Adios")
 
 Produce la siguiente salida:
 
@@ -1508,11 +1507,11 @@ siguiente instrucción.
     :emphasize-lines: 3
     :linenos:
 
-        for letra in "PyQGIS":
-            if letra == "Q":
-                break
-            print("Letra actual: ", letra)
-        print("Adios")
+    for letra in "PyQGIS":
+        if letra == "Q":
+            break
+        print("Letra actual: ", letra)
+    print("Adios")
 
 Produce la siguiente salida:
 
@@ -1526,13 +1525,13 @@ Produce la siguiente salida:
     :emphasize-lines: 5
     :linenos:
 
-        var = 10
-        while var > 0:
-           var = var -1
-           if var == 5:
-              break
-           print("Valor variable actual:", var)
-        print("Adios")
+    var = 10
+    while var > 0:
+       var = var -1
+       if var == 5:
+          break
+       print("Valor variable actual:", var)
+    print("Adios")
 
 Produce la siguiente salida:
 
@@ -1551,11 +1550,11 @@ pasa nada cuando se ejecuta.
     :emphasize-lines: 3
     :linenos:
 
-        for letra in "PyQGIS":
-            if letra == "Q":
-                pass
-            print("Letra actual: ", letra)
-        print("Adios")
+    for letra in "PyQGIS":
+        if letra == "Q":
+            pass
+        print("Letra actual: ", letra)
+    print("Adios")
 
 Produce la siguiente salida:
 
@@ -1614,14 +1613,14 @@ ejecutar por la función.
 .. code-block:: python
     :linenos:
 
-        def func(pass_argument):
-            """
-            Example function definition with a simple argument
-            :param pass_argument: string to print
-            :type pass_argument: str
-            :rtype: None
-            """
-            print(pass_argument)
+    def func(pass_argument):
+        """
+        Example function definition with a simple argument
+        :param pass_argument: string to print
+        :type pass_argument: str
+        :rtype: None
+        """
+        print(pass_argument)
 
 En el código anterior se puede introducir una cadena de texto (línea 2-6)
 como primeras líneas del cuerpo de la función denominada *docstring* (cadena
@@ -1659,10 +1658,10 @@ pasados como parámetros.
 .. code-block:: python
     :linenos:
 
-        def mi_funcion(param1, param2):
-            """Esta funcion imprime los dos valores pasados como parametros"""
-            print(param1)
-            print(param2)
+    def mi_funcion(param1, param2):
+        """Esta funcion imprime los dos valores pasados como parametros"""
+        print(param1)
+        print(param2)
 
 .. code-block:: python
 
@@ -1677,10 +1676,10 @@ pasados como parámetros.
 
             .. code-block:: python
 
-                >>> mi_funcion("parámetro 1", "parámetro 2", "otro parámetro")
-                Traceback (most recent call last):
-                  File "<input>", line 1, in <module>
-                TypeError: mi_funcion() takes 2 positional arguments but 3 were given
+            >>> mi_funcion("parámetro 1", "parámetro 2", "otro parámetro")
+            Traceback (most recent call last):
+              File "<input>", line 1, in <module>
+            TypeError: mi_funcion() takes 2 positional arguments but 3 were given
 
 Al llamar una función, se le deben pasar sus argumentos en el mismo
 orden en el que los espera. Pero esto puede evitarse, haciendo uso del
@@ -1696,19 +1695,19 @@ la función ...
 .. code-block:: python
     :linenos:
 
-        def hello_world():
-            """
-            Example function definition without arguments
-            :rtype: None
-            """
-            print("You are in Hellow World" + "\n")
+    def hello_world():
+        """
+        Example function definition without arguments
+        :rtype: None
+        """
+        print("You are in Hellow World" + "\n")
 
 ...  como al invocarla.
 
 .. code-block:: python
 
-        >>> my_var = hello_world()  # calling a function
-        You are in Hellow World
+    >>> my_var = hello_world()  # calling a function
+    You are in Hellow World
 
 En Python no existen los procedimientos como tales, ya
 que cuando el programador no especifica un valor de retorno la función
@@ -1734,18 +1733,18 @@ la palabra reservada ``return``, para devolver el valor de la función.
     :emphasize-lines: 12
     :linenos:
 
-        def sum(a, b):
-            """
-            sum of two numbers
-            :param a: first operant
-            :type a: int or long or float
-            :param b: second operant
-            :type b: int or long or float
-            :return: suma
-            :rtype: int or long or float
-            """
-            c = a + b
-            return c
+    def sum(a, b):
+        """
+        sum of two numbers
+        :param a: first operant
+        :type a: int or long or float
+        :param b: second operant
+        :type b: int or long or float
+        :return: suma
+        :rtype: int or long or float
+        """
+        c = a + b
+        return c
 
 A continuación se invoca la función en línea imprimiendo el resultado.
 
@@ -1753,10 +1752,10 @@ A continuación se invoca la función en línea imprimiendo el resultado.
     :linenos:
     :emphasize-lines: 3
 
-        >>> x = 10
-        >>> y = 50
-        >>> print("Result of addition " + str(x) + " + " + str(y) + " = " + str(sum(x, y)))
-        Result of addition 10 + 50 = 60
+    >>> x = 10
+    >>> y = 50
+    >>> print("Result of addition " + str(x) + " + " + str(y) + " = " + str(sum(x, y)))
+    Result of addition 10 + 50 = 60
 
 También se podrían pasar varios valores que retornar a ``return``.
 
@@ -1768,16 +1767,16 @@ También se podrían pasar varios valores que retornar a ``return``.
 .. code-block:: python
     :linenos:
 
-        def f(x, y):
-            return x * 2, y * 2
+    def f(x, y):
+        return x * 2, y * 2
 
 El resultado de la ejecución de este programa sería:
 
 .. code-block:: python
 
-        >>> a, b = f(1, 2)
-        >>> print(a, b)
-        2 4
+    >>> a, b = f(1, 2)
+    >>> print(a, b)
+    2 4
 
 Funciones con argumentos por defecto
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1815,17 +1814,17 @@ variable de parámetros.
     :emphasize-lines: 2, 9
     :linenos:
 
-        def print_variable_argument(convencional_argument,
-                                    *variable_argument):
-            """
-            Example function with variable lenght argument
-            :param convencional_argument: conventional argument
-            :param variable_argument: variable argument
-            """
-            str_msg = "Convencional argument: " + str(convencional_argument) + ", Variable arguments: "
-            for var in variable_argument :
-                str_msg += str(var) + ", "
-            print(str_msg)
+    def print_variable_argument(convencional_argument,
+                                *variable_argument):
+        """
+        Example function with variable lenght argument
+        :param convencional_argument: conventional argument
+        :param variable_argument: variable argument
+        """
+        str_msg = "Convencional argument: " + str(convencional_argument) + ", Variable arguments: "
+        for var in variable_argument :
+            str_msg += str(var) + ", "
+        print(str_msg)
 
 A continuación se muestran los resultados de la llamada a la función
 definida sin y con argumentos de longitud variable.
@@ -1863,10 +1862,10 @@ referencia, y los inmutables como paso por valor:
 .. code-block:: python
     :linenos:
 
-        def f(x, y):
-            x = x + 3
-            y.append(23)
-            print(x, y)
+    def f(x, y):
+        x = x + 3
+        y.append(23)
+        print(x, y)
 
 .. code-block:: python
 
@@ -1882,9 +1881,9 @@ Vemos a continuación más ejemplos de argumentos por referencia vs. pasos por v
 .. code-block:: python
     :linenos:
 
-        def fun(a):
-            a = a + 9000
-            print("var value inside the function: ", a)
+    def fun(a):
+        a = a + 9000
+        print("var value inside the function: ", a)
 
 .. code-block:: python
 
@@ -1897,14 +1896,14 @@ Vemos a continuación más ejemplos de argumentos por referencia vs. pasos por v
 .. code-block:: python
     :linenos:
 
-        def pass_ref(list1):
-            """
-            Example 2 pass by reference versus pass by value
-            :param a: lista a imprimir
-            :type a: list
-            """
-            list1.extend([23,89])
-            print("List inside the function: ", list1)
+    def pass_ref(list1):
+        """
+        Example 2 pass by reference versus pass by value
+        :param a: lista a imprimir
+        :type a: list
+        """
+        list1.extend([23,89])
+        print("List inside the function: ", list1)
 
 .. code-block:: python
 
@@ -1923,14 +1922,14 @@ Vemos a continuación más ejemplos de argumentos por referencia vs. pasos por v
 .. code-block:: python
     :linenos:
 
-        def func():
-            """
-            Example 1 scope of variables
-            :param a: number to print
-            :type a: int
-            """
-            a = 1
-            print("Inside the function the value of a is acting as local variable", a)
+    def func():
+        """
+        Example 1 scope of variables
+        :param a: number to print
+        :type a: int
+        """
+        a = 1
+        print("Inside the function the value of a is acting as local variable", a)
 
 .. code-block:: python
 
@@ -1943,15 +1942,15 @@ Vemos a continuación más ejemplos de argumentos por referencia vs. pasos por v
 .. code-block:: python
     :linenos:
 
-        def func():
-            """
-            Example 2 scope of variables
-            :param a: number to print
-            :type a: int
-            """
-            global a
-            a = a + 7
-            print("2.- Variable a is now global", a)
+    def func():
+        """
+        Example 2 scope of variables
+        :param a: number to print
+        :type a: int
+        """
+        global a
+        a = a + 7
+        print("2.- Variable a is now global", a)
 
 .. code-block:: python
 
@@ -1971,9 +1970,11 @@ Programación orientada a objetos en Python
 
 Python es un lenguaje popular de *scripting*, pero también soporta el
 paradigma de Programación Orientada a Objetos (POO u OOP según sus
-siglas en inglés). En este apartado se facilita una descripción teórica
+siglas en inglés). En esta sección se facilita una descripción teórica
 de conceptos básicos y características principales de la POO y de los
 detalles de su implementación en el lenguaje de programación Python.
+Estos conocimientos serán aplicados en la descripción de APIs
+de QGIS.
 
 .. image:: images/mindmapple_poo.jpg
 
@@ -2001,8 +2002,8 @@ aquel que trabaja en POO debe comprender y manejar constantemente.
 Una **clase** es simplemente una abstracción que hacemos de nuestra
 experiencia sensible. El ser humano tiende a agrupar seres o cosas con
 características similares (*objetos*) en grupos o categorías (*clases*). Las
-clases son abstracciones que agrupan entidades con un estado y unas
-funcionalidades similares. El nivel de detalle con el que se definen
+clases son abstracciones que agrupan entidades con un *estado* y unas
+*funcionalidades* similares. El nivel de detalle con el que se definen
 depende de la capacidad de abstración de quien analiza el objeto.
 
 -  El **estado** se define a través de variables llamadas **atributos**
@@ -2031,9 +2032,11 @@ Ejemplo de una clase:
 
 Al contrario de lo que sucede en la programación estructurada, donde
 variables y funciones están separadas, en la POO los objetos integran
-datos y algoritmos. Un **objeto** es un ejemplar de una clase
-(instancia), una entidad con valores específicos de atributos y
-operaciones:
+datos y algoritmos.
+
+.. important::  Un **objeto** es un ejemplar de una clase
+                (instancia), una entidad con valores específicos de atributos y
+                operaciones:
 
 +-----------------------------+
 | **miLavadora:Lavadora**     |
@@ -2053,6 +2056,9 @@ La duración de un objeto en un programa siempre está limitada en el
 tiempo. Cada objeto es responsable de inicializarse y destruirse en
 forma correcta: los objetos son creados mediante un mecanismo denominado
 **instanciación** y dejan de existir cuando son destruidos.
+
+Implementación de clases en Python
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 En Python las clases se definen mediante la palabra reservada ``class`` seguida
 del nombre de la clase, dos puntos (``:``) y a continuación, indentado, el
@@ -2081,11 +2087,11 @@ Ejemplo:
     :emphasize-lines: 1
     :linenos:
 
-        class MyClass:
-            """ Brief: a simple example class """   # docstring
-            i = 12345                               # class attribute
-            def method_1(self):                     # regular method
-                return 'Hola Mundo'
+    class MyClass:
+        """ Brief: a simple example class """   # docstring
+        i = 12345                               # class attribute
+        def method_1(self):                     # regular method
+            return 'Hola Mundo'
 
 Cada objeto creado a partir de una clase se denomina instancia de la clase.
 Para **instanciar** una clase en Python:
@@ -2100,10 +2106,10 @@ mediante la sintaxis ``objeto.atributo`` (línea 1) y ``objeto.metodo()`` (líne
 .. code-block:: python
     :linenos:
 
-        >>> print(x.i)  # acceso a atributos
-        12345
-        >>> print(x.method_1())  # acceso a metodos
-        Hola Mundo
+    >>> x.i  # acceso a atributos
+    12345
+    >>> x.method_1()  # acceso a metodos
+    Hola Mundo
 
 El método ``__init__``, con una doble barra baja ``__`` al principio y final del
 nombre, se ejecuta justo después crear un objeto (instancia de una
@@ -2114,23 +2120,23 @@ como C++.
 
 .. code-block:: python
 
-    class Complex:
-    """
-     Brief: Complex numbers class
-     """
-     def__init__(self,
-                realpart,
-                imagpart):  # special method
-         """
-         Brief: constructor method of the class
-         :param realpart: real part of number
-         :type realpart: real number
-         :param imagpart: imaginary part of number
-         :type imagpart: real number
-         """
-         print("Clase inicializada")
-         self.r = realpart
-         self.i = imagpart
+        class Complex:
+            """
+            Brief: Complex numbers class
+            """
+            def __init__(self,
+                         realpart,
+                         imagpart):                 # special method
+                """
+                Brief: constructor method of the class
+                :param realpart: real part of number
+                :type realpart: real number
+                :param imagpart: imaginary part of number
+                :type imagpart: real number
+                """
+                print("Clase inicializada")
+                self.r = realpart
+                self.i = imagpart
 
 El primer parámetro de ``__init__`` y del resto de métodos de la clase es
 siempre ``self`` que sirve para referirse al objeto actual.
@@ -2164,13 +2170,15 @@ polimorfismo.
 Abstracción
 ^^^^^^^^^^^
 
-Anteriormente definimos que la clase es una representación abstracta de un objeto., pero ¿Qué es abstracción?
+Anteriormente definimos que la clase es una representación abstracta de un objeto, pero ¿Qué es abstracción?
 
-La **abstracción** es el proceso mental de extracción de las
-características esenciales de algo, ignorando los detalles superfluos.
-Es un mecanismo, quizá innato, por el que tendemos a hacer simple
-aquello que por su naturaleza es complejo. Es decir, cuando vemos un
-objeto, solo nos fijamos en aquellas propiedades y comportamiento que
+
+.. important::  La **abstracción** es el proceso mental de extracción de las
+                características esenciales de algo, ignorando los detalles superfluos.
+                Es un mecanismo, quizá innato, por el que tendemos a hacer simple
+                aquello que por su naturaleza es complejo.
+
+Es decir, cuando vemos un objeto, solo nos fijamos en aquellas propiedades y comportamiento que
 nos son útiles para el fin que perseguimos, eliminando aquellos otros
 que, de momento, son irrelevantes o nos distraen del problema.
 
@@ -2186,11 +2194,15 @@ calcetines es una característica superflua.
 Encapsulación
 ^^^^^^^^^^^^^
 
-La encapsulación es el proceso mediante el cual se ocultan las
-estructuras de datos y los detalles de implementación, permitiendo
-considerar a los objetos como "cajas negras", evitando que otros objetos
-accedan a detalles que no les interesan. Esta cualidad hace que la POO
-sea muy apta para la reutilización de programas.
+.. important::      La **encapsulación** es el proceso mediante el cual se ocultan las
+                    estructuras de datos y los detalles de implementación, permitiendo
+                    considerar a los objetos como "cajas negras", evitando que otros objetos
+                    accedan a detalles que no les interesan. Esta cualidad hace que la POO
+                    sea muy apta para la reutilización de programas.
+
+Un ejemplo de encapsulación sería una medicina prescrita por el médico
+en forma de cápsula. Sabemos sus beneficios pero no como funciona por
+dentro.
 
 De modo predeterminado, el conjunto de atributos y métodos se encuentran
 encapsulados o contenidos dentro de una misma clase, de manera que son
@@ -2199,10 +2211,6 @@ utilizados por otras clases sólo si la clase que los encapsula les
 brinda los permisos necesarios para ello. De esta forma, se impide el
 acceso a determinados métodos y atributos de los objetos estableciendo
 así qué puede utilizarse desde fuera de la clase.
-
-Un ejemplo de encapsulación sería una medicina prescrita por el médico
-en forma de cápsula. Sabemos sus beneficios pero no como funciona por
-dentro.
 
 Esto se consigue en otros lenguajes de programación como Java
 utilizando modificadores de acceso que definen si cualquiera puede
@@ -2224,11 +2232,11 @@ En el siguiente ejemplo, definimos un método público (línea 2) y un método p
     :linenos:
     :emphasize-lines: 2, 4
 
-        class Encapsula:
-            def public_method(self):
-                print("Has accedido a un método público")
-            def __private_method(self):
-                print("Has accedido a un método privado")
+    class Encapsula:
+        def public_method(self):
+            print("Has accedido a un método público")
+        def __private_method(self):
+            print("Has accedido a un método privado")
 
 ... tras instanciar la clase Encapsula y crear un objeto ...
 
@@ -2262,7 +2270,7 @@ Herencia
 ^^^^^^^^
 
 En un lenguaje orientado a objetos cuando una clase (**subclase** o **clase hija**)
-hereda de otra clase existente (**superclase** o **clase padre**) se
+**hereda** de otra clase existente (**superclase** o **clase padre**) se
 consigue que la subclase contenga todos los atributos y métodos que
 tenía la superclase. A este procedimiento también se le denomina
 “*extender una clase*”.
@@ -2276,7 +2284,7 @@ de las existentes, previamente construidas y depuradas.
 .. image:: images/poo_heritage.png
 
 En Python, para indicar que una clase hereda de otra se coloca el nombre
-de la clase de la que se hereda entre paréntesis después del nombre de
+de la clase de la que se hereda entre paréntesis ``(`` ``)`` después del nombre de
 la clase. Para implementar el ejemplo anterior, se definiría en primer
 lugar la superclase **Animal** ...
 
@@ -2327,22 +2335,23 @@ clases a la vez. Basta con enumerar las clases de las que se hereda
 separándolas por comas. Se muestra a continuación un sencillo ejemplo de
 uso de la herencia múltiple:
 
-En primer lugar se definen las clases A y B y a continuación la clase C
-que hereda de la clase A y B.
+En primer lugar se definen las clases A (línea 1) y B (línea 5)
+y a continuación la clase C (línea 9) que hereda de la clase A y B.
 
 .. code-block:: python
     :linenos:
+    :emphasize-lines: 1, 5, 9
 
-        class A():
-            def suma(self,a,b):
-                c = a+b
-                return c
-        class B():
-            def resta(self,a,b):
-                c = a-b
-                return c
-        class C(A,B):
-            pass
+    class A():
+        def suma(self, a, b):
+            c = a+b
+            return c
+    class B():
+        def resta(self, a, b):
+            c = a-b
+            return c
+    class C(A, B):
+        pass
 
 Se crea a continuación un objeto de la clase C:
 
@@ -2364,21 +2373,22 @@ Herencia multinivel
 '''''''''''''''''''
 
 También está permitida la **herencia multinivel**. Para ello se define
-en primer lugar la clase A. A continuación se define la clase B que
-hereda de la clase B y finalmente, se define la clase C que hereda de la
+en primer lugar la clase A (línea 1). A continuación se define la clase B (línea 5) que
+hereda de la clase B y finalmente, se define la clase C (línea 7) que hereda de la
 clase B.
 
 .. code-block:: python
     :linenos:
+    :emphasize-lines: 1, 5, 7
 
-        class A():
-            def sum1(self,a,b):
-                c = a+b
-                return c
-        class B(A):
-            pass
-        class C(B):
-            pass
+    class A():
+        def sum1(self, a, b):
+            c = a+b
+            return c
+    class B(A):
+        pass
+    class C(B):
+        pass
 
 A continuación se instancia la clase C, creando un objeto de esta clase:
 
@@ -2386,7 +2396,7 @@ A continuación se instancia la clase C, creando un objeto de esta clase:
 
    >>> c_obj = C()
 
-Finalmente, se accede al método sum1 definido en la clase A, desde el
+Finalmente, se accede al método ``sum1`` definido en la clase A (línea 2), desde el
 objeto de la clase C:
 
 .. code-block:: python
@@ -2396,37 +2406,37 @@ objeto de la clase C:
 
 Polimorfismo
 ^^^^^^^^^^^^
-
-Por **polimorfismo** se entiende aquella cualidad que poseen los objetos
-para responder de distinto modo ante el mismo mensaje. Esto significa
-que dos clases que tengan un método con el mismo nombre y que respondan
-al mismo tipo de mensaje (es decir, que reciban los mismos parámetros),
-ejecutarán acciones distintas.
+.. important::  Por **polimorfismo** se entiende aquella cualidad que poseen los objetos
+                para responder de distinto modo ante el mismo mensaje. Esto significa
+                que dos clases que tengan un método con el mismo nombre y que respondan
+                al mismo tipo de mensaje (es decir, que reciban los mismos parámetros),
+                ejecutarán acciones distintas.
 
 Para ilustrar la implementación de esta característica en Python se
-crean en primer lugar dos clases **Perro** y **Pajaro**, con un método
-con el mismo nombre (**avanzar**) que imprimen en pantalla dos acciones
+crean en primer lugar dos clases ``Perro`` y ``Pajaro``, con un método
+con el mismo nombre ``avanzar`` que imprimen en pantalla dos acciones
 distintas:
 
 .. code-block:: python
     :linenos:
+    :emphasize-lines: 1, 4
 
-        class Perro():
-            def avanzar(self):
-                print('Corriendo')
-        class Pajaro():
-            def avanzar(self):
-                print('Volando')
+    class Perro():
+        def avanzar(self):
+            print('Corriendo')
+    class Pajaro():
+        def avanzar(self):
+            print('Volando')
 
 A continuación se crea una nueva función que recibe como parámetro un
-objeto de ambas clases y realiza la llamada al método **avanzar**
+objeto de ambas clases y realiza la llamada al método ``avanzar``
 definido anteriormente en ambas clases:
 
 .. code-block:: python
     :linenos:
 
-        def mover(animal):
-            animal.avanzar()
+    def mover(animal):
+        animal.avanzar()
 
 El siguiente paso consistirá en crear dos nuevos objetos de cada una de
 las clases:
@@ -2436,8 +2446,8 @@ las clases:
    >>> objeto_perro = Perro()
    >>> objeto_pajaro = Pajaro()
 
-Y, finalmente se realiza la llamada a la función **mover** pasando como
-argumento objeto_perro y objeto_pajaro, respectivamente. La respuesta al
+Y, finalmente se realiza la llamada a la función ``mover`` pasando como
+argumento ``objeto_perro`` y ``objeto_pajaro``, respectivamente. La respuesta al
 mismo tipo de mensaje ejecuta dos acciones distintas:
 
 .. code-block:: python
@@ -2453,16 +2463,19 @@ Ventajas de la POO
 Se enumeran a continuación las principales ventajas de este paradigma de
 programación:
 
--  Reducción de código redundante, lo que permite un código conciso y
-   sin repeticiones. (Herencia). La codificación utilizando clases es
-   fácil de leer, entender, extender y mantener.
+-   *Reutilidad*. Cuando hemos diseñado adecuadamente las clases,
+    se pueden usar en distintas partes del programa y en numerosos proyectos.
 
--  Bajo acoplamiento y alta cohesión: Gracias a la modularidad, cada
-   componente o módulo de un desarrollo tiene independencia de los demás
-   componentes.
+-   Reducción de código redundante, lo que permite un código conciso y
+    sin repeticiones (Herencia). La codificación utilizando clases es
+    fácil de *leer, entender, extender y mantener*.
 
--  Correspondencia directa con el mundo real debido a la filosofía del
-   paradigma.
+-   *Fiabilidad*. Al dividir el problema en partes más pequeñas podemos
+    probarlas de manera independiente y aislar mucho más fácilmente
+    los posibles errores que puedan surgir. Gracias a la modularidad,
+    cada componente o módulo de un desarrollo tiene independencia de los demás componentes.
+
+-   Correspondencia directa con el mundo real debido a la filosofía del paradigma.
 
 Excepciones
 -----------
@@ -2497,15 +2510,15 @@ contexto del manejo de excepciones:
 .. code-block:: python
     :linenos:
 
-        def divide(x, y):
-            try:
-                result = x / y
-            except ZeroDivisionError:
-                print("Denominador cero!!!")
-            else:
-                print("El resultado es", result)
-            finally:
-                print("Ejecución claúsula finally")
+    def divide(x, y):
+        try:
+            result = x / y
+        except ZeroDivisionError:
+            print("Denominador cero!!!")
+        else:
+            print("El resultado es", result)
+        finally:
+            print("Ejecución claúsula finally")
 
 Si la llamada a la función se realiza con los siguientes argumentos
 ``divide(2,1)``, se obtentrá el siguiente resultado:
