@@ -13,7 +13,6 @@ Dame número de partidas a simular: 20
 Porcentaje de partidas ganadas por el jugador 1: 35.0
 Porcentaje de partidas ganadas por el jugador 2: 45.0
 """
-
 from random import randint
 
 PIEDRA = 1

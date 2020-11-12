@@ -228,13 +228,15 @@ Para comprobar la versión de QGIS que se está utilizando:
             del paso de versión de QGIS 2.x a 3.x
             es el paso de la versión de Python 2.x a 3.x.
 
-
-
 Variables
 ---------
 
 Definición de variables
 ~~~~~~~~~~~~~~~~~~~~~~~
+
+.. important::  En Python hay dos formas de ejecutar un programa:
+                mediante una sesión interactiva utilizando el *interactive interpreter prompt*
+                o utilizando un fichero con el código fuente.
 
 La sintaxis para definir una variable en Python es la siguiente:
 
@@ -270,12 +272,14 @@ Definición de constantes
 Por el contrario, las **constantes** son un tipo particula de variable cuyo valor
 no se pueden alterar durante la ejecución de un programa.
 Se declaran usualmente en módulos a parte. Cada modulo es un archivo que
-se importa en el archivo principal. Por convención las constantes son escritas
-en letras mayúsculas y separadas por guión bajo, en caso que sean varias palabras. Por ejemplo:
+se importa en el archivo principal.
 
-.. code-block:: python
+.. tip::    Por convención las constantes son escritas
+            en letras mayúsculas y separadas por guión bajo, en caso que sean varias palabras. Por ejemplo:
 
-    PASSWORD_DB_SERVER = "123456"
+            .. code-block:: python
+
+                PASSWORD_DB_SERVER = "123456"
 
 Tipos básicos de variables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -395,10 +399,11 @@ Para operaciones más complejas se puede importar al módulo ``math``.
 
         >>> import math
         >>> math.pi
+        3.141592653589793
         >>> radio = 2
         >>> longitud_circunferencia = 2 * math.pi * radio
         >>> longitud_circunferencia
-        7.141592653589793
+        12.566370614359172
 
 Funciones de conversión entre números
 '''''''''''''''''''''''''''''''''''''
@@ -460,17 +465,19 @@ escapándolos con ``\\``:
 ==========      ===============================
 **Escape**      **Significado de la secuencia**
 ==========      ===============================
-``\\b``         Suprimir un carácter
-``\\n``         Carácter de nueva línea
-``\\t``         Carácter tabulación
-``\\'``         '
-``\\"``         "
+``\b``          Suprimir un carácter
+``\n``          Carácter de nueva línea
+``\t``          Carácter tabulación
+``\'``          '
+``\"``          "
 ==========      ===============================
 
 .. code-block:: python
 
     >>> print("Las cadenas son texto encerrado entre comillas simples (\')")
+    Las cadenas son texto encerrado entre comillas simples (')
     >>> print("... y también entre comillas dobles (\")")
+    ... y también entre comillas dobles (")
 
 .. code-block:: python
 
@@ -524,13 +531,13 @@ Los parámetros opcionales ``start`` y ``end`` definen una subcadena en la que b
     :linenos:
 
     >>> cadena_texto = "Esto es un cadena de 34 caracteres"
-    >>> subcadena = "a"
-    >>> num_caracter_a = cadena_texto.count(subcadena, 0, 33)
-    num_caracter_a
-    4
-    >>> num_caracter_a = cadena_texto.count(subcadena, 0, 17)
-    num_caracter_a
+    >>> subcadena = "ca"
+    >>> num_cadena_ca = cadena_texto.count(subcadena, 0, 33)
+    >>> num_cadena_ca
     2
+    >>> num_cadena_ca = cadena_texto.count(subcadena, 0, 17)
+    >>> num_cadena_ca
+    1
 
 .. code-block::
 
@@ -561,6 +568,8 @@ por la cadena ``new``. Si se especifica el parámetro ``count``, este indica el 
 
     >>> coor_pto = "547387.35, 43789234.98"
     >>> coor_pto_separador_csv = coor_pto.replace(",", ";")
+    >>> coor_pto_separador_csv
+    '547387.35; 43789234.98'
     >>> coor_pto_separador_punto_decimal = coor_pto_separador_csv.replace(".",",")
     >>> coor_pto_separador_punto_decimal
     '547387,35; 43789234,98'
@@ -648,17 +657,22 @@ Eliminación de una variable
 La palabra reservada ``del`` borra completamente una variable.
 
 .. code-block:: python
-    :emphasize-lines: 4, 8
+    :emphasize-lines: 4
     :linenos:
 
     >>> geom_wkt_2 = "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))"
     >>> geom_wkt_2
     'POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))'
     >>> del(geom_wkt_2)
-    >>> geom_wkt_2
-    Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
-    NameError: name 'geom_wkt_2' is not defined
+
+.. error::  Si se quiere acceder a la variable eliminada se mostrará el siguiente mensaje de error:
+
+            .. code-block:: python
+
+                >>> geom_wkt_2
+                Traceback (most recent call last):
+                  File "<stdin>", line 1, in <module>
+                NameError: name 'geom_wkt_2' is not defined
 
 Reglas nomenclatura de variables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -761,6 +775,8 @@ existe también en otros lenguajes de programación como C++, por ejemplo.
 
     >>> a = 10
     >>> a += 5
+    >>> a
+    15
 
 es equivalente a:
 
@@ -768,11 +784,6 @@ es equivalente a:
 
     >>> a = 10
     >>> a = a + 5
-
-El valor de a en ambos casos es:
-
-.. code-block:: python
-
     >>> a
     15
 
@@ -790,8 +801,8 @@ a ``//=`` b              a = a ``//`` b
 a ``%=`` b               a = a ``%`` b
 ======================== ================
 
-Lo que no se permite en Python son los operadores incremento (``++``) o
-decremento (``--``) que sí existen en otros lenguajes de programación.
+.. note::   Lo que no se permite en Python son los operadores incremento (``++``) o
+            decremento (``--``) que sí existen en otros lenguajes de programación.
 
 Definición de comentarios
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -818,8 +829,8 @@ Estructuras o colecciones de datos
 ----------------------------------
 
 En la sección anterior se definieron las variables que permiten
-almacenar un único valor. En Python existen varias estructuras de datos
-(*data structures*) que permiten almacenar un conjunto de datos.
+almacenar *un único valor*. En Python existen varias estructuras de datos
+(*data structures*) que permiten almacenar *un conjunto de datos*.
 
 Listas
 ~~~~~~
@@ -829,17 +840,17 @@ lo que en otros lenguajes se conoce por *arrays* o *vectores*. Pueden
 contener cualquier tipo de dato: números, cadenas, booleanos y también
 listas.
 
-Crear una lista es tan sencillo como indicar entre corchetes ``[`` ``]``, y
+Crear y *definir* una lista es tan sencillo como indicar entre corchetes ``[`` ``]``, y
 separados por comas ``,``, los valores que se quieren incluir en la lista:
 
 .. code-block:: python
 
     >>> mi_lista = [22, True, "PyQGIS", [1, 2]]
 
-Se puede acceder a cada uno de los elementos de la lista escribiendo el
-nombre de la lista e indicando el índice del elemento entre corchetes.
+El *acceso* a cada uno de los elementos de la lista se realiza escribiendo el
+nombre de la lista e indicando el índice del elemento entre corchetes ``[`` ``]``.
 
-.. important:: El índice del primer elemento de la lista es 0 y no 1.
+.. important:: El índice del primer elemento de la lista es ``0`` y no ``1``.
 
 .. code-block:: python
     :emphasize-lines: 2
@@ -877,11 +888,11 @@ segundo para seleccionar el elemento de la lista interior:
 .. note::   Las matrices no son una estructura propia de Python.
             Simplemente, una matriz es una lista de listas que nosotros
             interpretamos desde el punto de vista matemático.
-            Es decir, la estructura m = [[1,2],[3,4]] nosotros la interpretamos
+            Es decir, la estructura ``m = [[1,2],[3,4]]`` nosotros la interpretamos
             como la matriz 2x2 cuya primera fila es (1,2) y cuya segunda fila es (3,4),
             pero esto no deja de ser una interpretación.
 
-También se puede utilizar el operador ``[]`` para modificar un elemento de la
+También se puede utilizar el operador ``[]`` para *modificar* un elemento de la
 lista si se coloca en la parte izquierda de una asignación. Por tanto, los
 elementos de un lista pueden variar a lo largo de su ciclo de vida (son *mutables*).
 Por ejemplo:
@@ -959,7 +970,7 @@ Añade un objeto ``object`` al final de la lista
 
     >>> mi_lista.append(3.141592)
     >>> mi_lista
-    [22, True, 'PyQGIS', [1, 2], 3.141592]
+    [22, False, 'PyQGIS', [1, 2], 3.141592]
 
 .. code-block::
 
@@ -975,7 +986,7 @@ Si no se especifica la posición, se utiliza el último elemento de la lista.
     >>> mi_lista.pop()
     3.141592
     >>> mi_lista
-    [22, True, 'PyQGIS', [1, 2]]
+    [22, False, 'PyQGIS', [1, 2]]
 
 .. code-block::
 
@@ -1022,7 +1033,7 @@ Un tupla es simplemente una lista **inmutable**, lo que significa que una
 vez creada no se pueden modificar sus valores y tienen además un tamaño
 fijo, no se pueden añadir nuevos elementos ni eliminar los existentes.
 Lo explicado para listas es aplicable a tuplas salvo en la forma de
-definirla.
+*definición*.
 
 .. code-block:: python
 
@@ -1038,7 +1049,7 @@ definirla.
                >>> type(mi_tupla)
                <class 'tuple'>
 
-El acceso a elementos es igual que las listas. Se puede utilizar el
+El *acceso* a elementos es igual que las listas. Se puede utilizar el
 operador ``[]`` debido a que las tuplas, al igual que las listas, forman
 parte de un tipo de objetos llamados *secuencias*.
 
@@ -1049,6 +1060,8 @@ parte de un tipo de objetos llamados *secuencias*.
     >>> mi_variable = mi_tupla[0]
     >>> mi_variable
     22
+
+También soporta el particionado:
 
 .. code-block:: python
     :emphasize-lines: 1
@@ -1095,12 +1108,12 @@ Diccionarios
 
 Los diccionarios, también llamados *matrices asociativas* (o mapeados en
 otros lenguajes), deben su nombre a que son colecciones que relacionan
-una clave y un valor (``key`` – ``value``). El primer valor se trata de la clave
+una *clave* y un *valor* (``key`` – ``value``). El primer valor se trata de la clave
 y el segundo del valor asociado a la clave. Como clave se puede utilizar
 cualquier valor *inmutable*: se pueden usar números, cadenas, booleanos,
 tuplas, … pero no listas o diccionarios, dado que son *mutables*.
 
-Para crear un diccionario se indicará entre llaves ``{`` ``}``, las parejas de elementos
+Para *definir* un diccionario en Python se indicará entre llaves ``{`` ``}``, las parejas de elementos
 que lo conforman. En cada pareja indicaremos primero el valor de la clave
 para acceder al elemento, y después el valor que contendrá separado por ``:``.
 En el siguiente ejemplo se muestra un diccionario creado a partir de los
@@ -1119,7 +1132,7 @@ CRS-EPSG en los que se sirve el servicio WMTS del PNOA de máxima actualidad:
        "32630": "WGS 84/UTM 30N"}
 
 La diferencia principal entre los diccionarios y las listas o las tuplas
-es que a los valores almacenados en un diccionario se les accede no por
+es que a los valores almacenados en un diccionario se les *accede* no por
 su índice, porque de hecho no tienen orden, sino por su clave,
 utilizando de nuevo el operador ``[]``.
 
@@ -1128,7 +1141,7 @@ utilizando de nuevo el operador ``[]``.
    >>> mi_diccionario["25830"]
    'ETRS 89/UTM 30N'
 
-Al igual que en listas y tuplas también se puede utilizar este operador
+Al igual que en listas también se puede utilizar este operador
 para reasignar valores.
 
 .. code-block:: python
@@ -1373,11 +1386,11 @@ de ninguno de los ``elif``, se ejecuta el código del ``else``.
 Bucles o estructuras repetitivas o iterativas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Mientras que los condicionales permiten ejecutar distintos fragmentos
-de código dependiendo de ciertas condiciones, los bucles permiten
+Mientras que los *condicionales* permiten ejecutar distintos fragmentos
+de código dependiendo de ciertas condiciones, los *bucles* permiten
 ejecutar un mismo fragmento de código un cierto número de veces,
 mientras se cumpla una determinada condición.
-Cada ejecución de las sentencias que se repiten se denomina iteración.
+Cada ejecución de las sentencias que se repiten se denomina *iteración*.
 Siempre ha de existir una condición de parada, es decir, hay que
 garantizar que en algún momento se darán las condiciones adecuadas
 para que el bucle pare. En caso contrario tendríamos un bucle
@@ -1385,8 +1398,8 @@ infinito.
 
 Todo bucle contiene los siguientes elementos (aunque no necesariamente en ese orden):
 
-+ Iniciación de las variables referentes al bucle.
-+ Decisión/condición de finalización → continuar con el bucle o terminar.
++ Iniciación de las variables o contadores referentes al bucle.
++ Decisión / condición de finalización → continuar con el bucle o terminar.
 + Cuerpo del bucle: instrucciones que se repiten.
 
 En el cuerpo del bucle, necesariamente habrá alguna (o algunas)
@@ -1475,14 +1488,15 @@ Produce la siguiente salida:
     Adios
 
 .. code-block:: python
-    :emphasize-lines: 4
+    :emphasize-lines: 5
     :linenos:
 
-    while var > 0:
-       var = var -1
-       if var == 5:
+    numero = int(input("Dame un número entero: "))
+    while numero > 0:
+       numero = numero -1
+       if numero == 5:
           continue
-       print("Valor variable actual:", var)
+       print("Valor número actual:", numero)
     print("Adios")
 
 Produce la siguiente salida:
@@ -1525,12 +1539,12 @@ Produce la siguiente salida:
     :emphasize-lines: 5
     :linenos:
 
-    var = 10
-    while var > 0:
-       var = var -1
-       if var == 5:
+    numero = int(input("Dame un número entero: "))
+    while numero > 0:
+       numero = numero -1
+       if numero == 5:
           break
-       print("Valor variable actual:", var)
+       print("Valor número actual:", numero)
     print("Adios")
 
 Produce la siguiente salida:
@@ -1676,10 +1690,10 @@ pasados como parámetros.
 
             .. code-block:: python
 
-            >>> mi_funcion("parámetro 1", "parámetro 2", "otro parámetro")
-            Traceback (most recent call last):
-              File "<input>", line 1, in <module>
-            TypeError: mi_funcion() takes 2 positional arguments but 3 were given
+                >>> mi_funcion("parámetro 1", "parámetro 2", "otro parámetro")
+                Traceback (most recent call last):
+                  File "<input>", line 1, in <module>
+                TypeError: mi_funcion() takes 2 positional arguments but 3 were given
 
 Al llamar una función, se le deben pasar sus argumentos en el mismo
 orden en el que los espera. Pero esto puede evitarse, haciendo uso del
@@ -1700,7 +1714,7 @@ la función ...
         Example function definition without arguments
         :rtype: None
         """
-        print("You are in Hellow World" + "\n")
+        print("You are in Hellow World")
 
 ...  como al invocarla.
 
@@ -1709,14 +1723,13 @@ la función ...
     >>> my_var = hello_world()  # calling a function
     You are in Hellow World
 
-En Python no existen los procedimientos como tales, ya
-que cuando el programador no especifica un valor de retorno la función
-devuelve el valor ``None`` (nada).
-¿Y para qué sirve una función que no devuelve nada? Bueno, puede, por ejemplo,
-mostrar mensajes o resultados por pantalla.
-
-A los fragmentos de código que tienen un nombre asociado y
-no devuelven valores se les suele llamar **procedimientos**.
+.. note::   A los fragmentos de código que tienen un nombre asociado y
+            no devuelven valores se les suele llamar **procedimientos**.
+            En Python no existen los procedimientos como tales, ya
+            que cuando el programador no especifica un valor de retorno la función
+            devuelve el valor ``None`` (nada).
+            ¿Y para qué sirve una función que no devuelve nada? Bueno, puede, por ejemplo,
+            mostrar mensajes o resultados por pantalla.
 
 .. code-block:: python
 
@@ -1865,16 +1878,16 @@ referencia, y los inmutables como paso por valor:
     def f(x, y):
         x = x + 3
         y.append(23)
-        print(x, y)
+        print("Valor variable x dentro de la función:", x, "Valor variable y dentro de la función:", y)
 
 .. code-block:: python
 
         >>> x = 22
         >>> y = [22]
         >>> f(x, y)
-        25 [22, 23]
-        >>> print(x, y)
-        22 [22, 23]
+        Valor variable x dentro de la función: 25 Valor variable y dentro de la función: [22, 23]
+        >>> print("Valor variable x fuera de la función:", x, "Valor variable y fuera de la función:", y)
+        Valor variable x fuera de la función: 22 Valor variable y fuera de la función: [22, 23]
 
 Vemos a continuación más ejemplos de argumentos por referencia vs. pasos por valor
 
@@ -1939,7 +1952,10 @@ Vemos a continuación más ejemplos de argumentos por referencia vs. pasos por v
         >>> print("Outside the function the value of a is acting as global variable", a)
         Outside the function the value of a is acting as global variable 9000
 
+La sentencia ``global`` se utiliza para declarar variables globales.
+
 .. code-block:: python
+    :emphasize-lines: 7
     :linenos:
 
     def func():
@@ -2550,31 +2566,34 @@ En el siguiente ejemplo se ha sustituido el bloque de código de la
 excepción para mostrar el error.
 
 .. code-block:: python
+        :linenos:
 
-    def divide(x, y):
-        try:
-            result = x / y
-        except Exception as detail:
-            print(detail, type(detail))
+        def divide(x, y):
+            try:
+                result = x / y
+            except Exception as detail:
+                print(detail, type(detail))
 
-En este caso la llamada a la función con argumento denominador cero ``divide(2,0)``
+En este caso la llamada a la función con argumento denominador cero
 genera el siguiente resultado:
 
-.. code-block::
+.. code-block:: python
 
+    >>>  divide(2,0)
     division by zero <class 'ZeroDivisionError'>
 
-Para el caso de la llamada a la función con dos cadenas de texto
-``divide("2","1")``, producirá en este caso los siguientes
+Para el caso de la llamada a la función con dos cadenas de texto,
+producirá en este caso los siguientes
 resultados y no detendrá la ejecución del programa:
 
-.. code-block::
+.. code-block:: python
 
-   unsupported operand type(s) for /: 'str' and 'str' <class 'TypeError'>
+    >>>  divide("2","1")
+    unsupported operand type(s) for /: 'str' and 'str' <class 'TypeError'>
 
 .. tip::    Las excepciones son también objetos regulares de Python que heredan de
             la clase ``BaseException``. La jerarquía de excepciones puede consultarse
-            en el siguiente enlace: https://docs.python.org/3.7/library/exceptions.html
+            en el `siguiente enlace. <https://docs.python.org/3.7/library/exceptions.html>`_:
             El tipo de error producido, ``TypeError``, hereda de la clase
             ``BaseException`` ``Exception`` ``StandardError``
 
@@ -2584,22 +2603,23 @@ conectar con una base de datos SQLite, mostrando un error si la conexión
 no se lleva a cabo:
 
 .. code-block:: python
+        :linenos:
 
-    try:
-        connection_object = sqlite.connect(path)
-        str_msg = "It has established a connection with the database " + path
-        self.iface.messageBar().pushMessage(c.CONST_APPLICATION_NAME,
-                                            str_msg,
-                                            level = QgsMessageBar.INFO)
-        return connection_object
-    except sqlite.OperationalError, Msg:
-        str_msg_error_db = str(Msg)
-        str_msg = "Can't connect to Database: " + path + ". Error:" + str_msg_error_db
-        self.iface.messageBar().pushMessage(c.CONST_APPLICATION_NAME,
-                                            str_msg,
-                                            QgsMessageBar.CRITICAL,
-                                            10)
-        return
+        try:
+            connection_object = sqlite.connect(path)
+            str_msg = "It has established a connection with the database " + path
+            self.iface.messageBar().pushMessage(c.CONST_APPLICATION_NAME,
+                                                str_msg,
+                                                level = QgsMessageBar.INFO)
+            return connection_object
+        except sqlite.OperationalError, Msg:
+            str_msg_error_db = str(Msg)
+            str_msg = "Can't connect to Database: " + path + ". Error:" + str_msg_error_db
+            self.iface.messageBar().pushMessage(c.CONST_APPLICATION_NAME,
+                                                str_msg,
+                                                QgsMessageBar.CRITICAL,
+                                                10)
+            return
 
 Módulos y paquetes
 ------------------
@@ -2655,136 +2675,42 @@ trate a un directorio como un paquete es neceario crear un archivo
 Escritura y lectura de ficheros de texto
 ----------------------------------------
 
-.. TODO bien explicado en https://www.pythonforbeginners.com/files/reading-and-writing-files-in-python
-
-Los ficheros en Python son objetos de tipo ``file`` creados mediante la
-función ``open`` (abrir). Esta función toma como parámetros:
-+ una cadena con la ruta al fichero a abrir, que puede ser relativa o absoluta;
-+ una cadena opcional indicando el modo de acceso (si no se especifica se
-accede en modo lectura)
-+ un entero opcional para especificar un tamaño de *buffer* distinto del utilizado por defecto.
-
-El modo de acceso puede ser cualquier combinación lógica de los siguientes modos:
-
-=====================   ============   =======================================
-**Modo de accceso**     **Operador**    **Descripción**
-=====================   ============   =======================================
-Lectura (``read``)      ``r``           Abre el archivo en modo lectura. El archivo tiene que existir
-
-                                        previamente, en caso contrario se lanzará una excepción de tipo
-
-                                        ``IOError``
-
-Escritura (``write``)   ``w``           Abre el archivo en modo escritura. Si el archivo no existe se
-
-                                        crea. Si existe, sobreescribe el contenido.
-
-Añadir (``append``)     ``a``           Abre el archivo en modo escritura. Se diferencia del modo ``w``
-
-                                        en que en este caso no se sobreescribe el contenido del archivo,
-
-                                        sino que se comienza a escribir al final del archivo.
-=====================   ============   =======================================
-
-.. code-block:: python
-
-    >>> f = open("archivo.txt", "w")
-
-Tras crear el objeto que representa un archivo mediante la método ``open``
-se podrán realizar las operaciones de lectura/escritura pertinentes
-utilizando los métodos del objeto que se verán a continuación.
-
-.. important::  Finalizada su utilización, se deberá cerrar el archivo con el método ``close``.
-
-Lectura de ficheros
-~~~~~~~~~~~~~~~~~~~
-
-Para la lectura de archivos se utilizan los métodos ``read``, ``readline`` y
-``readlines``.
-
-El método ``read`` devuelve una cadena con el contenido del archivo o bien
-el contenido de los primeros ``n`` bytes, si se especifica el tamaño máximo
-a leer.
-
-.. code-block:: python
-
-   >>> completo = f.read()
-   >>> parte = f.read(512)
-
-El método ``readline`` sirve para leer las líneas del fichero una por una.
-Es decir, cada vez que se llama a este método, se devuelve el contenido
-del archivo desde el puntero hasta que se encuentra un carácter de nueva
-línea, incluyendo este carácter.
-
-.. TODO probar este código
-
-.. code-block:: python
-    :linenos:
-
-        while True:
-            linea = f.readline()
-            if not linea:
-                break
-            print(linea)
-
-Por último, ``readlines``, funciona leyendo todas las líneas del archivo y
-devolviendo una lista con las líneas leídas.
-
-Escritura de ficheros
-~~~~~~~~~~~~~~~~~~~~~
-
-Para la escritura de archivos se utilizan los métodos ``write`` y
-``writelines``. Mientras el primero funciona escribiendo en el archivo una
-cadena de texto que toma como parámetro, el segundo toma como parámetro
-una lista de cadenas de texto indicando las líneas que queremos escribir
-en el fichero.
-
-Mover el puntero de lectura/escritura
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Hay situaciones en las que nos puede interesar mover el puntero de
-lectura/escritura a una posición determinada del archivo. Por ejemplo si
-queremos empezar a escribir en una posición determinada y no al final o
-al principio del archivo.
-
-Para esto se utiliza el método ``seek`` que toma como parámetro un número
-positivo o negativo a utilizar como desplazamiento. También es posible
-utilizar un segundo parámetro para indicar desde dónde queremos que se
-haga el desplazamiento: ``0`` indicará que el desplazamiento se refiere al
-principio del fichero (comportamiento por defecto), ``1`` se refiere a la
-posición actual, y ``2``, al final del fichero.
-
-Para determinar la posición en la que se encuentra actualmente el
-puntero se utiliza el método ``tell()``, que devuelve un entero indicando la
-distancia en bytes desde el principio del fichero.
-
 Formateo de la salida
 ~~~~~~~~~~~~~~~~~~~~~
 
+Antes de describir las sentencias para el manejo de ficheros de texto, se aportan
+unas definiciones previas sobre el formateo de salida.
+
 La sentencia ``print``, o más bien las cadenas que imprime, permiten también
 utilizar técnicas avanzadas de formateo, de forma similar al ``sprintf`` de
-C. Veamos un ejemplo bastante simple:
-
-.. code-block:: python
-
-    >>> print("Hola %s") % "mundo"
-
-.. code-block:: python
-
-    >>> print("%s %s") % ("Hola", "mundo")
-
-.. code-block:: python
-
-    >>> print("%d %f %s") %(2, 3.14 , "Hi")
+C. Veamos varios ejemplos bastantes simples.
 
 Lo que hace la primera línea es introducir los valores a la derecha del
 símbolo ``%`` (la cadena "mundo") en las posiciones indicadas por los
 especificadores de conversión de la cadena a la izquierda del símbolo
 ``%``, tras convertirlos al tipo adecuado.
 
+.. code-block:: python
+
+    >>> print("Hola %s" % "mundo")
+    Hola mundo
+
 En la segunda línea, vemos cómo se puede pasar más de un valor a
 sustituir, por medio de una tupla. En este ejemplo sólo tenemos un
 especificador de conversión: ``%s``.
+
+.. code-block:: python
+
+    >>> print("%s %s" % ("Hola", "mundo"))
+    Hola mundo
+
+.. code-block:: python
+
+    >>> print("%d %f %s" % (2, 3.14 , "Hi"))
+
+.. code-block:: python
+
+    >>> print("La distancia total recorrida es de %f metros" % 9.10 )
 
 Los especificadores más sencillos están formados por el símbolo ``%``
 seguido de una letra que indica el tipo con el que formatear el valor:
@@ -2830,8 +2756,59 @@ caracteres de la cadena que queremos mostrar
    >>> print("%.4s" % "hola mundo")
    hola
 
-Ejemplo de aplicación
+.. SEE bien explicado en https://www.pythonforbeginners.com/files/reading-and-writing-files-in-python
+
+Manejo de ficheros de texto
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Los ficheros en Python son objetos de tipo ``file`` creados mediante la
+función ``open`` (abrir). Esta función toma como parámetros:
+
++ una cadena con la ruta al fichero a abrir, que puede ser relativa o absoluta;
++ una cadena opcional indicando el modo de acceso (si no se especifica se accede en modo lectura).
++ un entero opcional para especificar un tamaño de *buffer* distinto del utilizado por defecto.
+
+El modo de acceso puede ser cualquier combinación lógica de los siguientes modos:
+
+=====================   ============   =======================================
+**Modo de accceso**     **Operador**    **Descripción**
+=====================   ============   =======================================
+Lectura (``read``)      ``r``           Abre el archivo en modo lectura. El archivo tiene que existir
+
+                                        previamente, en caso contrario se lanzará una excepción de tipo
+
+                                        ``IOError``
+
+Escritura (``write``)   ``w``           Abre el archivo en modo escritura. Si el archivo no existe se
+
+                                        crea. Si existe, sobreescribe el contenido.
+
+Añadir (``append``)     ``a``           Abre el archivo en modo escritura. Se diferencia del modo ``w``
+
+                                        en que en este caso no se sobreescribe el contenido del archivo,
+
+                                        sino que se comienza a escribir al final del archivo.
+=====================   ============   =======================================
+
+.. code-block:: python
+
+    >>> f = open("archivo.txt", "w")
+
+Tras crear el objeto que representa un archivo mediante la método ``open``
+se podrán realizar las operaciones de lectura/escritura pertinentes
+utilizando los métodos del objeto que se verán a continuación.
+
+.. important::  Finalizada su utilización, se deberá cerrar el archivo con el método ``close``.
+
+Escritura de ficheros
 ~~~~~~~~~~~~~~~~~~~~~
+
+Para la escritura de archivos se utilizan los métodos ``write`` y
+``writelines``. Mientras el primero funciona escribiendo en el archivo una
+cadena de texto que toma como parámetro, el segundo toma como parámetro
+una lista de cadenas de texto indicando las líneas que queremos escribir
+en el fichero.
+
 .. TODO: mejorar este ejemplo con el ejemplo del py
 
 .. code-block:: python
@@ -2844,4 +2821,57 @@ Ejemplo de aplicación
     str_msg = "Coordinates point %d: (%.1f, %.1f) %s" %(num_pto, coor_x, coor_y, crs_epsg_auth_id)
     obj_file_results.write(str_msg)
     obj_file_results.close()
+
+Lectura de ficheros
+~~~~~~~~~~~~~~~~~~~
+
+Para la lectura de archivos se utilizan los métodos ``read``, ``readline`` y
+``readlines``.
+
+El método ``read`` devuelve una cadena con el contenido del archivo o bien
+el contenido de los primeros ``n`` bytes, si se especifica el tamaño máximo
+a leer.
+
+.. code-block:: python
+
+   >>> completo = f.read()
+   >>> parte = f.read(512)
+
+El método ``readline`` sirve para leer las líneas del fichero una por una.
+Es decir, cada vez que se llama a este método, se devuelve el contenido
+del archivo desde el puntero hasta que se encuentra un carácter de nueva
+línea, incluyendo este carácter.
+
+.. TODO probar este código
+
+.. code-block:: python
+    :linenos:
+
+    while True:
+        linea = f.readline()
+        if not linea:
+            break
+        print(linea)
+
+Por último, ``readlines``, funciona leyendo todas las líneas del archivo y
+devolviendo una lista con las líneas leídas.
+
+Mover el puntero de lectura/escritura
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Hay situaciones en las que nos puede interesar mover el puntero de
+lectura/escritura a una posición determinada del archivo. Por ejemplo si
+queremos empezar a escribir en una posición determinada y no al final o
+al principio del archivo.
+
+Para esto se utiliza el método ``seek`` que toma como parámetro un número
+positivo o negativo a utilizar como desplazamiento. También es posible
+utilizar un segundo parámetro para indicar desde dónde queremos que se
+haga el desplazamiento: ``0`` indicará que el desplazamiento se refiere al
+principio del fichero (comportamiento por defecto), ``1`` se refiere a la
+posición actual, y ``2``, al final del fichero.
+
+Para determinar la posición en la que se encuentra actualmente el
+puntero se utiliza el método ``tell()``, que devuelve un entero indicando la
+distancia en bytes desde el principio del fichero.
 
