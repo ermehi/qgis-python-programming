@@ -14,11 +14,15 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+from datetime import datetime
 
 # -- Project information -----------------------------------------------------
 
 project = 'QGIS Python Programming Recipes'
-copyright = '2020, Damián Ortega Terol'
+
+now = datetime.now()
+str_now = now.strftime("%m/%d/%Y, %H:%M")
+copyright = 'Copyright 2019-now. Damián Ortega Terol. Última actualización %s' % str_now
 author = 'Damián Ortega Terol'
 
 # The full version, including alpha/beta/rc tags
@@ -31,7 +35,6 @@ release = '202011.0'
 
 # -- General configuration ---------------------------------------------------
 
-
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
@@ -40,7 +43,10 @@ extensions = ['sphinx.ext.todo',
               'sphinx.ext.githubpages',
               'rst2pdf.pdfbuilder']
 
-pdf_documents = [('index', u'rst2pdf', u'Sample rst2pdf doc', u'Damian'),]
+pdf_documents = [('index',
+                  u'CursoPyQGIS_v3_202011_TrainingManual_CEDEX_testing',
+                  u'Documentación curso Programación PyQGIS con Python',
+                  author),]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -64,3 +70,7 @@ html_static_path = ['_static']
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'TemplateClassdoc'
+
+# Language to be used for hyphenation support
+
+language="es"

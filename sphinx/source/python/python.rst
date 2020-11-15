@@ -472,6 +472,8 @@ escapándolos con ``\\``:
 ``\"``          "
 ==========      ===============================
 
+Por ejemplo:
+
 .. code-block:: python
 
     >>> print("Las cadenas son texto encerrado entre comillas simples (\')")
@@ -481,11 +483,10 @@ escapándolos con ``\\``:
 
 .. code-block:: python
 
- >>> levantamiento = "Nº\tX\t\tY\t\tCOD\n1\t728762.67\t4328983.25\t\"bordillo\"\n2\t728785.42\t4328998.43\t\'acera.\b\'"
+ >>> levantamiento = "Nº\tX\t\tY\t\tCOD\n1\t728762.67\t4328983.25\t\"bordillo\""
  >>> print(levantamiento)
  Nº      X               Y               COD
  1       728762.67       4328983.25      "bordillo"
- 2       728785.42       4328998.43      'acera'
 
 También es posible encerrar una cadena entre triples comillas (simples o
 dobles). De esta forma se podrá escribir el texto en varias líneas, y al
@@ -850,7 +851,7 @@ separados por comas ``,``, los valores que se quieren incluir en la lista:
 El *acceso* a cada uno de los elementos de la lista se realiza escribiendo el
 nombre de la lista e indicando el índice del elemento entre corchetes ``[`` ``]``.
 
-.. important:: El índice del primer elemento de la lista es ``0`` y no ``1``.
+.. important:: El índice del primer elemento de una lista es ``0`` y no ``1``.
 
 .. code-block:: python
     :emphasize-lines: 2
@@ -1148,9 +1149,9 @@ para reasignar valores.
     :emphasize-lines: 1, 2
     :linenos:
 
-    >>> mi_diccionario["25830"] = "Sistema geodesico de referencia ETRS 89 - proyeccion cartografica UTM huso 30 Norte"
+    >>> mi_diccionario["25830"] = "Sistema de referencia ETRS 89 - P.C. UTM huso 30 Norte"
     >>> mi_diccionario["25830"]
-    'Sistema geodesico de referencia ETRS 89 - proyeccion cartografica UTM huso 30 Norte'
+    'Sistema de referencia ETRS 89 - P.C. UTM huso 30 Norte'
 
 También se pueden añadir nuevos pares key – values al diccionario:
 
@@ -1164,7 +1165,7 @@ También se pueden añadir nuevos pares key – values al diccionario:
     '4258': 'ETRS89',
     '4326': 'WGS 84',
     '25828': 'ETRS 89/UTM 28N',
-    '25830': 'Sistema geodesico de referencia ETRS 89 - proyeccion cartografica UTM huso 30 Norte',
+    '25830': 'Sistema de referencia ETRS 89 - P.C. UTM huso 30 Norte',
     '32628': 'WGS 84/UTM 28N',
     '32630': 'WGS 84/UTM 30N',
     '25831': 'ETRS 89/UTM 31N'}
@@ -1193,7 +1194,7 @@ la clave se lanzaría una excepción.
     :linenos:
 
     >>> mi_diccionario.get("25830","Unknown SRC")
-    'Sistema geodesico de referencia ETRS 89 - proyeccion cartografica UTM huso 30 Norte'
+    'Sistema de referencia ETRS 89 - P.C. UTM huso 30 Norte'
     >>> mi_diccionario.get("25832","Unknown SRC")
     'Unknown SRC'
 
@@ -1228,7 +1229,7 @@ Devuelve una lista de tuplas con pares clave-valor.
     ('4258', 'ETRS89'),
     ('4326', 'WGS 84'),
     ('25828', 'ETRS 89/UTM 28N'),
-    ('25830', 'Sistema geodesico de referencia ETRS 89 - proyeccion cartografica UTM huso 30 Norte'),
+    ('25830', 'Sistema de referencia ETRS 89 - P.C. UTM huso 30 Norte'),
     ('32628', 'WGS 84/UTM 28N'),
     ('32630', 'WGS 84/UTM 30N'),
     ('25831', 'ETRS 89/UTM 31N')
@@ -1258,7 +1259,9 @@ Devuelve una lista de los valores del diccionario.
     :linenos:
 
     >>> mi_diccionario.values()
-    dict_values(['WGS 84/Pseudo Mercator', 'ETRS89', 'WGS 84', 'ETRS 89/UTM 28N', 'Sistema geodesico de referencia ETRS 89 - proyeccion cartografica UTM huso 30 Norte', 'WGS 84/UTM 28N', 'WGS 84/UTM 30N', 'ETRS 89/UTM 31N'])
+    dict_values(['WGS 84/Pseudo Mercator', 'ETRS89', 'WGS 84', 'ETRS 89/UTM 28N',
+    'Sistema de referencia ETRS 89 - P.C. UTM huso 30 Norte',
+    'WGS 84/UTM 28N', 'WGS 84/UTM 30N', 'ETRS 89/UTM 31N'])
 
 Finalmente, se pueden recorrer diccionarios con la estructura repetitiva
 ``for`` .. ``in`` que será descrita en el siguiente apartado:
@@ -1834,7 +1837,9 @@ variable de parámetros.
         :param convencional_argument: conventional argument
         :param variable_argument: variable argument
         """
-        str_msg = "Convencional argument: " + str(convencional_argument) + ", Variable arguments: "
+        str_msg = "Convencional argument: "
+        str_msg += str(convencional_argument)
+        str_msg += ", Variable arguments: "
         for var in variable_argument :
             str_msg += str(var) + ", "
         print(str_msg)
@@ -1878,16 +1883,16 @@ referencia, y los inmutables como paso por valor:
     def f(x, y):
         x = x + 3
         y.append(23)
-        print("Valor variable x dentro de la función:", x, "Valor variable y dentro de la función:", y)
+        print("Valor var x dentro de func:", x, "Valor var y dentro de func:", y)
 
 .. code-block:: python
 
         >>> x = 22
         >>> y = [22]
         >>> f(x, y)
-        Valor variable x dentro de la función: 25 Valor variable y dentro de la función: [22, 23]
+        Valor var x dentro de func: 25 Valor var y dentro de func: [22, 23]
         >>> print("Valor variable x fuera de la función:", x, "Valor variable y fuera de la función:", y)
-        Valor variable x fuera de la función: 22 Valor variable y fuera de la función: [22, 23]
+        Valor var x dentro de func: 22 Valor var y dentro de func: [22, 23]
 
 Vemos a continuación más ejemplos de argumentos por referencia vs. pasos por valor
 
