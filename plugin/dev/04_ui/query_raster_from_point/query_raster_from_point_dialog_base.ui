@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QueryRasterFromPointDialogBase</class>
+ <widget class="QDialog" name="QueryRasterFromPointDialogBase">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>466</width>
+    <height>231</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Query raster from point</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_4">
+   <item row="0" column="0">
+    <widget class="QgsCollapsibleGroupBox" name="mGroupBox_inputData">
+     <property name="title">
+      <string>Input data</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <layout class="QGridLayout" name="gridLayout" columnstretch="1,10,1">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_vectorLayer">
+          <property name="text">
+           <string>Vector layer:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QComboBox" name="comboBox_vectorLayer"/>
+        </item>
+        <item row="0" column="2">
+         <widget class="QToolButton" name="toolButton_searchVectorLayer">
+          <property name="text">
+           <string>...</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_rasterLayer">
+          <property name="text">
+           <string>Raster layer:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QComboBox" name="comboBox_rasterLayer">
+          <property name="toolTip">
+           <string>Raster layers loaded in the QGIS Table Of Contents</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QToolButton" name="toolButton_searchRasterLayer">
+          <property name="text">
+           <string>...</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QgsCollapsibleGroupBox" name="mGroupBox_outputLayer">
+     <property name="title">
+      <string>Output layer</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="0" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QRadioButton" name="radioButton_outputMemoryLayer">
+          <property name="text">
+           <string>Memory layer</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QRadioButton" name="radioButton_outputShapefile">
+          <property name="text">
+           <string>Shapefile</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit_pathOutputShp"/>
+        </item>
+        <item>
+         <widget class="QToolButton" name="toolButton_searchPathOutputShp">
+          <property name="text">
+           <string>...</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QToolButton" name="toolButton_process">
+       <property name="text">
+        <string>...</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QgsCollapsibleGroupBox</class>
+   <extends>QGroupBox</extends>
+   <header>qgscollapsiblegroupbox.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>mGroupBox_inputData</tabstop>
+  <tabstop>comboBox_vectorLayer</tabstop>
+  <tabstop>toolButton_searchVectorLayer</tabstop>
+  <tabstop>comboBox_rasterLayer</tabstop>
+  <tabstop>toolButton_searchRasterLayer</tabstop>
+  <tabstop>mGroupBox_outputLayer</tabstop>
+  <tabstop>radioButton_outputMemoryLayer</tabstop>
+  <tabstop>radioButton_outputShapefile</tabstop>
+  <tabstop>lineEdit_pathOutputShp</tabstop>
+  <tabstop>toolButton_searchPathOutputShp</tabstop>
+  <tabstop>toolButton_process</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
