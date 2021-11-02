@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<html class="writer-html5" lang="es" >
 <head>
   <meta charset="utf-8">
   
@@ -12,12 +11,18 @@
   
 
   
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -30,10 +35,6 @@
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
     <link rel="next" title="3. Apuntes Lenguaje de programación Python" href="../python/index.html" />
@@ -51,7 +52,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> QGIS Python Programming Recipes
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> QGIS Python Programming Recipes
           
 
           
@@ -78,6 +79,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -90,7 +92,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../summary.html">1. Introducción</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">2. Documentación de referencia</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. Documentación oficial QGIS de referencia</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pyqgis-online-resources-webgrafia">2.2. PyQGIS online resources (Webgrafía)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pyqgis-online-resources-webography">2.2. PyQGIS online resources (Webography)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#interactuar-con-otros-usuarios">2.2.1. Interactuar con otros usuarios</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#resolucion-de-dudas">2.2.1.1. Resolución de dudas</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#reporte-de-bugs">2.2.1.2. Reporte de bugs</a></li>
@@ -117,6 +119,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -155,7 +158,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="index.html"><span class="section-number">2. </span>Documentación de referencia</a> &raquo;</li>
         
@@ -185,12 +188,12 @@ orientados a la programación de QGIS con Python.</p>
 <h1><span class="section-number">2.1. </span>Documentación oficial QGIS de referencia<a class="headerlink" href="#documentacion-oficial-qgis-de-referencia" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>La <a class="reference external" href="http://www.qgis.org/en/docs/index.html">documentación oficial</a> de QGIS se facilita en idioma inglés,
 pero algunas partes están traducidas a varios idiomas. Las principales referencias para el <strong>desarrollador</strong>
-son la <a class="reference external" href="https://qgis.org/api/3.16/">API QGIS C++</a>,
-la <a class="reference external" href="https://qgis.org/pyqgis/3.16/">API QGIS Python</a> y el libro de recetas para el desarrollador PyQGIS
-(<a class="reference external" href="https://docs.qgis.org/3.16/es/docs/pyqgis_developer_cookbook/">PyQGIS cookbook</a>).
+son la <a class="reference external" href="https://qgis.org/api/3.10/">API QGIS C++</a>,
+la <a class="reference external" href="https://qgis.org/pyqgis/3.10/">API QGIS Python</a> y el libro de recetas para el desarrollador PyQGIS
+(<a class="reference external" href="https://docs.qgis.org/3.10/es/docs/pyqgis_developer_cookbook/">PyQGIS cookbook</a>).
 Estos recursos se complementan con la guía de usuario
-(<a class="reference external" href="https://docs.qgis.org/3.16/es/docs/user_manual/">QGIS User guide</a>) y el manual de aprendizaje
-(<a class="reference external" href="https://docs.qgis.org/3.16/es/docs/training_manual/">QGIS Training manual</a>).</p>
+(<a class="reference external" href="https://docs.qgis.org/3.10/es/docs/user_manual/">QGIS User guide</a>) y el manual de aprendizaje
+(<a class="reference external" href="https://docs.qgis.org/3.10/es/docs/training_manual/">QGIS Training manual</a>).</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
 <p>De forma genérica, los <strong>manuales de usuario</strong> (<em>user guide</em>) son utilizados para
@@ -202,8 +205,8 @@ pero no explican todas las funcionalidades y características de la herramienta 
 Suelen tener más capturas de pantallas que los manuales de usuario.</p>
 </div>
 </div>
-<div class="section" id="pyqgis-online-resources-webgrafia">
-<h1><span class="section-number">2.2. </span>PyQGIS online resources (Webgrafía)<a class="headerlink" href="#pyqgis-online-resources-webgrafia" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="pyqgis-online-resources-webography">
+<h1><span class="section-number">2.2. </span>PyQGIS online resources (Webography)<a class="headerlink" href="#pyqgis-online-resources-webography" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>En este apartado se aportan un conjunto de recursos disponibles en línea de PyQGIS.</p>
 <div class="section" id="interactuar-con-otros-usuarios">
 <h2><span class="section-number">2.2.1. </span>Interactuar con otros usuarios<a class="headerlink" href="#interactuar-con-otros-usuarios" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -388,11 +391,19 @@ En este caso se recomiendan los siguientes: <a class="footnote-reference bracket
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Copyright 2019-now. Damián Ortega Terol. Última actualización 11/02/2021, 18:12
+        
+        &copy; Copyright Copyright 2019-now. Damián Ortega Terol. Última actualización 11/15/2020, 18:06
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -403,7 +414,6 @@ En este caso se recomiendan los siguientes: <a class="footnote-reference bracket
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
