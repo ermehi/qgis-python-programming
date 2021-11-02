@@ -25,8 +25,8 @@ Estos recursos se complementan con la guía de usuario
             pero no explican todas las funcionalidades y características de la herramienta informática.
             Suelen tener más capturas de pantallas que los manuales de usuario.
 
-PyQGIS online resources (Webography)
-************************************
+PyQGIS online resources (Webgrafía)
+***********************************
 En este apartado se aportan un conjunto de recursos disponibles en línea de PyQGIS.
 
 Interactuar con otros usuarios
