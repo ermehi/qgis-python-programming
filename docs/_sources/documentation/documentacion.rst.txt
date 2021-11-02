@@ -9,12 +9,12 @@ Documentación oficial QGIS de referencia
 ****************************************
 La `documentación oficial <http://www.qgis.org/en/docs/index.html>`_ de QGIS se facilita en idioma inglés,
 pero algunas partes están traducidas a varios idiomas. Las principales referencias para el **desarrollador**
-son la `API QGIS C++ <https://qgis.org/api/3.10/>`_,
-la `API QGIS Python <https://qgis.org/pyqgis/3.10/>`_ y el libro de recetas para el desarrollador PyQGIS
-(`PyQGIS cookbook <https://docs.qgis.org/3.10/es/docs/pyqgis_developer_cookbook/>`_).
+son la `API QGIS C++ <https://qgis.org/api/3.16/>`_,
+la `API QGIS Python <https://qgis.org/pyqgis/3.16/>`_ y el libro de recetas para el desarrollador PyQGIS
+(`PyQGIS cookbook <https://docs.qgis.org/3.16/es/docs/pyqgis_developer_cookbook/>`_).
 Estos recursos se complementan con la guía de usuario
-(`QGIS User guide <https://docs.qgis.org/3.10/es/docs/user_manual/>`_) y el manual de aprendizaje
-(`QGIS Training manual <https://docs.qgis.org/3.10/es/docs/training_manual/>`_).
+(`QGIS User guide <https://docs.qgis.org/3.16/es/docs/user_manual/>`_) y el manual de aprendizaje
+(`QGIS Training manual <https://docs.qgis.org/3.16/es/docs/training_manual/>`_).
 
 .. note::   De forma genérica, los **manuales de usuario** (*user guide*) son utilizados para
             describir las características y funcionalidades disponibles en una determinada aplicación informática
@@ -25,8 +25,8 @@ Estos recursos se complementan con la guía de usuario
             pero no explican todas las funcionalidades y características de la herramienta informática.
             Suelen tener más capturas de pantallas que los manuales de usuario.
 
-PyQGIS online resources (Webography)
-************************************
+PyQGIS online resources (Webgrafía)
+***********************************
 En este apartado se aportan un conjunto de recursos disponibles en línea de PyQGIS.
 
 Interactuar con otros usuarios
