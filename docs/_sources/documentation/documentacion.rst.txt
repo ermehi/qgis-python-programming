@@ -1,7 +1,8 @@
 .. _cap2_documentacion:
 
 En esta sección se facilitan una serie de recursos para el aprendizaje de QGIS, específicamente
-orientados a la programación de QGIS con Python.
+enfocados a la programación de QGIS con Python. El contenido se estructura en los siguientes
+apartados:
 
 .. image:: images/documentation_scheme.png
 
@@ -25,8 +26,8 @@ Estos recursos se complementan con la guía de usuario
             pero no explican todas las funcionalidades y características de la herramienta informática.
             Suelen tener más capturas de pantallas que los manuales de usuario.
 
-PyQGIS online resources (Webgrafía)
-***********************************
+*PyQGIS online resources* (Webgrafía)
+**************************************
 En este apartado se aportan un conjunto de recursos disponibles en línea de PyQGIS.
 
 Interactuar con otros usuarios
@@ -41,20 +42,17 @@ QGIS tiene tres formas oficiales de apoyar el desarrollo y la resolución de pro
 En las listas de correo, canales IRC y redes sociales técnicas se puede obtener soporte de otros usuarios:
 
 1.  `Listas de correo <http://qgis.org/en/site/getinvolved/mailinglists.html>`_:
-    Las listas de correos están divididas por temas y grupos y pueden consultarse
-    desde su `registro`_.
+    Las listas de correos están divididas por temas y grupos determinados. Las consultas sobre el
+    desarrollo del núcleo de QGIS o complementos serán dirigidas a la lista de desarrollodores
+    (`Developer list <http://lists.osgeo.org/mailman/listinfo/qgis-developer>`_) y para las
+    relacionadas con la discusión de aspectos generales de QGIS se utilizará la lista de usuarios
+    (`User list <http://lists.osgeo.org/mailman/listinfo/qgis-user>`_).
 
-.. _registro: http://osgeo-org.1560.x6.nabble.com/QGIS-f4099105.html
-
-    a. `Developer list <http://lists.osgeo.org/mailman/listinfo/qgis-developer>`_
-    b. `User list <http://lists.osgeo.org/mailman/listinfo/qgis-user>`_.
-
-2.  Internet Relay Chat (IRC): para obtener asistencia de usuarios y desarrolladores en tiempo real.
+2.  *Internet Relay Chat* (IRC): para obtener asistencia de usuarios y desarrolladores en tiempo real
+    se puede acceder al `canal de QGIS <https://web.libera.chat/?channels=#qgis>`_.
     Esta ayuda es voluntaria y está condicionada a su disponibilidad.
-    Se puede acceder al `canal de QGIS <http://webchat.freenode.net/?channels=#qgis>`_ y
-    a su `registro correspondiente <http://irclogs.geoapt.com/qgis/>`_ desde el 10/05/2016.
 
-3.  The Stack Exchange community: Esta red social técnica tiene un subproyecto GIS
+3.  *The Stack Exchange community*: Esta red social técnica tiene un subproyecto GIS
     (Geographic Information Systems Stack Exchange) con 36 etiquetas relacionadas con QGIS y PyQGIS en el siguiente
     `enlace <https://gis.stackexchange.com/tags>`_.
 
@@ -63,13 +61,12 @@ Reporte de bugs
 Una manera importante de respaldar el proyecto QGIS, además de financiarlo, es mediante el reporte problemas
 (solicitudes de nuevas funcionalidades o errores) aportando un caso de uso detallado y los datos que permiten
 a otros replicar el problema, permitiendo acelerar su corrección.
-La guía para reportar errores está disponible en el siguiente enlace.
-Se recomienda consultar las `indicaciones <https://www.qgis.org/en/site/getinvolved/development/bugreporting.html>`_
+Se recomienda seguir las siguientes `indicaciones <https://www.qgis.org/en/site/getinvolved/development/bugreporting.html>`_
 antes de reportar un error.
 
-Cada parte del proyecto QGIS tiene un lugar específico donde los problemas
+Por otro lado, cada parte del proyecto QGIS tiene un lugar específico donde los problemas
 se pueden informar, gestionar y discutir, dependiendo del área en la que haya encontrado.
-A continuación se indican los repositorio adecuados para dirigir las consultas:
+A continuación, se indican los repositorio adecuados para dirigir las consultas:
 
 + Aplicaciones (QGIS Desktop, QGIS Server) -> https://issues.qgis.org/projects/qgis/issues
 + `Sitio web de QGIS <https://qgis.org>`_ ->  https://github.com/qgis/QGIS-Website/issues
@@ -81,26 +78,24 @@ Para los otros dos casos será necesario disponer de una `cuenta de GitHub <http
 
 Los enlaces para reportar errores de complementos externos de terceros se pueden localizar en el
 Administrador de Complementos de QGIS, accesible desde el menú
-:menuselection:`Complementos --> Administrar e instalar complementos...` de QGIS.
+:menuselection:`Complementos --> Administrar e instalar complementos...`.
 
 Blogs y foros
 =============
-A continuación se aporta un listado de Blogs, canales de noticias y foros
-*activos* de referencia de interés para el desarrollador:
+A continuación, se aporta un listado de Blogs, canales de noticias y foros
+*activos* de interés para el desarrollador:
 
 En otros idiomas
 ----------------
 
 * `QGIS.org blog <http://blog.qgis.org/>`_: Blog oficial del proyecto QGIS.
 
-* `QGIS Plugins Planet <https://plugins.qgis.org/planet/>`_: Incluye una lista de múltiples Blogs.
+* `QGIS Plugins Planet <https://plugins.qgis.org/planet/>`_: Este sitio incluye una lista con múltiples Blogs
+  en el panel izquierdo.
 
 * `Planet OSGeo <http://planet.osgeo.org/>`_: Planet OSGeo es una ventana al mundo, el trabajo y las vidas de los
   miembros de OSGeo, *hackers* y colaboradores donde se agregan además Blogs de terceros. Se puede solicitar añadir tu propio
   Blog este portal.
-
-* `Blog de OpenGIS <https://www.opengis.ch/blog/>`_: Interesante Blog de los desarrolladores de QGIS para Android
-  y QField para QGIS.
 
 * `Spatial Galaxy <http://spatialgalaxy.net/>`_: Blog Gary Sherman, `*godfather* de QGIS <https://www.xyht.com/spatial-itgis/godfather-of-qgis>`_ ,
   sobre GIS open source, QGIS, PyQGIS, Python, programación, etc. en el ámbito geoespacial.
@@ -108,6 +103,9 @@ En otros idiomas
 * `Free and Open Source GIS Ramblings <https://anitagraser.com/>`_: Blog de Anita Graser, que formó parte del
   `Comité Directivo del Proyecto QGIS <https://www.qgis.org/es/site/getinvolved/governance/governance.html>`_
   y de la Junta Directiva de OSGeo. Tiene numerosas publicaciones de referencia sobre QGIS ([#]_, [#]_).
+
+* `Blog de OpenGIS <https://www.opengis.ch/blog/>`_: Interesante Blog de los desarrolladores de QGIS para Android
+  y QField para QGIS.
 
 * `Blog Lutra consulting <https://www.lutraconsulting.co.uk/blog/>`_: Blog de Lutra Consulting,
   empresa que proporciona servicios de consultoría, migración, desarrollo de software, capacitación y
@@ -146,14 +144,10 @@ Otros recursos interesantes
             y recomendado para el aprendizaje de estas herramientas:
             *“La mejor escuela es instalar y leer el código de plugins”*.
 
-* `Grupo de usuarios de QGIS España <http://qgis.es/>`_: Soporte para el grupo de usuarios Españoles de QGIS.
+* `Asociación QGIS España <http://qgis.es/>`_: Soporte para el grupo de usuarios Españoles de QGIS.
 * `QGIS Visual Changelog <https://www.qgis.org/es/site/forusers/visualchangelogs.html>`_: Registro visual de cambios
   desde la versión QGIS 2.0.
 * `QGIS tutorials and tips <http://www.qgistutorials.com/en/>`_: Blog de Ujaval Gandhi. Ver Python Scripting (PyQGIS).
-* `Plugins comentados <https://github.com/volaya/commented-qgis-plugins>`_: Una colección de versiones
-  ampliamente comentadas de ciertos complementos de QGIS, para que puedan leerse y servir como una
-  herramienta de aprendizaje. Se puede buscar una versión en vivo de ese sitio web
-  `aquí <https://volaya.github.io/commented-qgis-plugins/>`_.
 * `Visual Style Guide <https://qgis.org/en/site/getinvolved/styleguide.html#original>`_: Guía de estilo visual de QGIS
   con la imagen de QGIS.
 

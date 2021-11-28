@@ -2044,12 +2044,12 @@ Ejemplo de una clase:
 .. image:: images/class_example.png
 
 .. note::   En notación del Lenguaje Unificado de Modelado (UML, *Unified Modeling Language*)
-            una clase se representa en un rectángulo con tres compartimentos con el nombre
+            una clase se representa en un rectángulo con tres compartimentos: el nombre
             de la clase, sus atributos y sus métodos.
 
             + Notación de atributo: ``nombreAtributo:tipoDato = valorPorDefecto``
 
-            + Notación de método: ``nombreOperación(listaParametros::tipoDato):tipoDatoDevuelto``
+            + Notación de método: ``nombreMetodo(listaParametros::tipoDato):tipoDatoDevuelto``
 
 Al contrario de lo que sucede en la programación estructurada, donde
 variables y funciones están separadas, en la POO los objetos integran
@@ -2074,7 +2074,7 @@ datos y algoritmos.
 +-----------------------------+
 
 La duración de un objeto en un programa siempre está limitada en el
-tiempo. Cada objeto es responsable de inicializarse y destruirse en
+tiempo. Cada objeto es responsable de inicializarse y destruirse de
 forma correcta: los objetos son creados mediante un mecanismo denominado
 **instanciación** y dejan de existir cuando son destruidos.
 
@@ -2093,8 +2093,8 @@ documentación de la clase o *docstring*.
         <method definition-1>
         <method definition-n>
 
-Los **atributos** que aplican a toda la clase son definidos al principio
-y se denominan atributos de clase (línea 3). Todos los **métodos** incluidos
+Los **atributos** que se aplican a toda la clase son definidos al principio
+y se denominan atributos de clase (línea 3 del siguiente ejemplo). Todos los **métodos** incluidos
 en la definición de la clase pasan el objeto en cuestión como primer parámetro (línea 4).
 La palabra ``self`` es utilizada para este parámetro.
 
@@ -2210,7 +2210,7 @@ el momento las diferencias.
 
 Por ejemplo, en una persona podrían ser características esenciales el
 DNI, el nombre, la edad, la talla o el peso. Sin embargo, la marca de
-calcetines es una característica superflua.
+sus calcetines es una característica superflua.
 
 Encapsulación
 ^^^^^^^^^^^^^
@@ -2307,23 +2307,23 @@ de las existentes, previamente construidas y depuradas.
 En Python, para indicar que una clase hereda de otra se coloca el nombre
 de la clase de la que se hereda entre paréntesis ``(`` ``)`` después del nombre de
 la clase. Para implementar el ejemplo anterior, se definiría en primer
-lugar la superclase **Animal** ...
+lugar la superclase **Mamifero** ...
 
 .. code-block:: python
 
-    class Animal:
+    class Mamifero:
         def comer(self):
             print("Puedo comer")
         def andar(self):
             print('Puedo andar')
 
 ... y la subclase **Gato** que hereda de la
-clase **Animal** extendiendo su funcionalidad a través de un nuevo
+clase **Mamifero** extendiendo su funcionalidad a través de un nuevo
 método (**maullar**):
 
 .. code-block:: python
 
-    class Gato(Animal):
+    class Gato(Mamifero):
         def maullar(self):
             print('Miau')
 
